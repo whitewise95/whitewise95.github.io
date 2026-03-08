@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  {%- include head.html -%}
+
+  <body>
+    {%- include header.html -%}
+
+    <div class="page-shell wrapper">
+      <aside class="sidebar-nav" aria-label="사이드바 메뉴">
+        <h2 class="sidebar-title">메뉴</h2>
+        <ul class="sidebar-list">
+          <li><a href="{{ '/' | relative_url }}">홈</a></li>
+          {%- assign default_paths = site.pages | map: 'path' -%}
+          {%- assign page_paths = site.header_pages | default: default_paths -%}
+          {%- for path in page_paths -%}
+            {%- assign nav_page = site.pages | where: 'path', path | first -%}
+            {%- if nav_page and nav_page.title -%}
+              <li><a href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a></li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </aside>
+
+      <main class="page-content" aria-label="Content">
+        <div class="content-wrapper">
+          {{ content }}
+        </div>
+      </main>
+    </div>
+
+    {%- include footer.html -%}
+  </body>
+</html>
