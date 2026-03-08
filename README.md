@@ -45,3 +45,14 @@ bundle exec jekyll serve
 ```
 
 브라우저에서 `http://127.0.0.1:4000` 확인.
+
+## 5) Java 버전 포스팅 자동화
+
+- 워크플로 파일: `.github/workflows/auto-java-posts.yml`
+- 실행 시각: 매일 00:00 (KST, GitHub cron `0 15 * * *`)
+- 생성 규칙:
+  - Java 8부터 Java 21까지 순차 작성
+  - 하루 1개만 생성
+  - 제목: `Java {버전} 주요 변경사항`
+  - 카테고리: `Java`
+  - Java 21 작성 완료 시 스케줄 워크플로 자동 비활성화
