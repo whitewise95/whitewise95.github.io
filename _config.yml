@@ -1,0 +1,13 @@
+title: "My GitHub Blog"
+description: "Jekyll blog powered by GitHub Pages"
+lang: ko-KR
+timezone: Asia/Seoul
+url: "https://whitewise95.github.io"
+baseurl: ""
+
+theme: minima
+plugins:
+  - jekyll-feed
+
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
