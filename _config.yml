@@ -11,3 +11,7 @@ plugins:
 
 markdown: kramdown
 permalink: /:categories/:year/:month/:day/:title/
+
+header_pages:
+  - about.md
+  - categories.md
