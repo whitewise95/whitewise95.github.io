@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Java 카테고리
+title: Java 버전별 정리
 permalink: /java/
 ---
 
-Java 카테고리 글 목록입니다.
+Java 버전 별 정리된 목록입니다.
 
 {% assign java_posts = site.categories.Java %}
 
