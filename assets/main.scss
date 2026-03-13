@@ -77,6 +77,84 @@ body {
   padding-bottom: 150px;
 }
 
+.java-board {
+  margin-top: 20px;
+}
+
+.java-board-subtitle {
+  margin: 0 0 16px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.java-board-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.java-board-item {
+  margin: 0;
+}
+
+.java-board-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+}
+
+.java-board-link:hover {
+  transform: translateY(-2px);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.java-version-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #1d4ed8;
+  background: #dbeafe;
+  margin-bottom: 10px;
+}
+
+.java-board-title {
+  margin: 0;
+  font-size: 30px;
+  line-height: 1.15;
+  color: #0f172a;
+}
+
+.java-board-meta {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #64748b;
+}
+
+.java-board-date {
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #dbe1ea;
+  border-radius: 10px;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .page-shell {
     grid-template-columns: 1fr;
@@ -85,5 +163,14 @@ body {
 
   .sidebar-nav {
     position: static;
+  }
+
+  .java-board-link {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .java-board-title {
+    font-size: 24px;
   }
 }
