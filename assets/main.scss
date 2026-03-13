@@ -3,7 +3,10 @@
 @import "minima";
 
 .wrapper {
-  max-width: 1400px;
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
   padding-right: 24px;
   padding-left: 24px;
 }
@@ -14,8 +17,8 @@
 
 .page-shell {
   display: grid;
-  grid-template-columns: 240px minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
   align-items: start;
   margin-top: 24px;
 }
@@ -55,6 +58,10 @@
 
 .page-content {
   padding-top: 0;
+}
+
+.content-wrapper {
+  max-width: none;
 }
 
 @media (max-width: 900px) {
