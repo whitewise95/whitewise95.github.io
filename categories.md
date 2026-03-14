@@ -16,7 +16,11 @@ permalink: /categories/
 
   <ul class="series-board-list">
   {% for category_name in category_names %}
-    {% assign category_posts = site.categories[category_name] | sort: "date" | reverse %}
+    {% assign category_posts = site.categories[category_name] %}
+    {% if category_posts == nil or category_posts == empty %}
+      {% continue %}
+    {% endif %}
+    {% assign category_posts = category_posts | sort: "date" | reverse %}
     <li class="series-board-item">
       <a class="series-board-link" href="{% if category_name == 'Java' %}{{ '/java/' | relative_url }}{% elsif category_name == '회사생활' %}{{ '/company-life/' | relative_url }}{% else %}{{ '/categories/' | relative_url }}{% endif %}">
         <div class="series-board-main">

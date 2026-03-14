@@ -35,7 +35,14 @@ jobs:
 
       - name: Build with Jekyll
         run: |
-          bundle exec jekyll build --source . --destination ./_site
+          set -o pipefail
+          bundle exec jekyll build --source . --destination ./_site --trace --verbose 2>&1 | tee jekyll-build.log
+
+      - name: Show Jekyll log on failure
+        if: failure()
+        run: |
+          echo "==== Jekyll build log (tail) ===="
+          tail -n 400 jekyll-build.log || true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
