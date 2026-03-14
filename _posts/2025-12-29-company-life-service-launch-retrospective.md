@@ -9,6 +9,8 @@ permalink: /company-life/company-life-service-launch-retrospective/
 
 > 벨로그 시리즈 '회사생활'에서 옮긴 글입니다. 원문 흐름은 유지하고, GitHub 블로그 형식에 맞게 정리했습니다.
 
+<!--more-->
+
 ![](https://velog.velcdn.com/images/whitewise95/post/fe390e8c-3e5f-4ecb-9d77-ae821aaa9f67/image.png)
 
 지난해 9월초부터 서비스 컨셉 설계를 시작하고 올해 1월부터 기획팀을 빌딩하면서 본격적인 프로젝트가 시작되었다. 

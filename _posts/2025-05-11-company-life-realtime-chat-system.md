@@ -9,6 +9,8 @@ permalink: /company-life/company-life-realtime-chat-system/
 
 > 벨로그 시리즈 '회사생활'에서 옮긴 글입니다. 원문 흐름은 유지하고, GitHub 블로그 형식에 맞게 정리했습니다.
 
+<!--more-->
+
 #  그냥 메시지 주고받으면 끝 아니야?
 
 2025년 4월 우리 팀은 실시간 채팅 기능을 추가해야 했다.

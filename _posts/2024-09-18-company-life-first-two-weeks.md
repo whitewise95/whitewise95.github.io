@@ -9,6 +9,8 @@ permalink: /company-life/company-life-first-two-weeks/
 
 > 벨로그 시리즈 '회사생활'에서 옮긴 글입니다. 원문 흐름은 유지하고, GitHub 블로그 형식에 맞게 정리했습니다.
 
+<!--more-->
+
 ![](https://velog.velcdn.com/images/whitewise95/post/d68136e9-b492-462a-ad8d-cda9cd0f23be/image.png)
 
 

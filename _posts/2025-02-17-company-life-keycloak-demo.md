@@ -9,6 +9,8 @@ permalink: /company-life/company-life-keycloak-demo/
 
 > 벨로그 시리즈 '회사생활'에서 옮긴 글입니다. 원문 흐름은 유지하고, GitHub 블로그 형식에 맞게 정리했습니다.
 
+<!--more-->
+
 ![](https://velog.velcdn.com/images/whitewise95/post/3e0b688e-0c30-4b09-aac3-b7d3335e4957/image.jpg)
 
 # keycloak 사용 이유
