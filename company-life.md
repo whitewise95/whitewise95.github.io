@@ -6,8 +6,12 @@ permalink: /company-life/
 
 회사생활 시리즈를 GitHub 블로그용으로 옮겨 정리한 목록입니다.
 
-{% assign company_posts = site.categories.회사생활 %}
-{% assign company_posts = company_posts | sort: "date" | reverse %}
+{% assign company_posts = site.categories["회사생활"] %}
+{% if company_posts == nil or company_posts == empty %}
+  {% assign company_posts = "" | split: "" %}
+{% else %}
+  {% assign company_posts = company_posts | sort: "date" | reverse %}
+{% endif %}
 
 {% if company_posts and company_posts.size > 0 %}
 <section class="series-board" aria-label="Company life posts board">

@@ -6,8 +6,12 @@ permalink: /java/
 
 Java 버전별 주요 변경사항 포스트 모음입니다.
 
-{% assign java_posts = site.categories.Java %}
-{% assign java_posts = java_posts | sort: "date" | reverse %}
+{% assign java_posts = site.categories["Java"] %}
+{% if java_posts == nil or java_posts == empty %}
+  {% assign java_posts = "" | split: "" %}
+{% else %}
+  {% assign java_posts = java_posts | sort: "date" | reverse %}
+{% endif %}
 
 {% if java_posts and java_posts.size > 0 %}
 <section class="series-board" aria-label="Java posts board">
