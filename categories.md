@@ -22,7 +22,7 @@ permalink: /categories/
     {% endif %}
     {% assign category_posts = category_posts | sort: "date" | reverse %}
     <li class="series-board-item">
-      <a class="series-board-link" href="{% if category_name == 'Java' %}{{ '/java/' | relative_url }}{% elsif category_name == '회사생활' %}{{ '/company-life/' | relative_url }}{% else %}{{ '/categories/' | relative_url }}{% endif %}">
+      <a class="series-board-link" href="{% if category_name == 'Java' %}{{ '/java/' | relative_url }}{% elsif category_name == '회사생활' %}{{ '/company-life/' | relative_url }}{% elsif category_name == '항해플러스' %}{{ '/hanghae-plus/' | relative_url }}{% else %}{{ '/categories/' | relative_url }}{% endif %}">
         <div class="series-board-main">
           <span class="series-board-badge">{{ category_name }}</span>
           <h3 class="series-board-title">{{ category_name }}</h3>
