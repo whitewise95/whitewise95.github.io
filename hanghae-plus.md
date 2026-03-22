@@ -26,7 +26,7 @@ permalink: /hanghae-plus/
         <div class="series-board-main">
           <span class="series-board-badge">항해플러스</span>
           <h3 class="series-board-title">{{ post.title }}</h3>
-          <p class="series-board-meta">벨로그 시리즈를 옮겨 정리한 학습/회고 기록</p>
+          <p class="series-board-meta">학습/회고 기록</p>
         </div>
         <time class="series-board-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d" }}
