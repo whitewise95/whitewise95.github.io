@@ -174,3 +174,97 @@ body {
     font-size: 24px;
   }
 }
+
+.tech-home {
+  --tech-bg-1: #eef4ff;
+  --tech-bg-2: #f6fffb;
+  --tech-line: #d9e3f5;
+  --tech-title: #0b1220;
+  --tech-text: #4b5563;
+  --tech-chip-bg: #0f172a;
+  --tech-chip-text: #f8fafc;
+  font-family: "SUIT Variable", "Pretendard Variable", "Noto Sans KR", sans-serif;
+}
+
+.tech-hero {
+  margin: 8px 0 18px;
+  padding: 24px;
+  border: 1px solid var(--tech-line);
+  border-radius: 20px;
+  background: radial-gradient(1200px 400px at 0% 0%, var(--tech-bg-1) 0%, transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, var(--tech-bg-2) 0%, transparent 60%),
+    #ffffff;
+}
+
+.tech-eyebrow {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--tech-chip-bg);
+  color: var(--tech-chip-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tech-title {
+  margin: 0;
+  font-size: clamp(34px, 5vw, 54px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--tech-title);
+}
+
+.tech-subtitle {
+  margin: 14px 0 0;
+  max-width: 780px;
+  color: var(--tech-text);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.tech-card {
+  padding: 18px 18px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: linear-gradient(170deg, #ffffff 0%, #f9fbff 100%);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.tech-card h2 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.tech-card ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.tech-card li {
+  margin: 6px 0;
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .tech-hero {
+    padding: 18px;
+    margin-top: 0;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
