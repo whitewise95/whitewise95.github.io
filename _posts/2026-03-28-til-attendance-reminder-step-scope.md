@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[TIL][Spring Batch] 출석 리마인드 푸시 배치 트러블슈팅 2 - @StepScope와 JobParameter"
-date: 2026-03-30 21:30:00 +0900
+date: 2026-03-28 21:30:00 +0900
 categories: [TIL]
 tags: [spring-batch, jobscope, stepscope, job-parameter, troubleshooting]
 ---

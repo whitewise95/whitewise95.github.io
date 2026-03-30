@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[TIL][Spring Batch] 출석 리마인드 푸시 배치 설계 - 커서 기반(No-Offset) 페이징"
-date: 2026-03-30 21:40:00 +0900
+date: 2026-03-29 21:40:00 +0900
 categories: [TIL]
 tags: [spring-batch, querydsl, paging, no-offset, cursor]
 ---

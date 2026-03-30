@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[TIL][Spring Batch] 출석 리마인드 푸시 배치 트러블슈팅 1 - DI 충돌"
-date: 2026-03-30 21:20:00 +0900
+date: 2026-03-27 21:20:00 +0900
 categories: [TIL]
 tags: [spring-batch, spring, di, troubleshooting]
 ---
