@@ -3,7 +3,7 @@ layout: post
 title: "[Spring/MongoDB] 조용한 차단(Silent Block) 구현기: 선물하기 예외 처리까지"
 date: 2026-03-30 21:40:00 +0900
 categories: [회사생활]
-tags: [spring, mongodb, kafka, websocket, fcm, ddd, chat]
+tags: [spring, mongodb, kafka, websocket, fcm, chat, troubleshooting]
 permalink: /company-life/silent-block-with-gift-exception/
 ---
 
@@ -100,7 +100,7 @@ public ChatRoomMessage send(Long loginAccountId, ChatRoomMessageDto.SendRequest 
 읽음 처리에서도 동일한 규칙을 적용해,
 차단된 상대의 화면에서 unread가 의도치 않게 줄어들지 않도록 맞췄습니다.
 
-## 3. 조회 로직 리팩토링: 도메인으로 조건 응집
+## 3. 조회/집계 쿼리 일관화: 조건 중복 제거
 
 아래 세 곳에서 같은 조건이 반복됐습니다.
 
@@ -108,22 +108,17 @@ public ChatRoomMessage send(Long loginAccountId, ChatRoomMessageDto.SendRequest 
 - 채팅방 상세 조회
 - 전체 안 읽은 개수 집계
 
-초기에는 서비스 레이어에 쿼리 조건이 흩어져 있어 변경에 취약했습니다.
-그래서 "메시지가 사용자에게 보이는 조건" 자체를 도메인 객체로 이동했습니다.
+초기에는 서비스 레이어 여러 메서드에 조건이 흩어져 있어,
+정책 변경 시 누락 가능성이 컸습니다.
+그래서 조회 조건을 공통 메서드로 묶어 재사용하도록 정리했습니다.
 
 ```java
-public class ChatRoomMessage {
-
-    /**
-     * 특정 사용자가 이 메시지를 볼 수 있는지 판별하는 공통 쿼리 조건
-     */
-    public static Criteria visibleFilter(Long loginAccountId) {
-        return new Criteria().orOperator(
-            Criteria.where("isBlock").ne(true),          // 차단되지 않은 메시지
-            Criteria.where("type").is(Type.GIFT),        // 예외: 선물하기
-            Criteria.where("accountId").is(loginAccountId) // 내가 보낸 메시지
-        );
-    }
+private Criteria buildVisibleFilter(Long loginAccountId) {
+    return new Criteria().orOperator(
+        Criteria.where("isBlock").ne(true),               // 차단되지 않은 메시지
+        Criteria.where("type").is(ChatRoomMessage.Type.GIFT), // 예외: 선물하기
+        Criteria.where("accountId").is(loginAccountId)    // 내가 보낸 메시지
+    );
 }
 ```
 
@@ -132,7 +127,7 @@ public class ChatRoomMessage {
 ```java
 Criteria criteria = Criteria.where("chatRoomId").is(roomId)
     .and("type").ne("EXIT_JOIN")
-    .andOperator(ChatRoomMessage.visibleFilter(accountId));
+    .andOperator(buildVisibleFilter(accountId));
 
 long unreadCount = mongoTemplate.count(Query.query(criteria), ChatRoomMessage.class);
 ```
@@ -143,17 +138,38 @@ long unreadCount = mongoTemplate.count(Query.query(criteria), ChatRoomMessage.cl
 `is(false)`를 쓰면 이런 문서가 누락될 수 있으므로,
 `ne(true)`를 사용해 기존 데이터 호환성을 보장했습니다.
 
-## 4. 적용 결과
+## 4. 읽음(Read) 처리에서 놓치기 쉬운 지점
+
+조용한 차단은 "메시지 전송 차단"만으로 끝나지 않습니다.
+읽음 이벤트까지 같이 제어해야 UX가 완성됩니다.
+
+- 차단된 상대방이 방에 들어와 메시지를 읽어도
+- 차단당한 사용자 화면에는 읽음 이벤트가 전파되지 않아야 하며
+- unread 카운트가 의도치 않게 감소하지 않아야 합니다.
+
+즉, `send`와 `read` 양쪽 모두에서 동일한 정책을 적용해야
+"완전한 무시"가 성립합니다.
+
+## 5. 운영 관점 체크리스트
+
+실서비스 적용 후에는 기능 동작 여부만큼 관측 가능성도 중요했습니다.
+
+- 로그: 전송 스킵 사유(`isBlock=true`, `type=TEXT`)를 구조화 로그로 남기기
+- 지표: 메시지 타입별 전송 성공/스킵 건수 분리 집계
+- 알림: `GIFT` 예외 메시지의 푸시 실패율 별도 모니터링
+- 검증: 조회 API(목록/상세/집계) 결과가 동일 정책인지 회귀 테스트로 보장
+
+## 6. 적용 결과
 
 - 메시지 저장 시점에 차단 상태를 고정해 조회 비용/복잡도 감소
-- 실시간 알림(Kafka/FCM)과 조회 정책이 동일 규칙으로 정렬됨
-- `GIFT` 예외 정책을 한 군데에서 유지 가능
-- 도메인 메서드 기반으로 향후 정책 변경 대응이 쉬워짐
+- 실시간 알림(Kafka/FCM)과 조회/집계 조건을 동일 정책으로 맞춤
+- `GIFT` 예외 정책을 일관되게 유지
+- 과거 데이터(`isBlock` 없음)까지 안전하게 조회
 
 ## 마무리
 
-이번 작업에서 핵심은 "차단 여부" 자체보다,
-**어느 시점에 상태를 기록하고, 누가 정책 책임을 갖는가**였습니다.
+이번 작업의 핵심은
+**차단 정책을 전송·읽음·조회 전 구간에서 동일하게 적용하는 것**이었습니다.
 
 복잡한 요구사항일수록 아래 세 가지를 먼저 정하는 것이 유효했습니다.
 
@@ -162,4 +178,5 @@ long unreadCount = mongoTemplate.count(Query.query(criteria), ChatRoomMessage.cl
 - **Who**: 정책 책임을 어떤 계층/도메인에 둘지
 
 차단 기능처럼 예외 규칙이 많은 영역은,
-Service 절차 코드보다 도메인 언어로 응집했을 때 유지보수성이 확실히 좋아졌습니다.
+"한 군데에서 정의한 정책을 여러 경로에서 재사용"하도록 설계해야
+운영 중 변경에도 안정적으로 대응할 수 있었습니다.
