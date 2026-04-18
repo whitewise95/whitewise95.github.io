@@ -2,7 +2,7 @@
 layout: post
 title: "처음 시작하는 Spring AI: 공식 문서 기준으로 만드는 최소 챗 API"
 date: 2026-04-18 21:10:00 +0900
-categories: ["Spring AI"]
+categories: [spring-ai]
 permalink: /spring-ai/spring-ai-01-minimal-chat-api/
 ---
 

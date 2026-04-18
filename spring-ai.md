@@ -6,7 +6,7 @@ permalink: /spring-ai/
 
 Spring AI 시리즈 목록입니다.
 
-{% assign spring_ai_posts = site.categories["Spring AI"] %}
+{% assign spring_ai_posts = site.categories["spring-ai"] %}
 {% if spring_ai_posts == nil or spring_ai_posts == empty %}
   {% assign spring_ai_posts = "" | split: "" %}
 {% else %}
