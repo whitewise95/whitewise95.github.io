@@ -15,3 +15,4 @@ permalink: /:categories/:year/:month/:day/:title/
 header_pages:
   - java.md
   - spring-batch.md
+  - spring-ai.md
