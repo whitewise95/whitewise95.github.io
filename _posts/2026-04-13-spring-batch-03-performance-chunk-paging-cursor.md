@@ -13,14 +13,6 @@ Spring Batch 성능은 코드 몇 줄보다 `chunk size`, Reader 선택(Paging/C
 
 > 작성 시점의 공식 문서 기준: **Spring Boot 4.0.x**, **Spring Batch 6.0.x**
 
-## 시리즈 안내 (총 5편)
-
-- 1편: 프로젝트 생성 + 첫 CSV -> DB 배치 실행
-- 2편: JobParameters, 재실행/재시작, 실패 복구
-- 3편(현재): 대용량 처리 성능 튜닝(chunk/page/cursor)
-- 4편: 스케줄링/운영(모니터링, 알림, 장애 대응)
-- 5편: 실무 패턴(멀티스텝, 분기, 파티셔닝, 테스트 전략)
-
 ---
 
 ## 목차
