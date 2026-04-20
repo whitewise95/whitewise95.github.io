@@ -4,7 +4,7 @@ title: Spring AI
 permalink: /spring-ai/
 ---
 
-Spring AI 시리즈 목록입니다.
+Spring AI 글 목록입니다.
 
 {% assign spring_ai_posts = site.categories["spring-ai"] %}
 {% if spring_ai_posts == nil or spring_ai_posts == empty %}
@@ -26,7 +26,7 @@ Spring AI 시리즈 목록입니다.
         <div class="series-board-main">
           <span class="series-board-badge">Spring AI</span>
           <h3 class="series-board-title">{{ post.title }}</h3>
-          <p class="series-board-meta">입문 시리즈</p>
+          <p class="series-board-meta">Spring AI 문서</p>
         </div>
         <time class="series-board-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d" }}
