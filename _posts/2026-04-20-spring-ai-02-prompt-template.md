@@ -1,25 +1,17 @@
 ---
 layout: post
-title: "[Spring AI 2편] Prompt Template 제대로 쓰기: 하드코딩 프롬프트를 템플릿으로 바꾸기"
+title: "Spring AI Prompt Template 제대로 쓰기: 하드코딩 프롬프트를 템플릿으로 바꾸기"
 date: 2026-04-20 00:05:00 +0900
 categories: [spring-ai]
 permalink: /spring-ai/spring-ai-02-prompt-template/
 ---
 
-1편에서 `/ai/chat` 최소 API를 만들었다면, 이제 바로 부딪히는 문제가 있습니다.
+`/ai/chat` 최소 API를 만들었다면, 이제 바로 부딪히는 문제가 있습니다.
 프롬프트 문자열이 코드 곳곳에 흩어지고, 요청마다 문구를 이어 붙이다 보니 유지보수가 빠르게 어려워진다는 점입니다.
 
-이번 2편은 Spring AI 공식 문서 기준으로 **Prompt Template**을 적용해, 하드코딩 프롬프트를 구조적으로 관리하는 방법을 다룹니다.
+이 글은 Spring AI 공식 문서 기준으로 **Prompt Template**을 적용해, 하드코딩 프롬프트를 구조적으로 관리하는 방법을 다룹니다.
 
 > 작성 시점 기준(공식 문서): Spring AI 1.1.x 안정화 라인, Spring Boot 3.5.x 라인
-
-## 시리즈 구성
-
-- 1편: 최소 챗 API 만들기 (`/ai/chat`)
-- 2편(현재): Prompt Template 제대로 쓰기
-- 3편: Advisor와 대화 메모리
-- 4편: RAG 입문 (Vector Store 연결)
-- 5편: Tool Calling과 MCP 기초
 
 ## 목차
 
@@ -283,11 +275,6 @@ curl "http://localhost:8080/ai/chat/template?topic=Batch%20와%20Scheduler%20차
 3. 컨트롤러와 프롬프트 조립 책임을 분리해 구조 안정화
 
 이 상태만 만들어도, 다음 단계(메모리/어드바이저/RAG)로 확장할 때 코드가 훨씬 덜 흔들립니다.
-
-## 다음 편 예고
-
-3편에서는 **Spring AI Advisor와 대화 메모리**를 다룹니다.
-같은 사용자 대화 문맥을 어떻게 유지하고, 어떤 책임을 Advisor로 분리하면 좋은지 실습 중심으로 이어가겠습니다.
 
 ## 참고한 공식 문서 주제
 
