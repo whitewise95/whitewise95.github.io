@@ -9,7 +9,7 @@ permalink: /spring-batch/spring-batch-05-real-world-patterns-and-testing/
 
 ## SEO 요약
 
-Spring Batch 입문 시리즈 마지막 편에서는 실무에서 바로 쓰는 구조 패턴을 정리합니다. 멀티 Step 설계, 조건 분기(Flow), 파티셔닝 기반 병렬 처리, 그리고 `spring-batch-test`를 이용한 테스트 전략까지 한 번에 다룹니다. 단일 Step 예제를 운영 가능한 배치 아키텍처로 확장하는 것이 목표입니다.
+Spring Batch 입문 글의 마무리로 실무에서 바로 쓰는 구조 패턴을 정리합니다. 멀티 Step 설계, 조건 분기(Flow), 파티셔닝 기반 병렬 처리, 그리고 `spring-batch-test`를 이용한 테스트 전략까지 한 번에 다룹니다. 단일 Step 예제를 운영 가능한 배치 아키텍처로 확장하는 것이 목표입니다.
 
 > 작성 시점의 공식 문서 기준: **Spring Boot 4.0.x**, **Spring Batch 6.0.x**
 
@@ -289,7 +289,7 @@ void importStep_runs_successfully() throws Exception {
 
 ## 7. 마무리
 
-이번 5편에서는 입문 시리즈를 실무 패턴으로 마무리했습니다.
+이번 글에서는 입문 내용을 실무 패턴으로 마무리했습니다.
 
 ### 이번 글 요약
 
@@ -298,7 +298,7 @@ void importStep_runs_successfully() throws Exception {
 - 파티셔닝으로 병렬 처리 확장성을 확보하고,
 - 테스트로 회귀를 막는 구조를 만들었습니다.
 
-### 시리즈 전체 요약
+### 전체 요약
 
 - 1편: 첫 배치 실행 성공
 - 2편: 재실행/재시작 이해

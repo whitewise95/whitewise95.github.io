@@ -4,7 +4,7 @@ title: 스프링배치
 permalink: /spring-batch/
 ---
 
-Spring Batch 학습/실습 시리즈 목록입니다.
+Spring Batch 학습/실습 글 목록입니다.
 
 {% assign batch_posts = site.categories["스프링배치"] %}
 {% if batch_posts == nil or batch_posts == empty %}
@@ -26,7 +26,7 @@ Spring Batch 학습/실습 시리즈 목록입니다.
         <div class="series-board-main">
           <span class="series-board-badge">스프링배치</span>
           <h3 class="series-board-title">{{ post.title }}</h3>
-          <p class="series-board-meta">CSV -> DB 배치 실습 시리즈</p>
+          <p class="series-board-meta">CSV -> DB 배치 실습 문서</p>
         </div>
         <time class="series-board-date" datetime="{{ post.date | date_to_xmlschema }}">
           {{ post.date | date: "%Y-%m-%d" }}
