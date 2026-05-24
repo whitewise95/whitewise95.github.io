@@ -3,7 +3,7 @@ layout: page
 title: 홈
 ---
 
-<section class="tech-home">
+<section class="tech-home" id="stack-overview">
   <div class="tech-hero">
     <p class="tech-eyebrow">Backend Engineer</p>
     <h1 class="tech-title">기술 스택</h1>
@@ -14,7 +14,7 @@ title: 홈
   </div>
 
   <div class="tech-grid">
-    <article class="tech-card">
+    <article class="tech-card" id="backend">
       <h2>Backend</h2>
       <ul>
         <li>Java</li>
@@ -23,7 +23,7 @@ title: 홈
       </ul>
     </article>
 
-    <article class="tech-card">
+    <article class="tech-card" id="database">
       <h2>Database</h2>
       <ul>
         <li>PostgreSQL</li>
@@ -33,7 +33,7 @@ title: 홈
       </ul>
     </article>
 
-    <article class="tech-card">
+    <article class="tech-card" id="realtime">
       <h2>Cache / Messaging / Realtime</h2>
       <ul>
         <li>Redis</li>
@@ -42,7 +42,7 @@ title: 홈
       </ul>
     </article>
 
-    <article class="tech-card">
+    <article class="tech-card" id="etc">
       <h2>기타</h2>
       <ul>
         <li>JavaScript</li>
