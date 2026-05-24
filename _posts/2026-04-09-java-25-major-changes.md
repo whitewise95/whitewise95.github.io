@@ -1,18 +1,10 @@
 ---
+layout: post
 title: "Java 25 주요 변경사항"
-slug: "java-25-major-changes"
-category: "java"
-tags:
-  - "java"
-  - "java-25"
-  - "release-notes"
-  - "structured-concurrency"
-  - "scoped-values"
-  - "jfr"
-coverImage: ""
-published: false
-createdAt: "2026-04-09 00:00:00 +0900"
-updatedAt: "2026-05-24"
+date: 2026-04-09 00:00:00 +0900 00:00:00 +0900
+categories: [Java]
+tags: [java, java-25]
+permalink: /java/java-25-major-changes/
 ---
 
 ## 개요
