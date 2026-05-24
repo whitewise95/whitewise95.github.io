@@ -346,22 +346,94 @@ select:focus-visible {
   font-size: 0.86em;
 }
 
-.post-content pre {
+.post-content pre,
+.post-content .highlight {
   max-width: 920px;
-  padding: var(--space-5);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: #18202d;
-  color: #f9fafb;
+  color: #e5edf7;
   overflow-x: auto;
+}
+
+.post-content .highlight {
+  margin-top: 1.35rem;
+}
+
+.post-content .highlight pre {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.post-content pre {
+  padding: var(--space-5);
   line-height: 1.7;
 }
 
-.post-content pre code {
+.post-content pre code,
+.post-content .highlight code {
   padding: 0;
   background: transparent;
   color: inherit;
   font-size: 14px;
+}
+
+.post-content .highlight,
+.post-content .highlight pre,
+.post-content .highlight code {
+  color: #e5edf7;
+}
+
+.post-content .highlight .c,
+.post-content .highlight .cm,
+.post-content .highlight .c1,
+.post-content .highlight .cs {
+  color: #8fa1b8;
+}
+
+.post-content .highlight .k,
+.post-content .highlight .kd,
+.post-content .highlight .kn,
+.post-content .highlight .kp,
+.post-content .highlight .kr,
+.post-content .highlight .kt {
+  color: #c4b5fd;
+}
+
+.post-content .highlight .s,
+.post-content .highlight .s1,
+.post-content .highlight .s2,
+.post-content .highlight .se,
+.post-content .highlight .sh,
+.post-content .highlight .sx {
+  color: #fbbf24;
+}
+
+.post-content .highlight .nf,
+.post-content .highlight .na,
+.post-content .highlight .nc,
+.post-content .highlight .nt {
+  color: #7dd3fc;
+}
+
+.post-content .highlight .m,
+.post-content .highlight .mi,
+.post-content .highlight .mf,
+.post-content .highlight .nb,
+.post-content .highlight .bp {
+  color: #86efac;
+}
+
+.post-content .highlight .o,
+.post-content .highlight .p {
+  color: #cbd5e1;
+}
+
+.post-content .highlight .err {
+  color: #fecaca;
+  background: transparent;
 }
 
 .post-content table {
@@ -636,7 +708,8 @@ select:focus-visible {
       var(--color-bg);
   }
 
-  .post-content pre {
+  .post-content pre,
+  .post-content .highlight {
     background: #0b1220;
   }
 }
