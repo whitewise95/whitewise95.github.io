@@ -1,0 +1,18 @@
+{
+  "name": "whitewise-official-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WhiteWise official static business website for GitHub Pages.",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "legal:generate": "node scripts/legal.mjs --write",
+    "test": "node --test scripts/legal.test.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "check:publish": "node scripts/check-release.mjs --publication",
+    "serve": "python3 -m http.server 4173 -d dist"
+  },
+  "devDependencies": {
+    "lucide-static": "1.35.0",
+    "marked": "18.0.11"
+  }
+}

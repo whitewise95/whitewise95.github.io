@@ -1,0 +1,36 @@
+{
+  "version": "2026-08-28",
+  "publicationMode": "review",
+  "checks": [
+    {
+      "id": "operator",
+      "title": "실제 개인정보 보호책임자 또는 담당 부서와 대체 연락 창구 확인",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "retention_and_rights",
+      "title": "문의·계정·접속·이메일·백업 보관 기간, 연결 해제·철회·삭제 및 결과 통지 절차 확인",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "providers",
+      "title": "운영 업체 계약, 저장·접근 국가와 국외이전 근거·고지 확인",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "consent_and_age",
+      "title": "토스 콘솔 동의 항목·이력과 만 14세 미만 이용 정책, 광고 미운영 상태 확인",
+      "status": "pending",
+      "evidence": ""
+    },
+    {
+      "id": "owner_review",
+      "title": "실제 배포 기능 대조, 공지 기한·운영 의무 수락 및 동일 버전 수정 가능 여부 확인",
+      "status": "pending",
+      "evidence": ""
+    }
+  ]
+}
