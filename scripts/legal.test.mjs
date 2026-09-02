@@ -101,6 +101,11 @@ test("privacy matches inquiry plaintext storage and does not claim automatic unl
   assert.ok(source.includes("현재 광고 발송 기능은 운영하지 않으며"));
 });
 
+test("required login consent metadata is not rendered as page chrome", () => {
+  assert.equal(parseDocument(readDocument("consent")).fields["동의 구분"], "로그인 시 필수");
+  assert.doesNotMatch(renderDocument("consent"), /로그인 시 필수/);
+});
+
 test("feature registry is complete and drives the terms and privacy pages", () => {
   assert.doesNotThrow(() => validateFeatures(features));
   for (const feature of features.filter((item) => item.status === "active")) {

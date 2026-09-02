@@ -151,7 +151,7 @@ export function renderDocument(slug, markdown = readDocument(slug)) {
   </header>
   <main id="main" class="legal-container legal-main" tabindex="-1">
     <header class="document-heading">
-      <div class="document-kicker">${doc.fields["동의 구분"] ? `<span class="consent-type">${escape(doc.fields["동의 구분"])}</span>` : '<span>이용자 안내</span>'}</div>
+${slug === "consent" ? "" : `      <div class="document-kicker">${doc.fields["동의 구분"] ? `<span class="consent-type">${escape(doc.fields["동의 구분"])}</span>` : "<span>이용자 안내</span>"}</div>`}
       <h1>${escape(doc.title)}</h1>
       <div class="document-description">${doc.intro}</div>
       <div class="document-meta-row">
