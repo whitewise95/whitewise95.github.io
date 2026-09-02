@@ -122,8 +122,6 @@ const icon = (name) => `<img src="../../../assets/icons/${name}.svg" width="20" 
 export function renderDocument(slug, markdown = readDocument(slug)) {
   const doc = parseDocument(materializeDocument(slug, markdown));
   const draft = isDraft || markdown.includes("[운영 확인 필요:");
-  const links = documents.map((item) => `<a href="../${item.slug}/"${slug === item.slug ? ' aria-current="page"' : ""}>${escape(item.label)}</a>`).join("\n");
-  const toc = doc.sections.map((section, index) => `<li><a href="#${section.id}"><span class="toc-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><span>${escape(section.title.replace(/^(?:제\d+조|\d+\.)\s*/, ""))}</span></a></li>`).join("\n");
   const body = doc.sections.map((section, index) => {
     const match = section.title.match(/^(제\d+조|\d+\.)\s*(.*)$/);
     const sectionNumber = match?.[1] ?? String(index + 1).padStart(2, "0");
@@ -142,7 +140,6 @@ export function renderDocument(slug, markdown = readDocument(slug)) {
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="../../../assets/brew-way-logo.png" type="image/png">
   <link rel="stylesheet" href="../../../assets/legal.css">
-  <script src="../../../assets/legal.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">본문으로 이동</a>
@@ -151,50 +148,23 @@ export function renderDocument(slug, markdown = readDocument(slug)) {
       <a class="wordmark" href="../../../" aria-label="WhiteWise 홈">WhiteWise<span>화이트와이즈</span></a>
       <a class="service-link" href="../../../services/brew-way/">브루웨이 ${icon("arrow-up-right")}</a>
     </nav>
-    <div class="legal-container collection-heading">
-      <img src="../../../assets/brew-way-logo.png" width="40" height="40" alt="">
-      <div><span class="collection-name">브루웨이</span><p>약관 및 개인정보</p></div>
-    </div>
-    <nav class="document-nav" aria-label="약관 문서"><div class="legal-container document-links">${links}</div></nav>
   </header>
-  ${draft ? '<div class="review-banner"><div class="legal-container"><strong>운영 전 검토본</strong><span>운영 정보를 확인 중이며, 실제 동의를 받기 위한 확정 문서가 아닙니다.</span></div></div>' : ""}
   <main id="main" class="legal-container legal-main" tabindex="-1">
     <header class="document-heading">
       <div class="document-kicker">${doc.fields["동의 구분"] ? `<span class="consent-type">${escape(doc.fields["동의 구분"])}</span>` : '<span>이용자 안내</span>'}</div>
       <h1>${escape(doc.title)}</h1>
       <div class="document-description">${doc.intro}</div>
       <div class="document-meta-row">
-        <dl class="document-meta"><div><dt>시행일</dt><dd><time datetime="${version}">${version}</time></dd></div><div><dt>버전</dt><dd>${version}</dd></div></dl>
-        <div class="document-tools" aria-label="문서 도구">
-          <a class="icon-control" href="versions/${version}.md" download="brew-way-${slug}-${version}.md" aria-label="원문 내려받기" data-tooltip="원문 내려받기">${icon("download")}</a>
-          <button class="icon-control" type="button" data-print hidden aria-label="인쇄 또는 PDF 저장" data-tooltip="인쇄 또는 PDF 저장">${icon("printer")}</button>
-        </div>
+        <dl class="document-meta"><div><dt>시행일</dt><dd><time datetime="${version}">${version}</time></dd></div></dl>
       </div>
     </header>
     <div class="legal-layout">
-      <aside class="document-aside">
-        <details class="document-toc" open>
-          <summary>목차 ${icon("chevron-down")}</summary>
-          <nav aria-label="문서 목차"><ol>${toc}</ol></nav>
-        </details>
-      </aside>
       <article class="document-body" aria-label="${escape(doc.title)} 본문">
-        <div class="document-summary">${doc.summary}</div>
         ${body}
-        <div class="document-end"><span>시행일 · 버전 ${version}</span><a class="back-to-top" href="#top">처음으로 ${icon("arrow-up")}</a></div>
+        <div class="document-end"><span>시행일 ${version}</span><a class="back-to-top" href="#top">처음으로 ${icon("arrow-up")}</a></div>
       </article>
     </div>
   </main>
-  <section class="support-band" id="contact" aria-labelledby="contact-title">
-    <div class="legal-container support-inner">
-      <div><h2 id="contact-title">문의가 있으신가요?</h2><p>서비스 이용에 관한 문의는 앱에 남겨주세요.</p></div>
-      <div><p class="support-route">토스 앱 · 브루웨이 <span>설정 → 문의하기</span></p><a href="../privacy/#section-10">로그인 불가 · 개인정보 권리 행사</a></div>
-    </div>
-  </section>
-  <footer class="legal-footer legal-container">
-    <div><strong>화이트와이즈(WhiteWise)</strong><p>사업자등록번호 426-24-02434</p></div>
-    <nav aria-label="관련 문서">${links}</nav>
-  </footer>
 </body>
 </html>
 `;
@@ -205,7 +175,7 @@ export function writeDocuments() {
   const iconDirectory = path.join(root, "src/assets/icons");
   fs.mkdirSync(iconDirectory, { recursive: true });
   const lucideDirectory = path.join(root, "node_modules/lucide-static");
-  for (const name of ["printer", "download", "arrow-up", "arrow-up-right", "chevron-down"]) {
+  for (const name of ["arrow-up", "arrow-up-right"]) {
     fs.copyFileSync(path.join(lucideDirectory, "icons", `${name}.svg`), path.join(iconDirectory, `${name}.svg`));
   }
   fs.copyFileSync(path.join(lucideDirectory, "LICENSE"), path.join(iconDirectory, "LICENSE.txt"));

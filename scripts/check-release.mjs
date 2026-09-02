@@ -36,10 +36,10 @@ export function publicationErrors(config, sources, pages) {
       continue;
     }
     const banner = page.includes('class="review-banner"');
-    if (review && (!banner || !page.includes('<meta name="robots" content="noindex, nofollow">'))) {
-      errors.push(`검토본 표시 또는 검색 제외 표식 누락: ${slug}`);
+    if (review && !page.includes('<meta name="robots" content="noindex, nofollow">')) {
+      errors.push(`검토본 검색 제외 표식 누락: ${slug}`);
     }
-    if (!review && banner) errors.push(`운영본에 검토본 표시가 남아 있음: ${slug}`);
+    if (banner) errors.push(`약관 화면에 검토 상태 배너가 노출됨: ${slug}`);
   }
   return errors;
 }

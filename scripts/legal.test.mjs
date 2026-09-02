@@ -20,11 +20,12 @@ for (const document of documents) {
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]);
     assert.equal(new Set(ids).size, ids.length);
     for (const section of doc.sections) {
-      assert.ok(html.includes(`href="#${section.id}"`));
       assert.ok(html.includes(`<section class="legal-section" aria-labelledby="${section.id}">`));
       assert.ok(section.html.length > 0);
     }
-    assert.ok(html.includes("설정 → 문의하기"));
+    assert.doesNotMatch(html, /class="(?:collection-heading|document-nav|review-banner|document-aside|document-summary|support-band|legal-footer)"/);
+    assert.doesNotMatch(html, /class="(?:document-tools|icon-control)"/);
+    assert.doesNotMatch(html, /<dt>버전<\/dt>|시행일 · 버전/);
     assert.doesNotMatch(source, /\b(userKey|scope|agreedTerms|JWT|API|HMAC|OCR|RLS|Supabase Auth)\b/);
     assert.doesNotMatch(html.match(/<header class="legal-header"[\s\S]*?<\/header>/)?.[0] ?? "", /mailto:/);
     assert.doesNotMatch(html.match(/<footer[\s\S]*?<\/footer>/)?.[0] ?? "", /mailto:/);
@@ -56,6 +57,13 @@ test(`all static HTML links resolve under ${new URL(base).pathname}`, () => {
   }
 });
 }
+
+test("public site pages do not expose Brew Way legal document links", () => {
+  for (const file of ["index.html", "services/brew-way/index.html"]) {
+    const html = fs.readFileSync(path.join(root, "src", file), "utf8");
+    assert.doesNotMatch(html, /href="[^"]*legal\/brew-way\//);
+  }
+});
 
 test("branch-based Pages files match the build artifact", () => {
   function check(directory, relative = "") {
@@ -133,10 +141,10 @@ test("release check refuses missing or pending operational facts and unresolved 
   assert.deepEqual(releaseErrors(confirmed(), { privacy: "Reviewed text" }), []);
 });
 
-test("review publication requires every document, draft banners and search exclusion", () => {
+test("review publication requires every document and search exclusion without visible review chrome", () => {
   const config = { version, publicationMode: "review", checks: [] };
   const sources = Object.fromEntries(documents.map(({ slug }) => [slug, "[운영 확인 필요: 기간]"]));
-  const page = '<meta name="robots" content="noindex, nofollow"><div class="review-banner">운영 전 검토본</div>';
+  const page = '<meta name="robots" content="noindex, nofollow"><h1>검토 문서</h1>';
   const pages = Object.fromEntries(documents.map(({ slug }) => [slug, page]));
   assert.deepEqual(publicationErrors(config, sources, pages), []);
   assert.ok(releaseErrors(config, sources).length > 0);
@@ -145,8 +153,8 @@ test("review publication requires every document, draft banners and search exclu
   assert.ok(publicationErrors({ ...config, version: "wrong" }, sources, pages).length > 0);
   assert.ok(publicationErrors(config, { ...sources, privacy: "" }, pages).length > 0);
   assert.ok(publicationErrors(config, sources, { ...pages, privacy: "" }).length > 0);
-  assert.ok(publicationErrors(config, sources, { ...pages, privacy: page.replace('class="review-banner"', '') }).length > 0);
   assert.ok(publicationErrors(config, sources, { ...pages, privacy: page.replace('content="noindex, nofollow"', '') }).length > 0);
+  assert.ok(publicationErrors(config, sources, { ...pages, privacy: `${page}<div class="review-banner"></div>` }).length > 0);
   const readySources = Object.fromEntries(documents.map(({ slug }) => [slug, "Reviewed text"]));
   const readyPages = Object.fromEntries(documents.map(({ slug }) => [slug, "<!doctype html><h1>Reviewed text</h1>"]));
   assert.deepEqual(publicationErrors({ ...confirmed(), publicationMode: "production" }, readySources, readyPages), []);
