@@ -3,146 +3,242 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WhiteWise | 화이트와이즈 공식 홈페이지</title>
-    <meta name="description" content="화이트와이즈(WhiteWise)의 공식 사업자 홈페이지입니다. 운영 서비스 브루웨이(Brew Way)를 안내합니다.">
+    <title>백현명 | Backend Engineer</title>
+    <meta name="description" content="백현명 포트폴리오. Spring Boot 백엔드와 WhiteWise에서 운영하는 브루웨이(Brew Way)를 소개합니다.">
+    <link rel="icon" href="assets/brew-way-logo.png" type="image/png">
     <link rel="stylesheet" href="assets/styles.css">
   </head>
   <body>
     <a class="skip-link" href="#main">본문으로 이동</a>
     <header class="site-header">
-      <nav class="nav" aria-label="주요 메뉴">
-        <a class="brand" href="./" aria-label="WhiteWise 홈">
-          <strong>WhiteWise</strong>
-          <span>화이트와이즈</span>
-        </a>
-        <div class="nav-links">
-          <a href="./" aria-current="page">회사 소개</a>
-          <a href="services/brew-way/">브루웨이</a>
-          <a href="#contact-title">문의하기</a>
-        </div>
-      </nav>
+      <div class="shell">
+        <nav class="nav" aria-label="주요 메뉴">
+          <a class="brand" href="./" aria-label="홈">
+            <span class="brand-mark" aria-hidden="true">W</span>
+            WhiteWise
+          </a>
+          <div class="nav-pill">
+            <a href="./" aria-current="page">홈</a>
+            <a href="#work">작업</a>
+            <a href="#experience">경력</a>
+            <a href="#contact">연락</a>
+          </div>
+          <div class="nav-actions">
+            <a class="mail-btn" href="mailto:whitewise2609@gmail.com">메일 보내기</a>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div>
-          <p class="eyebrow">Official Business Website</p>
-          <h1 id="hero-title">WhiteWise</h1>
-          <p class="lead">화이트와이즈는 소프트웨어를 개발하고 운영하는 개인사업자입니다. 현재 운영 서비스는 커피 브루잉 가이드 <strong>브루웨이(Brew Way)</strong>입니다.</p>
-          <div class="cta-row" aria-label="주요 이동">
-            <a class="button" href="services/brew-way/">브루웨이 보기</a>
-          </div>
-        </div>
-        <aside class="hero-aside" aria-label="사업자 요약">
-          <div class="site-service-mark">
-            <img src="assets/brew-way-logo.png" width="72" height="72" alt="">
-            <div>
-              <span>현재 운영 서비스</span>
-              <strong>브루웨이</strong>
+      <div class="shell bento">
+        <section class="card card-dark span-7" aria-labelledby="hero-title">
+          <div class="card-pad">
+            <div class="hero-top">
+              <p class="kicker">Portfolio</p>
+              <div class="pills" aria-label="역할">
+                <span class="pill">Backend</span>
+                <span class="pill">Product</span>
+              </div>
             </div>
-          </div>
-          <dl>
-            <div>
-              <dt>상호</dt>
-              <dd>화이트와이즈(WhiteWise)</dd>
-            </div>
-            <div>
-              <dt>사업자등록번호</dt>
-              <dd>426-24-02434</dd>
-            </div>
-            <div>
-              <dt>운영 서비스</dt>
-              <dd>브루웨이(Brew Way)</dd>
-            </div>
-            <div>
-              <dt>사업·제휴 연락</dt>
-              <dd><a href="mailto:whitewise2609@gmail.com">whitewise2609@gmail.com</a></dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
-
-      <section class="section" aria-labelledby="about-title">
-        <div class="section-grid">
-          <div>
-            <p class="eyebrow">About</p>
-            <h2 id="about-title">차분하고 오래 쓰는 소프트웨어</h2>
-          </div>
-          <div class="section-copy">
-            <p>화이트와이즈는 사용자가 일상 속 작은 과정을 더 쉽게 기록하고 반복할 수 있도록 돕는 소프트웨어를 만듭니다. 현재는 브루잉 과정을 안내하고 커피 기록을 쌓는 서비스인 브루웨이를 운영합니다.</p>
-            <p>이 홈페이지에서는 사업자 정보와 운영 서비스를 확인할 수 있습니다. 브루웨이 서비스 이용과 문의 접수는 토스 앱 안에서 진행합니다.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="business-title">
-        <div class="section-grid">
-          <div>
-            <p class="eyebrow">Business</p>
-            <h2 id="business-title">소프트웨어 개발 및 운영</h2>
-          </div>
-          <ul class="feature-list">
-            <li>
-              <h3>서비스 기획과 개발</h3>
-              <p>사용자 흐름, 기록 구조, 앱 화면과 운영 정책을 함께 설계합니다.</p>
-            </li>
-            <li>
-              <h3>서비스 운영</h3>
-              <p>브루웨이의 기능 개선, 정책 문서 관리, 문의 대응을 수행합니다.</p>
-            </li>
-            <li>
-              <h3>보안 관리</h3>
-              <p>이용자의 정보와 서비스 접속에 필요한 비밀 정보를 홈페이지에 공개하지 않고, 업무에 필요한 사람만 접근하도록 관리합니다.</p>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section" aria-labelledby="brew-way-title">
-        <div class="section-grid">
-          <div>
-            <p class="eyebrow">Service</p>
-            <h2 id="brew-way-title">브루웨이(Brew Way)</h2>
-          </div>
-          <div class="section-copy">
-            <p>브루웨이는 토스 앱 안에서 커피 내리는 과정을 확인하고 그날의 한 잔을 기록할 수 있는 커피 추출 가이드입니다.</p>
-            <ul class="plain-list">
-              <li>브루잉 가이드: 추출 과정을 단계별로 확인</li>
-              <li>원두 정보 등록: 사용하는 원두 정보를 정리</li>
-              <li>타이머: 브루잉 과정의 시간을 확인</li>
-              <li>기록: 그날의 커피 기록을 누적</li>
-            </ul>
+            <h1 id="hero-title">백현명</h1>
+            <p class="lead">Spring Boot로 인증, 결제, 실시간 처리와 배치를 만드는 백엔드 엔지니어입니다. WhiteWise에서 브루웨이를 운영하고, 건강의신 백엔드를 구축했습니다.</p>
             <div class="cta-row">
-              <a class="button" href="services/brew-way/">서비스 상세</a>
+              <a class="button mint" href="#work">프로젝트 보기</a>
+              <a class="button ghost" href="services/brew-way/">브루웨이</a>
+            </div>
+            <div class="stat-row">
+              <div class="stat">
+                <b>Backend</b>
+                <span>Java 17, Spring Boot</span>
+              </div>
+              <div class="stat">
+                <b>Product</b>
+                <span>Toss 미니앱 운영</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section" aria-labelledby="contact-title">
-        <div class="section-grid">
-          <div>
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">문의</h2>
+        <section class="card card-dark span-5 now-card" aria-labelledby="now-title">
+          <div class="card-pad">
+            <p class="kicker">Now</p>
+            <h2 id="now-title">브루웨이 운영 중</h2>
+            <p class="lead">토스 앱 안에서 커피 추출을 안내하고 기록을 남기는 서비스입니다.</p>
+            <p class="live-dot" style="margin-top:1rem">Live on Toss</p>
+            <div class="now-visual" aria-hidden="true">
+              <svg class="spark" viewBox="0 0 360 120" fill="none">
+                <path d="M8 82 C 48 82, 52 38, 92 48 C 132 58, 140 20, 180 28 C 220 36, 228 70, 268 58 C 308 46, 320 18, 352 22" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="92" cy="48" r="6" fill="#3dffc2"/>
+                <circle cx="180" cy="28" r="6" fill="#ff7aa8"/>
+                <circle cx="268" cy="58" r="6" fill="#6ec8ff"/>
+              </svg>
+            </div>
           </div>
-          <div class="section-copy">
-            <p>브루웨이 서비스 이용 문의는 앱의 <strong>설정 → 문의하기</strong>에 남겨주세요.</p>
-            <p>사업·제휴 연락: <a href="mailto:whitewise2609@gmail.com">whitewise2609@gmail.com</a></p>
+        </section>
+
+        <section class="card span-4" aria-labelledby="stack-title">
+          <div class="card-pad">
+            <p class="kicker">Stack</p>
+            <h2 id="stack-title">주로 쓰는 기술</h2>
+            <div class="holdings" style="margin-top:1rem">
+              <div class="holding"><i>Jv</i><span>Java</span></div>
+              <div class="holding"><i>SB</i><span>Spring</span></div>
+              <div class="holding"><i>Kf</i><span>Kafka</span></div>
+              <div class="holding"><i>Rd</i><span>Redis</span></div>
+              <div class="holding"><i>Pg</i><span>Postgres</span></div>
+              <div class="holding"><i>Mg</i><span>Mongo</span></div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section class="card span-4" aria-labelledby="focus-title">
+          <div class="card-pad">
+            <div class="metric">
+              <div>
+                <p class="kicker">Focus</p>
+                <h2 id="focus-title">최근 작업 밀도</h2>
+              </div>
+              <span class="badge badge-mint">+ backend</span>
+            </div>
+            <div class="bars" aria-hidden="true">
+              <span style="height:42%"></span>
+              <span style="height:68%"></span>
+              <span style="height:55%"></span>
+              <span style="height:88%"></span>
+              <span style="height:70%"></span>
+              <span style="height:96%"></span>
+              <span style="height:78%"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card card-dark span-4" aria-labelledby="mix-title">
+          <div class="card-pad">
+            <p class="kicker">Mix</p>
+            <h2 id="mix-title">업무 비중</h2>
+            <div class="stack-chart">
+              <div class="vbars" aria-hidden="true">
+                <span style="height:92%;background:#9b8cff"></span>
+                <span style="height:78%;background:#9b8cff"></span>
+                <span style="height:70%;background:#ff7aa8"></span>
+                <span style="height:62%;background:#ff7aa8"></span>
+                <span style="height:48%;background:#6ec8ff"></span>
+                <span style="height:36%;background:#6ec8ff"></span>
+                <span style="height:22%;background:#ffe08a"></span>
+              </div>
+              <div class="legend">
+                <div><i class="swatch" style="background:#9b8cff"></i>API 40%</div>
+                <div><i class="swatch" style="background:#ff7aa8"></i>배치 30%</div>
+                <div><i class="swatch" style="background:#6ec8ff"></i>인프라 22%</div>
+                <div><i class="swatch" style="background:#ffe08a"></i>운영 8%</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card span-5" id="experience" aria-labelledby="experience-title">
+          <div class="card-pad">
+            <div class="section-title">
+              <div>
+                <p class="kicker">Experience</p>
+                <h2 id="experience-title">경력</h2>
+              </div>
+            </div>
+            <ul class="tx-list">
+              <li>
+                <span class="avatar">LH</span>
+                <div>
+                  <strong>레몬헬스케어</strong>
+                  <small>건강의신 백엔드</small>
+                </div>
+                <span class="badge badge-mint">Backend</span>
+              </li>
+              <li>
+                <span class="avatar">WW</span>
+                <div>
+                  <strong>화이트와이즈</strong>
+                  <small>브루웨이 기획, 개발, 운영</small>
+                </div>
+                <span class="badge badge-pink">Product</span>
+              </li>
+              <li>
+                <span class="avatar">TS</span>
+                <div>
+                  <strong>Toss Mini App</strong>
+                  <small>브루웨이 서비스 배포</small>
+                </div>
+                <span class="badge badge-mint">Live</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="card span-7" aria-labelledby="skills-title">
+          <div class="card-pad">
+            <p class="kicker">Skills</p>
+            <h2 id="skills-title">다룰 수 있는 영역</h2>
+            <div class="chip-row" style="margin-top:1rem">
+              <span class="pill pill-light">OAuth / FIDO</span>
+              <span class="pill pill-light">Toss Payments</span>
+              <span class="pill pill-light">WebSocket STOMP</span>
+              <span class="pill pill-light">Spring Batch</span>
+              <span class="pill pill-light">Redis Lock</span>
+              <span class="pill pill-light">Kafka</span>
+              <span class="pill pill-light">ELK</span>
+              <span class="pill pill-light">KMS / AES</span>
+            </div>
+            <p class="lead" style="margin-top:1rem">로그인부터 결제, 랭킹 집계, 채팅까지 서비스가 실제로 돌아가게 만드는 쪽을 맡았습니다.</p>
+          </div>
+        </section>
+
+        <article class="card span-7 project" id="work" aria-labelledby="brew-title">
+          <div class="card-pad">
+            <div class="logo-row">
+              <img src="assets/brew-way-logo.png" width="52" height="52" alt="">
+              <div>
+                <p class="kicker">Project 01</p>
+                <h2 id="brew-title">브루웨이 Brew Way</h2>
+              </div>
+            </div>
+            <p>토스 앱 안의 커피 브루잉 가이드. 추출 과정, 원두 정보, 타이머, 기록을 한 흐름으로 구성하고 직접 운영합니다.</p>
+            <div class="project-meta">
+              <span class="pill pill-light">Toss Mini App</span>
+              <span class="pill pill-light">Product</span>
+              <a class="button" href="services/brew-way/">상세 보기</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card card-dark span-5 project" aria-labelledby="goh-title">
+          <div class="card-pad">
+            <p class="kicker">Project 02</p>
+            <h2 id="goh-title">건강의신 백엔드</h2>
+            <p class="lead">걷기 챌린지 서비스의 인증, 결제, 랭킹, 채팅, 리워드를 Spring 멀티모듈로 개발했습니다.</p>
+            <div class="project-meta">
+              <span class="pill">Java 17</span>
+              <span class="pill">Kafka</span>
+              <span class="pill">Redis</span>
+            </div>
+          </div>
+        </article>
+
+        <section class="card span-12" id="contact" aria-labelledby="contact-title">
+          <div class="card-pad footer-card">
+            <div>
+              <p class="kicker">Contact</p>
+              <h2 id="contact-title">연락</h2>
+              <p>작업 제안, 협업은 메일로 주세요. 브루웨이 이용 문의는 토스 앱의 설정에서 남기면 됩니다.</p>
+            </div>
+            <a class="button mint" href="mailto:whitewise2609@gmail.com">whitewise2609@gmail.com</a>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer class="site-footer">
-      <div class="footer-inner">
-        <div>
-          <strong>화이트와이즈(WhiteWise)</strong><br>
-          사업자등록번호 426-24-02434<br>
-          브루웨이 문의: 토스 앱의 설정 → 문의하기
-        </div>
-        <div class="footer-links" aria-label="푸터 링크">
-          <a href="services/brew-way/">브루웨이</a>
-        </div>
+      <div class="shell">
+        <p style="margin:0;color:var(--muted);font-size:0.85rem">화이트와이즈 WhiteWise, 백현명</p>
       </div>
     </footer>
   </body>
