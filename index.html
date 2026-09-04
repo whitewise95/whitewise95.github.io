@@ -4,242 +4,364 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>백현명 | Backend Engineer</title>
-    <meta name="description" content="백현명 포트폴리오. Spring Boot 백엔드와 WhiteWise에서 운영하는 브루웨이(Brew Way)를 소개합니다.">
+    <meta name="description" content="Java와 Spring Boot를 중심으로 인증, 결제, 실시간 처리와 배치를 개발하는 백현명의 포트폴리오입니다.">
+    <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="assets/brew-way-logo.png" type="image/png">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/resume.css">
   </head>
-  <body>
+  <body class="resume-site" id="top">
     <a class="skip-link" href="#main">본문으로 이동</a>
-    <header class="site-header">
+
+    <header class="site-header resume-header">
       <div class="shell">
         <nav class="nav" aria-label="주요 메뉴">
-          <a class="brand" href="./" aria-label="홈">
-            <span class="brand-mark" aria-hidden="true">W</span>
-            WhiteWise
+          <a class="brand" href="#top" aria-label="홈">
+            <span class="brand-mark" aria-hidden="true">B</span>
+            <span>BAEK HYEONMYEONG</span>
           </a>
           <div class="nav-pill">
-            <a href="./" aria-current="page">홈</a>
-            <a href="#work">작업</a>
+            <a href="#top" aria-current="page">소개</a>
             <a href="#experience">경력</a>
+            <a href="#work">작업</a>
+            <a href="#stack">기술</a>
             <a href="#contact">연락</a>
           </div>
           <div class="nav-actions">
-            <a class="mail-btn" href="mailto:whitewise2609@gmail.com">메일 보내기</a>
+            <a class="mail-btn" href="mailto:whitewise95@gmail.com">Email ↗</a>
           </div>
         </nav>
       </div>
     </header>
 
-    <main id="main">
-      <div class="shell bento">
-        <section class="card card-dark span-7" aria-labelledby="hero-title">
-          <div class="card-pad">
-            <div class="hero-top">
-              <p class="kicker">Portfolio</p>
-              <div class="pills" aria-label="역할">
-                <span class="pill">Backend</span>
-                <span class="pill">Product</span>
+    <main id="main" class="resume-main">
+      <article class="resume-sheet shell">
+        <span class="decor-circle decor-circle-left" aria-hidden="true"></span>
+        <span class="decor-circle decor-circle-right" aria-hidden="true"></span>
+
+        <section class="resume-hero" aria-labelledby="hero-title">
+          <header class="intro-heading">
+            <p class="resume-eyebrow">About me · 2026</p>
+            <h1 id="hero-title">팀원을 중요하게 생각하는<br>백엔드 개발자, <strong>백현명</strong></h1>
+            <p>BAEK HYEONMYEONG · BACKEND ENGINEER</p>
+          </header>
+
+          <div class="intro-layout">
+            <div class="profile-art">
+              <div class="profile-photo">
+                <img src="assets/profile.jpg" width="832" height="1024" alt="카페에서 웃고 있는 백현명">
               </div>
             </div>
-            <h1 id="hero-title">백현명</h1>
-            <p class="lead">Spring Boot로 인증, 결제, 실시간 처리와 배치를 만드는 백엔드 엔지니어입니다. WhiteWise에서 브루웨이를 운영하고, 건강의신 백엔드를 구축했습니다.</p>
-            <div class="cta-row">
-              <a class="button mint" href="#work">프로젝트 보기</a>
-              <a class="button ghost" href="services/brew-way/">브루웨이</a>
-            </div>
-            <div class="stat-row">
-              <div class="stat">
-                <b>Backend</b>
-                <span>Java 17, Spring Boot</span>
+
+            <div class="intro-information">
+              <p class="intro-summary">Java와 Spring Boot를 중심으로 공통 모듈, 인증, 결제, 실시간 처리와 배치를 개발합니다. 복잡한 외부 연동과 상태 변화를 팀이 함께 이해하고 유지할 수 있는 흐름으로 만드는 일을 해왔습니다.</p>
+
+              <div class="intro-groups">
+                <section aria-labelledby="intro-contact-title">
+                  <h2 id="intro-contact-title">Contact</h2>
+                  <dl class="intro-details">
+                    <div>
+                      <dt>Email</dt>
+                      <dd><a href="mailto:whitewise95@gmail.com">whitewise95@gmail.com</a></dd>
+                    </div>
+                    <div>
+                      <dt>Role</dt>
+                      <dd>Backend Engineer</dd>
+                    </div>
+                    <div>
+                      <dt>Experience</dt>
+                      <dd>4 Years</dd>
+                    </div>
+                  </dl>
+                </section>
+
+                <section aria-labelledby="intro-channel-title">
+                  <h2 id="intro-channel-title">Channel</h2>
+                  <ul class="channel-list">
+                    <li>
+                      <span>GitHub</span>
+                      <a href="https://github.com/whitewise95" target="_blank" rel="noreferrer">github.com/whitewise95 ↗</a>
+                    </li>
+                  </ul>
+                </section>
               </div>
-              <div class="stat">
-                <b>Product</b>
-                <span>Toss 미니앱 운영</span>
+
+              <div class="hero-actions">
+                <a class="resume-button primary" href="#experience">경력 살펴보기</a>
+                <a class="resume-button" href="#work">프로젝트 보기</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section class="card card-dark span-5 now-card" aria-labelledby="now-title">
-          <div class="card-pad">
-            <p class="kicker">Now</p>
-            <h2 id="now-title">브루웨이 운영 중</h2>
-            <p class="lead">토스 앱 안에서 커피 추출을 안내하고 기록을 남기는 서비스입니다.</p>
-            <p class="live-dot" style="margin-top:1rem">Live on Toss</p>
-            <div class="now-visual" aria-hidden="true">
-              <svg class="spark" viewBox="0 0 360 120" fill="none">
-                <path d="M8 82 C 48 82, 52 38, 92 48 C 132 58, 140 20, 180 28 C 220 36, 228 70, 268 58 C 308 46, 320 18, 352 22" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                <circle cx="92" cy="48" r="6" fill="#3dffc2"/>
-                <circle cx="180" cy="28" r="6" fill="#ff7aa8"/>
-                <circle cx="268" cy="58" r="6" fill="#6ec8ff"/>
-              </svg>
-            </div>
+        <section class="achievement-strip" aria-label="주요 성과">
+          <div>
+            <strong>10분 → 1초 이하</strong>
+            <span>걸음수 분 집계 배치 개선</span>
+          </div>
+          <div>
+            <strong>Toss Payments</strong>
+            <span>결제·브랜드페이·포인트</span>
+          </div>
+          <div>
+            <strong>WebSocket + Kafka</strong>
+            <span>실시간 채팅 파이프라인</span>
+          </div>
+          <div>
+            <strong>WhiteWise</strong>
+            <span>브루웨이 기획·개발·운영</span>
           </div>
         </section>
 
-        <section class="card span-4" aria-labelledby="stack-title">
-          <div class="card-pad">
-            <p class="kicker">Stack</p>
-            <h2 id="stack-title">주로 쓰는 기술</h2>
-            <div class="holdings" style="margin-top:1rem">
-              <div class="holding"><i>Jv</i><span>Java</span></div>
-              <div class="holding"><i>SB</i><span>Spring</span></div>
-              <div class="holding"><i>Kf</i><span>Kafka</span></div>
-              <div class="holding"><i>Rd</i><span>Redis</span></div>
-              <div class="holding"><i>Pg</i><span>Postgres</span></div>
-              <div class="holding"><i>Mg</i><span>Mongo</span></div>
-            </div>
-          </div>
-        </section>
+        <section class="resume-section" id="experience" aria-labelledby="experience-title">
+          <header class="section-label">
+            <p>01</p>
+            <h2 id="experience-title">Work<br>Experience</h2>
+            <span>2021 — 2026</span>
+          </header>
 
-        <section class="card span-4" aria-labelledby="focus-title">
-          <div class="card-pad">
-            <div class="metric">
-              <div>
-                <p class="kicker">Focus</p>
-                <h2 id="focus-title">최근 작업 밀도</h2>
-              </div>
-              <span class="badge badge-mint">+ backend</span>
-            </div>
-            <div class="bars" aria-hidden="true">
-              <span style="height:42%"></span>
-              <span style="height:68%"></span>
-              <span style="height:55%"></span>
-              <span style="height:88%"></span>
-              <span style="height:70%"></span>
-              <span style="height:96%"></span>
-              <span style="height:78%"></span>
-            </div>
-          </div>
-        </section>
-
-        <section class="card card-dark span-4" aria-labelledby="mix-title">
-          <div class="card-pad">
-            <p class="kicker">Mix</p>
-            <h2 id="mix-title">업무 비중</h2>
-            <div class="stack-chart">
-              <div class="vbars" aria-hidden="true">
-                <span style="height:92%;background:#9b8cff"></span>
-                <span style="height:78%;background:#9b8cff"></span>
-                <span style="height:70%;background:#ff7aa8"></span>
-                <span style="height:62%;background:#ff7aa8"></span>
-                <span style="height:48%;background:#6ec8ff"></span>
-                <span style="height:36%;background:#6ec8ff"></span>
-                <span style="height:22%;background:#ffe08a"></span>
-              </div>
-              <div class="legend">
-                <div><i class="swatch" style="background:#9b8cff"></i>API 40%</div>
-                <div><i class="swatch" style="background:#ff7aa8"></i>배치 30%</div>
-                <div><i class="swatch" style="background:#6ec8ff"></i>인프라 22%</div>
-                <div><i class="swatch" style="background:#ffe08a"></i>운영 8%</div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="card span-5" id="experience" aria-labelledby="experience-title">
-          <div class="card-pad">
-            <div class="section-title">
-              <div>
-                <p class="kicker">Experience</p>
-                <h2 id="experience-title">경력</h2>
-              </div>
-            </div>
-            <ul class="tx-list">
-              <li>
-                <span class="avatar">LH</span>
+          <div class="section-content career-list">
+            <article class="career-entry">
+              <div class="career-heading">
                 <div>
-                  <strong>레몬헬스케어</strong>
-                  <small>건강의신 백엔드</small>
+                  <p class="career-index">Current · 01</p>
+                  <h3>주식회사 레몬헬스케어</h3>
+                  <p>CoreBE 공통팀 · 백엔드 개발자</p>
                 </div>
-                <span class="badge badge-mint">Backend</span>
-              </li>
-              <li>
-                <span class="avatar">WW</span>
-                <div>
-                  <strong>화이트와이즈</strong>
-                  <small>브루웨이 기획, 개발, 운영</small>
-                </div>
-                <span class="badge badge-pink">Product</span>
-              </li>
-              <li>
-                <span class="avatar">TS</span>
-                <div>
-                  <strong>Toss Mini App</strong>
-                  <small>브루웨이 서비스 배포</small>
-                </div>
-                <span class="badge badge-mint">Live</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="card span-7" aria-labelledby="skills-title">
-          <div class="card-pad">
-            <p class="kicker">Skills</p>
-            <h2 id="skills-title">다룰 수 있는 영역</h2>
-            <div class="chip-row" style="margin-top:1rem">
-              <span class="pill pill-light">OAuth / FIDO</span>
-              <span class="pill pill-light">Toss Payments</span>
-              <span class="pill pill-light">WebSocket STOMP</span>
-              <span class="pill pill-light">Spring Batch</span>
-              <span class="pill pill-light">Redis Lock</span>
-              <span class="pill pill-light">Kafka</span>
-              <span class="pill pill-light">ELK</span>
-              <span class="pill pill-light">KMS / AES</span>
-            </div>
-            <p class="lead" style="margin-top:1rem">로그인부터 결제, 랭킹 집계, 채팅까지 서비스가 실제로 돌아가게 만드는 쪽을 맡았습니다.</p>
-          </div>
-        </section>
-
-        <article class="card span-7 project" id="work" aria-labelledby="brew-title">
-          <div class="card-pad">
-            <div class="logo-row">
-              <img src="assets/brew-way-logo.png" width="52" height="52" alt="">
-              <div>
-                <p class="kicker">Project 01</p>
-                <h2 id="brew-title">브루웨이 Brew Way</h2>
+                <time>2024.09.02 — 2026.09.28</time>
               </div>
-            </div>
-            <p>토스 앱 안의 커피 브루잉 가이드. 추출 과정, 원두 정보, 타이머, 기록을 한 흐름으로 구성하고 직접 운영합니다.</p>
-            <div class="project-meta">
-              <span class="pill pill-light">Toss Mini App</span>
-              <span class="pill pill-light">Product</span>
-              <a class="button" href="services/brew-way/">상세 보기</a>
-            </div>
-          </div>
-        </article>
+              <div class="career-details">
+                <div>
+                  <strong>Core 라이브러리</strong>
+                  <p>사내 R&amp;D와 공공사업에서 공통으로 쓰는 라이브러리를 기능별 모듈로 설계했습니다. 도입 가이드, 변경 이력, 릴리즈 기준과 템플릿 프로젝트를 함께 관리해 프로젝트별 적용 방식을 표준화했습니다.</p>
+                </div>
+                <div>
+                  <strong>OAuth 소셜 로그인</strong>
+                  <p>Apple, Google, Kakao, Naver 로그인을 내부 인증 체계로 통합했습니다. 토큰 발급·검증·갱신과 플랫폼 오류, 다른 기기 로그인 시 기존 세션 종료를 처리했습니다.</p>
+                </div>
+                <div>
+                  <strong>결제와 상품 지급</strong>
+                  <p>토스페이먼츠 일반결제와 브랜드페이의 주문·승인·취소를 개발했습니다. 포인트 적립·사용·충전·환전과 상점 지급을 연결하고 중복 승인과 중복 지급을 방지했습니다.</p>
+                </div>
+                <div>
+                  <strong>실시간 채팅</strong>
+                  <p>WebSocket(STOMP) 채팅 모듈을 구축하고 Kafka 전달, MongoDB 저장, Redis 상태, 읽음과 암호화를 분리했습니다. 연결 종료·재연결·처리 실패 상황을 고려했습니다.</p>
+                </div>
+                <div>
+                  <strong>걷기 도메인과 성능</strong>
+                  <p>걸음수 분 집계 시간을 10분에서 1초 이하로 줄였습니다. 걷기대회, 랭킹, 출석·방어권, 복권, 아이템·참가권·선물 기능을 개발하고 한정 수량은 DB 비관적 락과 Redis 분산 락으로 제어했습니다.</p>
+                </div>
+                <div>
+                  <strong>연동과 운영</strong>
+                  <p>WON뱅킹 유입 사용자를 RSA 기반으로 복호화·검증해 청구의신 회원과 연결했습니다. 파일 청크 업로드와 썸네일을 개발하고 Elasticsearch 로그로 운영 이슈와 반복 오류를 분석했습니다.</p>
+                </div>
+              </div>
+            </article>
 
-        <article class="card card-dark span-5 project" aria-labelledby="goh-title">
-          <div class="card-pad">
-            <p class="kicker">Project 02</p>
-            <h2 id="goh-title">건강의신 백엔드</h2>
-            <p class="lead">걷기 챌린지 서비스의 인증, 결제, 랭킹, 채팅, 리워드를 Spring 멀티모듈로 개발했습니다.</p>
-            <div class="project-meta">
-              <span class="pill">Java 17</span>
-              <span class="pill">Kafka</span>
-              <span class="pill">Redis</span>
-            </div>
-          </div>
-        </article>
+            <article class="career-entry">
+              <div class="career-heading">
+                <div>
+                  <p class="career-index">02</p>
+                  <h3>액트베이스 유한책임회사</h3>
+                  <p>개발팀 · 백엔드</p>
+                </div>
+                <time>2022.10 — 2024.01</time>
+              </div>
+              <div class="career-details">
+                <div>
+                  <strong>운영자용 관리자 사이트</strong>
+                  <p>상품 제작·등록, 주문 상태, 회원과 쿠폰 발급·적용·사용 상태를 관리하는 기능을 개발하고 유지보수했습니다.</p>
+                </div>
+                <div>
+                  <strong>서드파티 서비스 연동</strong>
+                  <p>결제, 세금계산서, 알림톡 API를 내부 주문과 업무 상태에 연결하고 성공·실패·타임아웃·예외를 나눠 처리했습니다.</p>
+                </div>
+                <div>
+                  <strong>멀티모듈 아키텍처</strong>
+                  <p>Spring Boot 프로젝트를 공통·도메인·기능 모듈로 나눠 중복을 줄이고 각 모듈의 역할과 의존성을 정리했습니다.</p>
+                </div>
+                <div>
+                  <strong>배포와 협업</strong>
+                  <p>Docker와 GitLab CI로 빌드·배포 파이프라인을 구성하고 Swagger(OpenAPI)로 REST API 명세를 관리했습니다.</p>
+                </div>
+              </div>
+            </article>
 
-        <section class="card span-12" id="contact" aria-labelledby="contact-title">
-          <div class="card-pad footer-card">
-            <div>
-              <p class="kicker">Contact</p>
-              <h2 id="contact-title">연락</h2>
-              <p>작업 제안, 협업은 메일로 주세요. 브루웨이 이용 문의는 토스 앱의 설정에서 남기면 됩니다.</p>
-            </div>
-            <a class="button mint" href="mailto:whitewise2609@gmail.com">whitewise2609@gmail.com</a>
+            <article class="career-entry">
+              <div class="career-heading">
+                <div>
+                  <p class="career-index">03</p>
+                  <h3>주식회사 제스트씨엔에스</h3>
+                  <p>개발팀 · 풀스택</p>
+                </div>
+                <time>2021.10 — 2022.03</time>
+              </div>
+              <div class="career-details">
+                <div>
+                  <strong>대구은행 백오피스</strong>
+                  <p>HTML과 JavaScript로 목록·상세·등록·수정·삭제 화면을 만들고 업무 요구사항에 맞춰 신규 기능과 기존 화면을 유지보수했습니다.</p>
+                </div>
+                <div>
+                  <strong>Spring · JPA</strong>
+                  <p>Controller, Service, Repository 계층과 JPA 기반 데이터 처리를 개발했습니다. 입력값·중복 데이터 검증과 예외 안내를 구현하고 화면 및 조회 오류를 개선했습니다.</p>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
-      </div>
+
+        <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+        <section class="resume-section" id="work" aria-labelledby="work-title">
+          <header class="section-label">
+            <p>02</p>
+            <h2 id="work-title">Selected<br>Work</h2>
+            <span>Systems &amp; Product</span>
+          </header>
+
+          <div class="section-content project-list">
+            <article class="resume-project featured">
+              <div class="project-number">01</div>
+              <div>
+                <p class="project-type">Healthcare Backend</p>
+                <h3>건강의신 백엔드</h3>
+                <p>인증, 결제, 걷기대회, 랭킹, 채팅, 출석과 리워드가 함께 동작하는 Spring 멀티모듈 서비스입니다. 동시성 제어와 비동기 처리, 대량 배치 성능 개선을 담당했습니다.</p>
+                <ul class="project-tags" aria-label="사용 기술">
+                  <li>Java</li><li>Spring Boot</li><li>Kafka</li><li>Redis</li><li>MongoDB</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="resume-project">
+              <div class="project-number">02</div>
+              <div>
+                <p class="project-type">Personal Product</p>
+                <h3>브루웨이 Brew Way</h3>
+                <p>토스 앱 안에서 커피 추출 과정, 원두, 타이머와 기록을 한 흐름으로 제공하는 미니앱입니다. WhiteWise에서 직접 기획·개발·운영합니다.</p>
+                <div class="project-foot">
+                  <ul class="project-tags" aria-label="프로젝트 분류">
+                    <li>Toss Mini App</li><li>Product</li>
+                  </ul>
+                  <a href="services/brew-way/">프로젝트 보기 ↗</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="resume-project compact">
+              <div class="project-number">03</div>
+              <div>
+                <p class="project-type">Commerce Operations</p>
+                <h3>커머스 관리자</h3>
+                <p>상품·주문·회원·쿠폰 운영과 결제, 세금계산서, 알림톡 연동을 개발했습니다.</p>
+                <ul class="project-tags" aria-label="사용 기술">
+                  <li>Spring Boot</li><li>Docker</li><li>GitLab CI</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="resume-project compact">
+              <div class="project-number">04</div>
+              <div>
+                <p class="project-type">Bank Back Office</p>
+                <h3>대구은행 백오피스</h3>
+                <p>은행 내부 운영 화면과 Spring/JPA 서버 기능, 입력 검증과 오류 수정을 담당했습니다.</p>
+                <ul class="project-tags" aria-label="사용 기술">
+                  <li>Spring</li><li>JPA</li><li>JavaScript</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <div class="section-divider" aria-hidden="true"><span>✦</span></div>
+
+        <section class="resume-section" id="stack" aria-labelledby="stack-title">
+          <header class="section-label">
+            <p>03</p>
+            <h2 id="stack-title">Technical<br>Stack</h2>
+            <span>Tools I work with</span>
+          </header>
+
+          <div class="section-content stack-columns">
+            <div class="stack-category">
+              <span>01</span>
+              <h3>Backend</h3>
+              <ul><li>Java</li><li>Spring Boot / Spring</li><li>JPA / MyBatis</li></ul>
+            </div>
+            <div class="stack-category">
+              <span>02</span>
+              <h3>Frontend</h3>
+              <ul><li>JavaScript / jQuery</li><li>React / Next.js</li><li>Thymeleaf / JSP</li></ul>
+            </div>
+            <div class="stack-category">
+              <span>03</span>
+              <h3>Database</h3>
+              <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li></ul>
+            </div>
+            <div class="stack-category">
+              <span>04</span>
+              <h3>Realtime</h3>
+              <ul><li>Redis</li><li>Kafka</li><li>WebSocket (STOMP)</li></ul>
+            </div>
+            <div class="stack-category">
+              <span>05</span>
+              <h3>DevOps</h3>
+              <ul><li>Docker</li><li>GitLab CI / Jenkins</li><li>Swagger / Elasticsearch</li></ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="resume-section education-section" aria-labelledby="education-title">
+          <header class="section-label">
+            <p>04</p>
+            <h2 id="education-title">Education</h2>
+            <span>Continuous learning</span>
+          </header>
+
+          <div class="section-content education-list">
+            <article>
+              <time>2024.06 — 2024.08</time>
+              <h3>항해99 플러스 백엔드</h3>
+              <p>TDD, 클린 아키텍처, 동시성 제어, Redis, Kafka, 부하 테스트와 장애 대응</p>
+            </article>
+            <article>
+              <time>2024.04 — 2024.08</time>
+              <h3>내일배움캠프 React 과정</h3>
+              <p>React, Next.js, 상태 관리, API 연동과 Vercel 배포</p>
+            </article>
+            <article>
+              <time>2022.04 — 2022.08</time>
+              <h3>항해99 백엔드 과정</h3>
+              <p>Java, Spring Boot, JPA, 인증·인가와 REST API</p>
+            </article>
+            <article>
+              <time>2021.03 — 2021.09</time>
+              <h3>메가스터디 IT 아카데미</h3>
+              <p>Java, JSP/Servlet, Spring, MyBatis 기반 풀스택 웹 개발</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="resume-contact" id="contact" aria-labelledby="contact-title">
+          <span class="contact-star" aria-hidden="true">✦</span>
+          <div>
+            <p class="resume-eyebrow">Let’s work together</p>
+            <h2 id="contact-title">함께 만들 이야기가 있다면<br>메일로 연락해 주세요.</h2>
+          </div>
+          <a href="mailto:whitewise95@gmail.com">
+            <span>Email</span>
+            <strong>whitewise95@gmail.com</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+        </section>
+
+        <footer class="resume-footer">
+          <span>BAEK HYEONMYEONG · BACKEND ENGINEER</span>
+          <span>WhiteWise © 2026</span>
+        </footer>
+      </article>
     </main>
 
-    <footer class="site-footer">
-      <div class="shell">
-        <p style="margin:0;color:var(--muted);font-size:0.85rem">화이트와이즈 WhiteWise, 백현명</p>
-      </div>
-    </footer>
+    <script src="assets/nav.js" defer></script>
   </body>
 </html>
