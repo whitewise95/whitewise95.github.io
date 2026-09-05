@@ -34,7 +34,7 @@
     </header>
 
     <main id="main" class="resume-deck">
-      <section class="slide slide-cover" id="cover" data-nav="cover" aria-labelledby="cover-title">
+      <section class="slide slide-cover is-active" id="cover" data-nav="cover" aria-labelledby="cover-title">
         <div class="slide-inner">
           <p class="slide-index">01 / 09</p>
           <p class="resume-eyebrow">Portfolio · 2026</p>
@@ -281,6 +281,16 @@
         </div>
       </section>
     </main>
+
+    <nav class="deck-controls" aria-label="장표 넘기기">
+      <button type="button" class="deck-btn" data-deck="prev" aria-label="이전 장표">
+        <span aria-hidden="true">‹</span>
+      </button>
+      <p class="deck-progress" aria-live="polite">01 / 09</p>
+      <button type="button" class="deck-btn" data-deck="next" aria-label="다음 장표">
+        <span aria-hidden="true">›</span>
+      </button>
+    </nav>
 
     <script src="assets/nav.js" defer></script>
   </body>

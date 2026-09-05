@@ -32,9 +32,7 @@
 
   function resolveTarget(hash) {
     if (!hash) return null;
-    if (hash === "#top") {
-      return document.querySelector("#cover") || document.querySelector("#top");
-    }
+    if (hash === "#top") return document.querySelector("#cover") || document.querySelector("#top");
     return document.querySelector(hash);
   }
 
@@ -68,133 +66,123 @@
     }) || links[0];
   }
 
-  function syncFromLocation() {
-    const hash = location.hash;
-    const slide = resolveTarget(hash);
-    if (slide && slide.dataset && slide.dataset.nav) {
-      setCurrent(linkForNav(slide.dataset.nav));
-      return;
-    }
-    setCurrent(links.find(isHomeLink) || links[0]);
-  }
-
-  const slides = [...document.querySelectorAll(".slide[data-nav]")];
-
-  let scrollFrame = 0;
-  let lockUntil = 0;
-
-  function syncFromScroll() {
-    scrollFrame = 0;
-    if (slides.length < 2) return;
-    if (Date.now() < lockUntil) return;
-
-    const marker = window.scrollY + window.innerHeight * 0.45;
-    let current = slides[0];
-
-    for (const slide of slides) {
-      const top = slide.getBoundingClientRect().top + window.scrollY;
-      if (top <= marker) current = slide;
-    }
-
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    if (maxScroll > 0 && window.scrollY >= maxScroll - 8) {
-      current = slides[slides.length - 1];
-    }
-
-    setCurrent(linkForNav(current.dataset.nav));
-  }
-
-  function scrollSlide(slide) {
-    slide.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
-  function openSlide(slide, hash) {
-    if (!slide) return;
-    lockUntil = Date.now() + 900;
-    setCurrent(linkForNav(slide.dataset.nav || "cover"));
-    if (hash && location.hash !== hash) history.pushState(null, "", hash);
-    scrollSlide(slide);
-  }
-
-  function goToSlide(index) {
-    const target = slides[Math.max(0, Math.min(index, slides.length - 1))];
-    if (!target) return;
-    openSlide(target, `#${target.id}`);
-  }
-
-  function currentSlideIndex() {
-    const marker = window.innerHeight * 0.45;
-    let index = 0;
-    slides.forEach((slide, i) => {
-      if (slide.getBoundingClientRect().top <= marker) index = i;
-    });
-    return index;
-  }
-
-  document.addEventListener("click", (event) => {
-    const link = event.target.closest("a[href]");
-    if (!link) return;
-    const hash = pageHash(link);
-    const target = resolveTarget(hash);
-    if (!target || !target.classList.contains("slide")) return;
-    event.preventDefault();
-    openSlide(target, hash);
-  });
-
-  window.addEventListener("keydown", (event) => {
-    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
-    const tag = event.target.closest("input, textarea, select, [contenteditable='true']");
-    if (tag) return;
-
-    if (event.key === "ArrowDown" || event.key === "PageDown") {
-      event.preventDefault();
-      goToSlide(currentSlideIndex() + 1);
-    } else if (event.key === "ArrowUp" || event.key === "PageUp") {
-      event.preventDefault();
-      goToSlide(currentSlideIndex() - 1);
-    } else if (event.key === "Home") {
-      event.preventDefault();
-      goToSlide(0);
-    } else if (event.key === "End") {
-      event.preventDefault();
-      goToSlide(slides.length - 1);
-    }
-  });
-
-  window.addEventListener("hashchange", () => {
-    const slide = resolveTarget(location.hash);
-    if (slide && slide.classList.contains("slide")) {
-      lockUntil = Date.now() + 700;
-      setCurrent(linkForNav(slide.dataset.nav || "cover"));
-      scrollSlide(slide);
-      return;
-    }
-    syncFromLocation();
-  });
-  window.addEventListener("popstate", () => {
-    const slide = resolveTarget(location.hash || "#cover");
-    if (!slide) return;
-    lockUntil = Date.now() + 700;
-    setCurrent(linkForNav(slide.dataset.nav || "cover"));
-    scrollSlide(slide);
-  });
-  window.addEventListener("scroll", () => {
-    if (scrollFrame) return;
-    scrollFrame = window.requestAnimationFrame(syncFromScroll);
-  }, { passive: true });
   window.addEventListener("resize", () => {
     const current = pill.querySelector("[aria-current='page']");
     if (current) moveIndicator(current);
   });
 
-  syncFromLocation();
-  const initialSlide = resolveTarget(location.hash || "#cover");
-  if (initialSlide && initialSlide.classList.contains("slide")) {
-    lockUntil = Date.now() + 800;
-    requestAnimationFrame(() => {
-      scrollSlide(initialSlide);
-    });
-  } else {
-    syncFromScroll();
+  const slides = [...document.querySelectorAll(".slide")];
+  if (!slides.length) {
+    const hash = location.hash;
+    const match = links.find((link) => pageHash(link) === hash);
+    setCurrent(match || links.find(isHomeLink) || links[0]);
+    return;
   }
+
+  const prevBtn = document.querySelector("[data-deck='prev']");
+  const nextBtn = document.querySelector("[data-deck='next']");
+  const progress = document.querySelector(".deck-progress");
+  const pad = (value) => String(value).padStart(2, "0");
+
+  let index = Math.max(0, slides.findIndex((slide) => slide.id && `#${slide.id}` === location.hash));
+  if (index < 0) index = 0;
+  let busyUntil = 0;
+
+  function updateChrome() {
+    const slide = slides[index];
+    setCurrent(linkForNav(slide.dataset.nav || "cover"));
+    if (progress) progress.textContent = `${pad(index + 1)} / ${pad(slides.length)}`;
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index === slides.length - 1;
+  }
+
+  function showSlide(next, { historyMode = "push" } = {}) {
+    next = Math.max(0, Math.min(next, slides.length - 1));
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === next);
+      if (i === next) slide.scrollTop = 0;
+    });
+    index = next;
+    busyUntil = Date.now() + 420;
+    updateChrome();
+
+    const hash = `#${slides[index].id}`;
+    if (location.hash !== hash) {
+      if (historyMode === "replace") history.replaceState({ slide: index }, "", hash);
+      else if (historyMode === "push") history.pushState({ slide: index }, "", hash);
+    }
+  }
+
+  function step(delta) {
+    if (Date.now() < busyUntil) return;
+    showSlide(index + delta);
+  }
+
+  document.addEventListener("click", (event) => {
+    const control = event.target.closest("[data-deck]");
+    if (control) {
+      event.preventDefault();
+      step(control.getAttribute("data-deck") === "next" ? 1 : -1);
+      return;
+    }
+
+    const link = event.target.closest("a[href]");
+    if (!link) return;
+    const target = resolveTarget(pageHash(link));
+    if (!target || !target.classList.contains("slide")) return;
+    event.preventDefault();
+    showSlide(slides.indexOf(target));
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
+    if (event.target.closest("input, textarea, select, [contenteditable='true']")) return;
+
+    if (["ArrowRight", "ArrowDown", "PageDown", " ", "Spacebar"].includes(event.key)) {
+      event.preventDefault();
+      step(1);
+    } else if (["ArrowLeft", "ArrowUp", "PageUp", "Backspace"].includes(event.key)) {
+      event.preventDefault();
+      step(-1);
+    } else if (event.key === "Home") {
+      event.preventDefault();
+      showSlide(0);
+    } else if (event.key === "End") {
+      event.preventDefault();
+      showSlide(slides.length - 1);
+    }
+  });
+
+  window.addEventListener("wheel", (event) => {
+    const active = slides[index];
+    if (!active) return;
+    const scrolling = active.scrollHeight - active.clientHeight > 4;
+    if (scrolling) {
+      const atTop = active.scrollTop <= 2;
+      const atBottom = active.scrollTop + active.clientHeight >= active.scrollHeight - 2;
+      if ((event.deltaY < 0 && !atTop) || (event.deltaY > 0 && !atBottom)) return;
+    }
+    if (Math.abs(event.deltaY) < 24) return;
+    event.preventDefault();
+    step(event.deltaY > 0 ? 1 : -1);
+  }, { passive: false });
+
+  let touchStartY = 0;
+  window.addEventListener("touchstart", (event) => {
+    touchStartY = event.changedTouches[0]?.clientY || 0;
+  }, { passive: true });
+  window.addEventListener("touchend", (event) => {
+    const y = event.changedTouches[0]?.clientY || 0;
+    const delta = touchStartY - y;
+    if (Math.abs(delta) < 56) return;
+    step(delta > 0 ? 1 : -1);
+  }, { passive: true });
+
+  window.addEventListener("popstate", () => {
+    const slide = resolveTarget(location.hash || "#cover");
+    const next = slide ? slides.indexOf(slide) : 0;
+    showSlide(next < 0 ? 0 : next, { historyMode: "none" });
+  });
+
+  showSlide(index, { historyMode: location.hash ? "replace" : "replace" });
 })();

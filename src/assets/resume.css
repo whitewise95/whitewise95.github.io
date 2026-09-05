@@ -1,7 +1,10 @@
 html {
   background: #fff;
-  scroll-snap-type: y proximity;
-  scroll-behavior: smooth;
+}
+
+html:has(.resume-site) {
+  height: 100%;
+  overflow: hidden;
 }
 
 .resume-site {
@@ -13,6 +16,8 @@ html {
   --resume-line: rgba(201, 85, 112, 0.28);
   --resume-line-soft: rgba(28, 25, 23, 0.1);
   --resume-serif: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+  height: 100%;
+  overflow: hidden;
   background: #fff;
   color: var(--resume-ink);
   font-family: Inter, Pretendard, "Noto Sans KR", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -136,19 +141,34 @@ html {
 }
 
 .resume-deck {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
   background: #fff;
 }
 
 .slide {
-  position: relative;
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
-  min-height: 100dvh;
-  padding: 6.2rem 0 3.2rem;
-  overflow: visible;
+  min-height: 0;
+  padding: 6.2rem 0 5.8rem;
+  overflow: auto;
   background: #fff;
-  scroll-snap-align: start;
-  scroll-margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition: opacity 320ms ease, transform 320ms ease, visibility 320ms ease;
+}
+
+.slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: none;
 }
 
 .slide::before,
@@ -536,6 +556,61 @@ html {
   text-transform: uppercase;
 }
 
+.deck-controls {
+  position: fixed;
+  right: 0;
+  bottom: 1.35rem;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  pointer-events: none;
+}
+
+.deck-progress {
+  min-width: 4.8rem;
+  margin: 0;
+  color: var(--resume-rose);
+  font-family: var(--resume-serif);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
+.deck-btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--resume-line-soft);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 20px rgba(28, 25, 23, 0.06);
+  color: var(--resume-ink);
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.deck-btn span {
+  margin-top: -0.12em;
+}
+
+.deck-btn:focus-visible {
+  outline: 3px solid var(--resume-rose);
+  outline-offset: 3px;
+}
+
+.deck-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
 @media (max-width: 980px) {
   .resume-site .resume-header .nav {
     grid-template-columns: 1fr auto;
@@ -571,10 +646,6 @@ html {
 }
 
 @media (max-width: 760px) {
-  html {
-    scroll-snap-type: y proximity;
-  }
-
   .resume-site .shell {
     width: min(calc(100% - 1.25rem), 1120px);
   }
@@ -600,8 +671,7 @@ html {
 
   .slide {
     align-items: stretch;
-    min-height: auto;
-    padding: 5.6rem 0 3.2rem;
+    padding: 7.2rem 0 5.4rem;
   }
 
   .slide-inner {
@@ -675,11 +745,9 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-snap-type: none;
-  }
-
-  .resume-site a {
+  .slide,
+  .resume-site a,
+  .nav-pill-indicator {
     transition: none;
   }
 }
