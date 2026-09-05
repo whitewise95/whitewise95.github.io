@@ -22,9 +22,8 @@
           </a>
           <div class="nav-pill">
             <a href="#top" aria-current="page">소개</a>
-            <a href="#experience">경력</a>
-            <a href="#work">작업</a>
             <a href="#stack">기술</a>
+            <a href="#experience">경력</a>
             <a href="#contact">연락</a>
           </div>
           <div class="nav-actions">
@@ -88,29 +87,40 @@
 
               <div class="hero-actions">
                 <a class="resume-button primary" href="#experience">경력 살펴보기</a>
-                <a class="resume-button" href="#work">프로젝트 보기</a>
               </div>
             </div>
           </div>
-        </section>
 
-        <section class="achievement-strip" aria-label="주요 성과">
-          <div>
-            <strong>10분 → 1초 이하</strong>
-            <span>걸음수 분 집계 배치 개선</span>
-          </div>
-          <div>
-            <strong>Toss Payments</strong>
-            <span>결제·브랜드페이·포인트</span>
-          </div>
-          <div>
-            <strong>WebSocket + Kafka</strong>
-            <span>실시간 채팅 파이프라인</span>
-          </div>
-          <div>
-            <strong>WhiteWise</strong>
-            <span>브루웨이 기획·개발·운영</span>
-          </div>
+          <section class="intro-stack" id="stack" aria-labelledby="stack-title">
+            <h2 id="stack-title">Stack</h2>
+            <div class="stack-columns">
+              <div class="stack-category">
+                <span>01</span>
+                <h3>Backend</h3>
+                <ul><li>Java</li><li>Spring Boot / Spring</li><li>JPA / MyBatis</li></ul>
+              </div>
+              <div class="stack-category">
+                <span>02</span>
+                <h3>Frontend</h3>
+                <ul><li>JavaScript / jQuery</li><li>React / Next.js</li><li>Thymeleaf / JSP</li></ul>
+              </div>
+              <div class="stack-category">
+                <span>03</span>
+                <h3>Database</h3>
+                <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li></ul>
+              </div>
+              <div class="stack-category">
+                <span>04</span>
+                <h3>Realtime</h3>
+                <ul><li>Redis</li><li>Kafka</li><li>WebSocket (STOMP)</li></ul>
+              </div>
+              <div class="stack-category">
+                <span>05</span>
+                <h3>DevOps</h3>
+                <ul><li>Docker</li><li>GitLab CI / Jenkins</li><li>Swagger / Elasticsearch</li></ul>
+              </div>
+            </div>
+          </section>
         </section>
 
         <section class="resume-section" id="experience" aria-labelledby="experience-title">
@@ -124,7 +134,7 @@
             <article class="career-entry">
               <div class="career-heading">
                 <div>
-                  <p class="career-index">Current · 01</p>
+                  <p class="career-index">01</p>
                   <h3>주식회사 레몬헬스케어</h3>
                   <p>CoreBE 공통팀 · 백엔드 개발자</p>
                 </div>
@@ -153,7 +163,7 @@
                 </div>
                 <div>
                   <strong>연동과 운영</strong>
-                  <p>WON뱅킹 유입 사용자를 RSA 기반으로 복호화·검증해 청구의신 회원과 연결했습니다. 파일 청크 업로드와 썸네일을 개발하고 Elasticsearch 로그로 운영 이슈와 반복 오류를 분석했습니다.</p>
+                  <p>WON뱅킹 유입 사용자를 RSA 기반으로 복호화·검증해 청구의신 회원과 연결했습니다. 파일 청크 업로드와 썸네일을 개발했습니다.</p>
                 </div>
               </div>
             </article>
@@ -169,7 +179,7 @@
               </div>
               <div class="career-details">
                 <div>
-                  <strong>운영자용 관리자 사이트</strong>
+                  <strong>백오피스 개발</strong>
                   <p>상품 제작·등록, 주문 상태, 회원과 쿠폰 발급·적용·사용 상태를 관리하는 기능을 개발하고 유지보수했습니다.</p>
                 </div>
                 <div>
@@ -212,108 +222,9 @@
 
         <div class="section-divider" aria-hidden="true"><span>✦</span></div>
 
-        <section class="resume-section" id="work" aria-labelledby="work-title">
-          <header class="section-label">
-            <p>02</p>
-            <h2 id="work-title">Selected<br>Work</h2>
-            <span>Systems &amp; Product</span>
-          </header>
-
-          <div class="section-content project-list">
-            <article class="resume-project featured">
-              <div class="project-number">01</div>
-              <div>
-                <p class="project-type">Healthcare Backend</p>
-                <h3>건강의신 백엔드</h3>
-                <p>인증, 결제, 걷기대회, 랭킹, 채팅, 출석과 리워드가 함께 동작하는 Spring 멀티모듈 서비스입니다. 동시성 제어와 비동기 처리, 대량 배치 성능 개선을 담당했습니다.</p>
-                <ul class="project-tags" aria-label="사용 기술">
-                  <li>Java</li><li>Spring Boot</li><li>Kafka</li><li>Redis</li><li>MongoDB</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="resume-project">
-              <div class="project-number">02</div>
-              <div>
-                <p class="project-type">Personal Product</p>
-                <h3>브루웨이 Brew Way</h3>
-                <p>토스 앱 안에서 커피 추출 과정, 원두, 타이머와 기록을 한 흐름으로 제공하는 미니앱입니다. WhiteWise에서 직접 기획·개발·운영합니다.</p>
-                <div class="project-foot">
-                  <ul class="project-tags" aria-label="프로젝트 분류">
-                    <li>Toss Mini App</li><li>Product</li>
-                  </ul>
-                  <a href="services/brew-way/">프로젝트 보기 ↗</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="resume-project compact">
-              <div class="project-number">03</div>
-              <div>
-                <p class="project-type">Commerce Operations</p>
-                <h3>커머스 관리자</h3>
-                <p>상품·주문·회원·쿠폰 운영과 결제, 세금계산서, 알림톡 연동을 개발했습니다.</p>
-                <ul class="project-tags" aria-label="사용 기술">
-                  <li>Spring Boot</li><li>Docker</li><li>GitLab CI</li>
-                </ul>
-              </div>
-            </article>
-
-            <article class="resume-project compact">
-              <div class="project-number">04</div>
-              <div>
-                <p class="project-type">Bank Back Office</p>
-                <h3>대구은행 백오피스</h3>
-                <p>은행 내부 운영 화면과 Spring/JPA 서버 기능, 입력 검증과 오류 수정을 담당했습니다.</p>
-                <ul class="project-tags" aria-label="사용 기술">
-                  <li>Spring</li><li>JPA</li><li>JavaScript</li>
-                </ul>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <div class="section-divider" aria-hidden="true"><span>✦</span></div>
-
-        <section class="resume-section" id="stack" aria-labelledby="stack-title">
-          <header class="section-label">
-            <p>03</p>
-            <h2 id="stack-title">Technical<br>Stack</h2>
-            <span>Tools I work with</span>
-          </header>
-
-          <div class="section-content stack-columns">
-            <div class="stack-category">
-              <span>01</span>
-              <h3>Backend</h3>
-              <ul><li>Java</li><li>Spring Boot / Spring</li><li>JPA / MyBatis</li></ul>
-            </div>
-            <div class="stack-category">
-              <span>02</span>
-              <h3>Frontend</h3>
-              <ul><li>JavaScript / jQuery</li><li>React / Next.js</li><li>Thymeleaf / JSP</li></ul>
-            </div>
-            <div class="stack-category">
-              <span>03</span>
-              <h3>Database</h3>
-              <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li></ul>
-            </div>
-            <div class="stack-category">
-              <span>04</span>
-              <h3>Realtime</h3>
-              <ul><li>Redis</li><li>Kafka</li><li>WebSocket (STOMP)</li></ul>
-            </div>
-            <div class="stack-category">
-              <span>05</span>
-              <h3>DevOps</h3>
-              <ul><li>Docker</li><li>GitLab CI / Jenkins</li><li>Swagger / Elasticsearch</li></ul>
-            </div>
-          </div>
-        </section>
-
         <section class="resume-section education-section" aria-labelledby="education-title">
           <header class="section-label">
-            <p>04</p>
+            <p>02</p>
             <h2 id="education-title">Education</h2>
             <span>Continuous learning</span>
           </header>

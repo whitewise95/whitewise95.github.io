@@ -278,7 +278,8 @@ html {
   margin-top: 2.1rem;
 }
 
-.intro-groups section h2 {
+.intro-groups section h2,
+.intro-stack > h2 {
   margin-bottom: 0.8rem;
   color: var(--resume-rose);
   font-family: Georgia, "Times New Roman", serif;
@@ -459,6 +460,17 @@ html {
   gap: 0.65rem;
   margin-top: auto;
   padding-top: 1.6rem;
+}
+
+.intro-stack {
+  padding-top: 2.4rem;
+  margin-top: 2.6rem;
+  border-top: 1px solid var(--resume-line);
+  scroll-margin-top: 6.5rem;
+}
+
+.intro-stack > h2 {
+  margin-bottom: 1.2rem;
 }
 
 .resume-button {

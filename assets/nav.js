@@ -30,6 +30,14 @@
     return hash === "#top" || hash === "#" || href === "./" || href === "/" || href === ".";
   }
 
+  function resolveTarget(hash) {
+    if (!hash) return null;
+    if (hash === "#top") {
+      return document.querySelector(".resume-hero") || document.querySelector("#top");
+    }
+    return document.querySelector(hash);
+  }
+
   function setCurrent(link) {
     if (!link) return;
     for (const el of links) {
@@ -40,8 +48,10 @@
   }
 
   function moveIndicator(link) {
-    indicator.style.width = `${link.offsetWidth}px`;
-    indicator.style.transform = `translateX(${link.offsetLeft}px)`;
+    const pillBox = pill.getBoundingClientRect();
+    const linkBox = link.getBoundingClientRect();
+    indicator.style.width = `${linkBox.width}px`;
+    indicator.style.transform = `translateX(${linkBox.left - pillBox.left}px)`;
     indicator.classList.add("is-ready");
   }
 
@@ -59,15 +69,19 @@
   const sectionLinks = links
     .map((link) => {
       const hash = pageHash(link);
-      const target = hash ? document.querySelector(hash) : null;
+      const target = resolveTarget(hash);
       return target ? { link, target } : null;
     })
-    .filter(Boolean);
+    .filter(Boolean)
+    .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
 
   let scrollFrame = 0;
+  let lockUntil = 0;
+
   function syncFromScroll() {
     scrollFrame = 0;
     if (sectionLinks.length < 2) return;
+    if (Date.now() < lockUntil) return;
 
     const marker = window.scrollY + Math.min(window.innerHeight * 0.28, 220);
     let current = sectionLinks[0];
@@ -77,12 +91,18 @@
       if (top <= marker) current = item;
     }
 
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (maxScroll > 0 && window.scrollY >= maxScroll - 8) {
+      current = sectionLinks[sectionLinks.length - 1];
+    }
+
     setCurrent(current.link);
   }
 
   pill.addEventListener("click", (event) => {
     const link = event.target.closest("a[href]");
     if (!link || !pill.contains(link) || !pageHash(link)) return;
+    lockUntil = Date.now() + 500;
     setCurrent(link);
   });
 
