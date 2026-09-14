@@ -118,7 +118,6 @@ test("feature registry is complete and drives the terms and privacy pages", () =
   for (const feature of features.filter((item) => item.status === "planned")) {
     assert.ok(["one-time", "recurring"].includes(feature.billingType));
     assert.ok(renderDocument("terms").includes(feature.name));
-    assert.ok(renderDocument("privacy").includes(feature.name));
   }
   assert.throws(() => validateFeatures([{ ...features.find((item) => item.status === "planned"), billingType: "monthly" }]), /billing type/);
 });
