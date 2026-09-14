@@ -146,7 +146,6 @@ export function renderDocument(slug, markdown = readDocument(slug)) {
   <header class="legal-header" id="top">
     <nav class="legal-container top-nav" aria-label="주요 메뉴">
       <a class="wordmark" href="../../../" aria-label="WhiteWise 홈">WhiteWise<span>화이트와이즈</span></a>
-      <a class="service-link" href="../../../services/brew-way/">브루웨이 ${icon("arrow-up-right")}</a>
     </nav>
   </header>
   <main id="main" class="legal-container legal-main" tabindex="-1">

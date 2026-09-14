@@ -23,10 +23,9 @@ h1, h2, p { margin: 0; }
 .legal-container { width: min(1184px, 100%); padding-inline: 32px; margin-inline: auto; }
 .sr-only, .skip-link:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip-link:focus { position: fixed; top: 12px; left: 12px; z-index: 10; background: var(--ink); color: #fff; padding: 12px 20px; }
-.top-nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.top-nav { min-height: 82px; display: flex; align-items: center; }
 .wordmark { font-size: 20px; font-weight: 800; text-decoration: none; line-height: 1.4; }
 .wordmark span { display: block; font-size: 11px; font-weight: 400; color: var(--muted); }
-.service-link { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; text-decoration: none; }
 .legal-main { padding-block: 52px 64px; }
 .document-heading { width: min(760px, 100%); margin-inline: auto; padding-bottom: 28px; }
 .document-kicker { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
