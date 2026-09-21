@@ -117,12 +117,14 @@ p, h1, h2, h3, ul { margin: 0; }
 .company-overview { padding: 2rem 2.2rem 2.2rem; border: 1px solid var(--line); border-top: 0; background: var(--surface); }
 .company-intro { max-width: 830px; font-size: 1rem; font-weight: 600; line-height: 1.85; letter-spacing: -.02em; }
 .service-feature { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; margin-top: 1.5rem; padding: 1.35rem 1.5rem; border-left: 3px solid var(--blue); background: var(--blue-light); break-inside: avoid; }
-.service-feature--plain { padding: 0; border: 0; background: transparent; }
+.service-feature--plain { grid-template-columns: 1fr; gap: .65rem; margin-top: 0; padding: 0; border: 0; background: transparent; }
+.service-body { min-width: 0; }
+.service-body .service-detail { margin-top: 1.5rem; }
 .service-detail--media { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-items: start; gap: 1rem; min-width: 0; }
 .service-copy { min-width: 0; }
 .service-icon { display: block; width: 3.5rem; height: 3.5rem; border-radius: .8rem; object-fit: cover; }
 .service-logo { display: block; width: 140px; height: 43px; max-width: 100%; object-fit: contain; }
-.service-label { padding-top: .2rem; color: var(--blue); font-size: .75rem; font-weight: 800; white-space: nowrap; }
+.service-label { color: var(--blue); font-size: .75rem; font-weight: 800; white-space: nowrap; }
 .service-detail h3 { font-size: 1.1rem; font-weight: 800; letter-spacing: -.04em; }
 .service-detail > p, .service-copy > p { margin-top: .45rem; max-width: 790px; color: var(--muted); font-size: .87rem; line-height: 1.75; }
 .service-links { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-top: .9rem; }
@@ -183,7 +185,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .company-date { margin-top: 1.2rem; }
   .company-overview { padding: 1.4rem 1.5rem 1.5rem; }
   .service-feature { grid-template-columns: 1fr; gap: .4rem; padding: 1.1rem 1.2rem; }
-  .service-feature--plain { padding: 0; }
+  .service-feature--plain { gap: .55rem; padding: 0; }
   .service-detail--media { grid-template-columns: 1fr; gap: .65rem; }
   .company-tech { grid-template-columns: 1fr; gap: .4rem; }
   .work-list { margin-top: 1rem; }
@@ -219,7 +221,8 @@ p, h1, h2, h3, ul { margin: 0; }
   .company-head h2 { font-size: 17pt; }
   .company-overview { padding: 4mm 0; border: 0; }
   .service-feature { margin-top: 2mm; padding: 2mm 3mm; border-left: 2px solid #111; background: #fff; }
-  .service-feature--plain { padding: 2mm 0; border: 0; }
+  .service-feature--plain { margin-top: 0; padding: 0; border: 0; }
+  .service-body .service-detail { margin-top: 2mm; }
   .company-tech { margin-top: 2mm; padding-top: 2mm; }
   .work-list { margin-top: 2mm; }
   .work-item { display: block; break-inside: avoid; padding: 4mm 0; }
