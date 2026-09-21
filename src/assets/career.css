@@ -59,7 +59,7 @@ p, h1, h2, h3, ul { margin: 0; }
 }
 .page-tabs a:hover, .page-tabs a[aria-current="page"] { color: var(--ink); }
 .page-tabs a[aria-current="page"]::after { content: ""; position: absolute; height: 3px; left: 0; right: 0; bottom: -1px; background: var(--blue); }
-.hero-links span, .footer-inner a span { color: var(--blue); margin-left: .35rem; }
+.hero-links span { color: var(--blue); margin-left: .35rem; }
 
 .section-kicker, .company-type {
   color: var(--blue);
@@ -98,7 +98,7 @@ p, h1, h2, h3, ul { margin: 0; }
 .company-jump strong { font-size: 1.12rem; font-weight: 800; letter-spacing: -.04em; }
 .company-jump small { color: var(--muted); font-size: .78rem; }
 
-.career-body { padding-bottom: 9rem; }
+.career-body { padding-bottom: 4rem; }
 .company { scroll-margin-top: 105px; }
 .company + .company { margin-top: 7rem; }
 .company-head {
@@ -141,14 +141,6 @@ p, h1, h2, h3, ul { margin: 0; }
 .work-result span { color: #b5c7f4; font-size: .75rem; font-weight: 800; }
 .work-result strong { font-size: 1.03rem; font-weight: 800; letter-spacing: -.03em; }
 
-.career-footer { background: var(--ink); color: #fff; }
-.footer-inner { min-height: 210px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.footer-inner .section-kicker { color: #91a9eb; }
-.footer-inner p:not(.section-kicker) { margin-top: .8rem; font-size: clamp(1.15rem, 2vw, 1.65rem); font-weight: 650; letter-spacing: -.045em; }
-.footer-inner a { border-bottom: 1px solid #fff; padding-bottom: .35rem; font-size: .9rem; font-weight: 750; }
-.footer-inner a:hover { color: #fff; border-color: #91a9eb; }
-.footer-inner a span { color: #91a9eb; }
-
 .portfolio-main { min-height: calc(100vh - 78px); display: flex; align-items: center; }
 .portfolio-empty { width: 100%; padding-block: 7rem 10rem; border-top: 1px solid var(--ink); }
 .portfolio-empty h1 { margin-top: 1rem; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1.15; letter-spacing: -.08em; }
@@ -178,7 +170,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .company-jump a { padding: 1rem 1.2rem; }
   .company-jump a + a { border-left: 0; border-top: 1px solid var(--line); }
   .company-jump strong { font-size: 1rem; }
-  .career-body { padding-bottom: 5rem; }
+  .career-body { padding-bottom: 3rem; }
   .company { scroll-margin-top: 82px; }
   .company + .company { margin-top: 4.5rem; }
   .company-head { display: block; padding: 1.5rem; }
@@ -191,7 +183,6 @@ p, h1, h2, h3, ul { margin: 0; }
   .work-item { padding: 2rem .15rem; }
   .work-heading h3 { font-size: 1.2rem; }
   .work-points { font-size: .88rem; }
-  .footer-inner { min-height: 240px; flex-direction: column; align-items: flex-start; justify-content: center; gap: 1.8rem; }
   .portfolio-empty { padding-block: 5rem 7rem; }
 }
 
@@ -203,7 +194,7 @@ p, h1, h2, h3, ul { margin: 0; }
   html { scroll-behavior: auto; }
   body { background: #fff; print-color-adjust: exact; }
   .career-shell { width: auto; max-width: none; }
-  .career-header, .company-jump, .career-footer { display: none !important; }
+  .career-header, .company-jump { display: none !important; }
   .career-hero { position: relative; display: block; padding: 0 0 6mm; }
   .career-hero h1 { font-size: 28pt; }
   .hero-side { padding: 0; }
