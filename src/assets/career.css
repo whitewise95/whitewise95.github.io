@@ -130,23 +130,9 @@ p, h1, h2, h3, ul { margin: 0; }
 .service-links { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-top: .9rem; }
 .service-links a { padding-bottom: .15rem; border-bottom: 1px solid var(--blue); color: var(--blue); font-size: .78rem; font-weight: 800; }
 .service-links a:hover { color: var(--ink); border-color: var(--ink); }
-.lemon-focus { margin-top: 1.7rem; padding: 1.55rem 0; border-block: 1px solid var(--line); }
-.core-highlight, .lemon-services { min-width: 0; }
-.core-highlight-label, .lemon-services-label, .service-owned-label { color: var(--blue); font-size: .72rem; font-weight: 800; letter-spacing: .04em; }
-.core-highlight h3 { margin-top: .6rem; max-width: 510px; font-size: clamp(1.2rem, 1.8vw, 1.55rem); line-height: 1.45; letter-spacing: -.045em; }
-.core-highlight > p:not(.core-highlight-label) { margin-top: .65rem; max-width: 580px; color: var(--muted); font-size: .88rem; line-height: 1.75; }
-.core-capabilities { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1rem; padding: 0; list-style: none; }
-.core-capabilities li { padding: .35rem .62rem; border: 1px solid var(--line); color: var(--ink); font-size: .75rem; font-weight: 700; }
-.lemon-services { margin-top: 1.5rem; }
-.lemon-services-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .75rem; margin-top: .8rem; }
-.lemon-service { display: block; min-width: 0; color: var(--ink); font-size: .8rem; font-weight: 800; }
-.lemon-service img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 3; border: 1px solid var(--line); object-fit: cover; object-position: center top; }
-.lemon-service--icon img { padding: 1.3rem; object-fit: contain; }
-.lemon-service span { display: block; margin-top: .55rem; line-height: 1.4; }
-.lemon-service:hover span, .lemon-service:focus-visible span { color: var(--blue); }
+.service-owned-label { color: var(--blue); font-size: .72rem; font-weight: 800; letter-spacing: .04em; }
 .service-body .service-detail--owned { margin-top: 1.6rem; }
 .service-detail--owned .service-owned-label { margin: 0 0 .55rem; max-width: none; color: var(--blue); font-size: .72rem; line-height: 1.5; }
-.service-detail--owned > p:not(.service-owned-label) { max-width: 750px; }
 .company-tech { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .company-tech span { padding-top: .13rem; color: var(--blue); font-size: .75rem; font-weight: 800; white-space: nowrap; }
 .company-tech p { max-width: 880px; color: var(--muted); font-size: .83rem; line-height: 1.75; overflow-wrap: anywhere; }
@@ -177,7 +163,6 @@ p, h1, h2, h3, ul { margin: 0; }
   .hero-side { padding: 0; }
   .work-item { grid-template-columns: 1fr; gap: 1.2rem; }
   .work-heading p { max-width: 650px; }
-  .lemon-services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 600px) {
@@ -205,7 +190,6 @@ p, h1, h2, h3, ul { margin: 0; }
   .service-feature { grid-template-columns: 1fr; gap: .4rem; padding: 1.1rem 1.2rem; }
   .service-feature--plain { gap: .55rem; padding: 0; }
   .service-detail--media { grid-template-columns: 1fr; gap: .65rem; }
-  .lemon-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .company-tech { grid-template-columns: 1fr; gap: .4rem; }
   .work-list { margin-top: 1rem; }
   .work-item { padding: 2rem .15rem; }

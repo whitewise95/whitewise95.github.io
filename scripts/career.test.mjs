@@ -69,21 +69,10 @@ test("company service introductions link to the verified public products", () =>
   }
   assert.match(lemon, /건강의신/);
   assert.match(lemon, /초기 기획 단계부터 참여해[^<]*서비스 오픈 이후 운영과 기능 개선/);
-  assert.match(lemon, /class="lemon-focus">/);
-  assert.match(lemon, /CORE \/ COMMON/);
-  assert.match(lemon, /프로젝트 전반에서 재사용할 수 있는 공통 기능/);
+  assert.match(lemon, /class="service-detail service-detail--media service-detail--owned">/);
   assert.match(lemon, /src="assets\/health-god-app-icon\.jpg"/);
-  assert.match(lemon, /src="assets\/lemoncare365-app-icon\.jpg"/);
-  assert.equal((lemon.match(/class="lemon-service(?: lemon-service--icon)?"/g) ?? []).length, 5);
-  for (const service of ["lemoncare-service", "lemoncare-plus-service", "cheonggu-service"]) {
-    assert.match(lemon, new RegExp(`src="assets/${service}\\.png"`));
-    assert.ok(fs.existsSync(path.join(root, `dist/assets/${service}.png`)));
-  }
-  for (const id of ["m02_01", "m02_03", "m02_04", "m02_06"]) {
-    assert.match(lemon, new RegExp(`lemonhealthcare\\.com/bbs/page\\.php\\?hid=${id}`));
-  }
+  assert.doesNotMatch(lemon, /lemon-focus|lemon-services|레몬케어365|레몬케어 플러스|청구의신/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/health-god-app-icon.jpg")));
-  assert.ok(fs.existsSync(path.join(root, "dist/assets/lemoncare365-app-icon.jpg")));
   assert.match(lemon, /apps\.apple\.com\/kr\/app\/[^" ]*id6752885853/);
   assert.match(lemon, /play\.google\.com\/store\/apps\/details\?id=com\.lemonhc\.godofhealth\.prod/);
   assert.match(actbase, /포토몬 비즈프린트/);
@@ -103,7 +92,7 @@ test("company service introductions link to the verified public products", () =>
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260921-5"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260921-5"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260922-1"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-1"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
