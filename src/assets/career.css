@@ -132,7 +132,7 @@ p, h1, h2, h3, dl, dd { margin: 0; }
   font-weight: 650;
 }
 .contents nav a:hover, .contents nav a:focus-visible { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
-.contents-note { max-width: 175px; margin: 2rem 0 0 1rem; color: var(--soft); font-size: .72rem; line-height: 1.7; }
+.contents-note { max-width: 175px; margin: 2rem 0 0 1rem; color: var(--muted); font-size: .72rem; line-height: 1.7; }
 .career-body { min-width: 0; }
 .body-intro { padding-bottom: 5rem; }
 .body-intro h2 { margin-top: 1rem; font-size: clamp(2rem, 3.5vw, 3.45rem); line-height: 1.32; letter-spacing: -.065em; }
@@ -221,10 +221,12 @@ p, h1, h2, h3, dl, dd { margin: 0; }
   html { scroll-behavior: auto; }
   body { background: #fff; print-color-adjust: exact; }
   .career-shell { width: auto; max-width: none; }
-  .career-header, .contents, .career-footer, .hero-index, .hero-links { display: none !important; }
-  .career-hero { min-height: 0; display: block; padding: 0 0 9mm; }
+  .career-header, .contents, .career-footer, .hero-index { display: none !important; }
+  .career-hero { position: relative; min-height: 0; display: block; padding: 0 0 9mm; }
   .career-hero h1 { font-size: 28pt; }
   .hero-lead { margin-top: 5mm; }
+  .hero-links { position: absolute; top: 0; right: 0; flex-direction: column; align-items: flex-end; margin: 0; gap: 2mm; }
+  .hero-links span { display: none; }
   .document-grid { display: block; padding: 0; border-top: 1px solid #111; }
   .body-intro { padding: 5mm 0 7mm; }
   .body-intro h2 { font-size: 19pt; }
