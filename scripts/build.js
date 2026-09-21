@@ -34,7 +34,7 @@ async function build() {
     );
   }
   // Keep the existing branch-based Pages entry points in sync with the build artifact.
-  for (const name of ["assets", "legal", "services"]) {
+  for (const name of ["assets", "legal", "services", "portfolio"]) {
     copyDirectory(path.join(target, name), path.join(root, name));
   }
   fs.copyFileSync(path.join(target, "index.html"), path.join(root, "index.html"));
