@@ -44,6 +44,8 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /공식 걷기대회/);
   assert.match(lemonSection, /Spring Batch 기반 정산/);
   assert.match(lemonSection, /FCM 발송 실패 원인 분류/);
+  assert.match(lemonSection, /NAS 기반 파일 저장 구조를 NCP Object Storage로 전환/);
+  assert.doesNotMatch(lemonSection, /AWS S3|\bS3\b/);
   assert.doesNotMatch(html, /재직 중|CURRENT · HEALTHCARE PLATFORM|CAREER DOCUMENT/);
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
   assert.doesNotMatch(html, /회사명을 선택하면 해당 경력으로 이동합니다/);
