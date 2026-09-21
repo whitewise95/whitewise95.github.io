@@ -19,3 +19,19 @@ test("portfolio route is built for both deployment modes", () => {
   assert.match(html, /href="\.\.\/"[^>]*>경력기술서<\/a>/);
   assert.match(html, /href="\.\/"[^>]*aria-current="page"[^>]*>포트폴리오<\/a>/);
 });
+
+test("career document has navigable company sections without an unconfirmed metric", () => {
+  const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
+  assert.match(html, /<a href="portfolio\/">포트폴리오<\/a>/);
+  assert.match(html, /<a href="\.\/" aria-current="page">경력기술서<\/a>/);
+  assert.match(html, /<a href="#lemon">레몬헬스케어<\/a>/);
+  assert.match(html, /<a href="#actbase">액트베이스<\/a>/);
+  assert.match(html, /<a href="#zest">제스트씨엔에스<\/a>/);
+  assert.match(html, /<section[^>]*id="lemon"/);
+  assert.match(html, /<section[^>]*id="actbase"/);
+  assert.match(html, /<section[^>]*id="zest"/);
+  assert.ok(html.indexOf('id="lemon"') < html.indexOf('id="actbase"'));
+  assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
+  assert.doesNotMatch(html, /10분\s*(?:에서|→)\s*1(?:분|초)/);
+  assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
+});
