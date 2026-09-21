@@ -20,19 +20,27 @@ test("portfolio route is built for both deployment modes", () => {
   assert.match(html, /href="\.\/"[^>]*aria-current="page"[^>]*>포트폴리오<\/a>/);
 });
 
-test("career document has navigable company sections without an unconfirmed metric", () => {
+test("career document keeps each company navigable and includes the supplied work history", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   assert.match(html, /<a href="portfolio\/">포트폴리오<\/a>/);
   assert.match(html, /<a href="\.\/" aria-current="page">경력기술서<\/a>/);
-  assert.match(html, /<a href="#lemon">레몬헬스케어<\/a>/);
-  assert.match(html, /<a href="#actbase">액트베이스<\/a>/);
-  assert.match(html, /<a href="#zest">제스트씨엔에스<\/a>/);
+  assert.match(html, /<nav class="company-jump"[^>]*>/);
+  assert.match(html, /<a href="#lemon">/);
+  assert.match(html, /<a href="#actbase">/);
+  assert.match(html, /<a href="#zest">/);
   assert.match(html, /<section[^>]*id="lemon"/);
   assert.match(html, /<section[^>]*id="actbase"/);
   assert.match(html, /<section[^>]*id="zest"/);
   assert.ok(html.indexOf('id="lemon"') < html.indexOf('id="actbase"'));
   assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
-  assert.doesNotMatch(html, /10분\s*(?:에서|→)\s*1(?:분|초)/);
+  const lemonSection = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
+  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 10);
+  assert.match(html, /2024\.09[^<]*재직 중/);
+  assert.match(html, /2022\.09[^<]*2024\.01/);
+  assert.match(html, /약 10분[^<]*1분 이하/);
+  assert.match(html, /AdMob SSV/);
+  assert.match(html, /Blue\/Green 배포/);
+  assert.doesNotMatch(html, /class="contents"|class="work-number"/);
   assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
 });
 
