@@ -35,3 +35,11 @@ test("career document has navigable company sections without an unconfirmed metr
   assert.doesNotMatch(html, /10분\s*(?:에서|→)\s*1(?:분|초)/);
   assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
 });
+
+test("career and portfolio pages share a built stylesheet", () => {
+  const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
+  const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
+  assert.match(career, /href="assets\/career\.css"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css"/);
+  assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
+});
