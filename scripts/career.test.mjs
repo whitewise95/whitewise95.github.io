@@ -58,6 +58,24 @@ test("portfolio keeps only the two page tabs in its header", () => {
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
 });
 
+test("company service introductions link to the verified public products", () => {
+  const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
+  const lemon = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
+  const actbase = html.slice(html.indexOf('id="actbase"'), html.indexOf('id="zest"'));
+  const zest = html.slice(html.indexOf('id="zest"'));
+
+  for (const section of [lemon, actbase, zest]) {
+    assert.match(section, /class="service-feature"/);
+  }
+  assert.match(lemon, /건강의신/);
+  assert.match(lemon, /apps\.apple\.com\/kr\/app\/[^" ]*id6752885853/);
+  assert.match(lemon, /play\.google\.com\/store\/apps\/details\?id=com\.lemonhc\.godofhealth\.prod/);
+  assert.match(actbase, /포토몬 비즈프린트/);
+  assert.match(actbase, /https:\/\/biz\.photomon\.com\//);
+  assert.match(actbase, /레거시 공장 시스템/);
+  assert.match(zest, /대구은행 백오피스/);
+});
+
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
