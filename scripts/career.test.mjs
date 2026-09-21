@@ -35,13 +35,27 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
   const lemonSection = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
   assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 10);
-  assert.match(html, /2024\.09[^<]*재직 중/);
+  assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
   assert.match(html, /약 10분[^<]*1분 이하/);
   assert.match(html, /AdMob SSV/);
   assert.match(html, /Blue\/Green 배포/);
+  assert.match(lemonSection, /모듈을 설계[·, ]+개발/);
+  assert.match(lemonSection, /공식 걷기대회/);
+  assert.match(lemonSection, /Spring Batch 기반 정산/);
+  assert.match(lemonSection, /FCM 발송 실패 원인 분류/);
+  assert.match(lemonSection, /서비스 전환[^<]*기존 서버 종료[^<]*자동화/);
+  assert.doesNotMatch(html, /재직 중|CURRENT · HEALTHCARE PLATFORM|CAREER DOCUMENT/);
+  assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
+  assert.doesNotMatch(html, /회사명을 선택하면 해당 경력으로 이동합니다/);
   assert.doesNotMatch(html, /class="contents"|class="work-number"/);
   assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
+});
+
+test("portfolio keeps only the two page tabs in its header", () => {
+  const html = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
+  assert.match(html, /<nav class="page-tabs"/);
+  assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
 });
 
 test("career and portfolio pages share a built stylesheet", () => {

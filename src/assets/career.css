@@ -45,10 +45,9 @@ p, h1, h2, h3, ul { margin: 0; }
   background: rgba(247,248,246,.94);
   backdrop-filter: blur(18px);
 }
-.header-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.career-brand { flex: 0 0 auto; font-size: 1.18rem; font-weight: 800; letter-spacing: -.055em; }
-.brand-period, .hero-period { color: var(--blue); }
-.page-tabs { align-self: stretch; display: flex; align-items: stretch; gap: 2.5rem; }
+.header-inner { min-height: 78px; display: flex; align-items: center; justify-content: center; }
+.hero-period { color: var(--blue); }
+.page-tabs { align-self: stretch; display: flex; align-items: stretch; gap: 3rem; }
 .page-tabs a {
   display: inline-flex;
   align-items: center;
@@ -60,40 +59,27 @@ p, h1, h2, h3, ul { margin: 0; }
 }
 .page-tabs a:hover, .page-tabs a[aria-current="page"] { color: var(--ink); }
 .page-tabs a[aria-current="page"]::after { content: ""; position: absolute; height: 3px; left: 0; right: 0; bottom: -1px; background: var(--blue); }
-.header-contact {
-  flex: 0 0 auto;
-  padding: .7rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  background: var(--surface);
-  font-size: .78rem;
-  font-weight: 700;
-}
-.header-contact span, .hero-links span, .footer-inner a span { color: var(--blue); margin-left: .35rem; }
-.header-contact:hover { border-color: var(--blue); }
+.hero-links span, .footer-inner a span { color: var(--blue); margin-left: .35rem; }
 
-.eyebrow, .section-kicker, .company-type {
+.section-kicker, .company-type {
   color: var(--blue);
   font-size: .68rem;
   font-weight: 850;
   letter-spacing: .18em;
 }
-.eyebrow span { padding-inline: .5em; color: var(--soft); }
 .career-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
-  align-items: end;
+  align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
-  padding-block: clamp(3.5rem, 6vw, 5.7rem) clamp(3.5rem, 5vw, 5rem);
+  padding-block: clamp(3rem, 5vw, 4.5rem);
 }
 .career-hero h1 {
-  margin-top: 1.25rem;
   font-size: clamp(4rem, 7vw, 7rem);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -.085em;
 }
-.career-hero h1 > span:last-child { font-weight: 500; }
 .hero-side { padding-bottom: .55rem; }
 .hero-lead { max-width: 510px; font-size: clamp(1.15rem, 1.7vw, 1.45rem); font-weight: 750; line-height: 1.65; letter-spacing: -.04em; }
 .hero-summary { margin-top: 1rem; max-width: 540px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
@@ -102,10 +88,8 @@ p, h1, h2, h3, ul { margin: 0; }
 .hero-links a:hover { border-color: var(--blue); }
 
 .experience-overview { border-top: 1px solid var(--ink); padding-block: 3.5rem 5rem; }
-.body-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); column-gap: 4rem; align-items: end; }
-.body-intro .section-kicker { grid-column: 1 / -1; margin-bottom: .8rem; }
+.body-intro .section-kicker { margin-bottom: .8rem; }
 .body-intro h2 { font-size: clamp(2rem, 3.6vw, 3.4rem); line-height: 1.25; letter-spacing: -.065em; }
-.body-intro > p:last-child { padding-bottom: .35rem; max-width: 450px; color: var(--muted); font-size: .93rem; line-height: 1.8; }
 .company-jump { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 2.7rem; border: 1px solid var(--line); background: var(--surface); }
 .company-jump a { display: flex; flex-direction: column; gap: .35rem; min-width: 0; padding: 1.4rem 1.6rem; transition: background .15s ease, color .15s ease; }
 .company-jump a + a { border-left: 1px solid var(--line); }
@@ -165,24 +149,20 @@ p, h1, h2, h3, ul { margin: 0; }
 
 @media (max-width: 900px) {
   .career-shell { width: min(100% - 3rem, 760px); }
-  .header-contact { display: none; }
   .career-hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 4.5rem; }
   .career-hero h1 { font-size: clamp(4rem, 10vw, 6.5rem); }
   .hero-side { padding: 0; }
-  .body-intro { grid-template-columns: 1fr; }
-  .body-intro > p:last-child { margin-top: 1rem; }
   .work-item { grid-template-columns: 1fr; gap: 1.2rem; }
   .work-heading p { max-width: 650px; }
 }
 
 @media (max-width: 600px) {
   .career-shell { width: min(100% - 2.25rem, 520px); }
-  .header-inner { min-height: 66px; gap: 1rem; }
-  .career-brand { font-size: 1rem; }
+  .header-inner { min-height: 66px; }
   .page-tabs { gap: 1.1rem; }
   .page-tabs a { font-size: .78rem; }
-  .career-hero { padding-block: 3.7rem 3.8rem; gap: 1.8rem; }
-  .career-hero h1 { margin-top: 1rem; font-size: clamp(3.4rem, 14vw, 5rem); }
+  .career-hero { padding-block: 3rem 3.4rem; gap: 1.8rem; }
+  .career-hero h1 { font-size: clamp(3.4rem, 14vw, 5rem); }
   .hero-lead { font-size: 1.12rem; }
   .hero-summary { font-size: .9rem; }
   .experience-overview { padding-block: 2.8rem 3.8rem; }
@@ -226,7 +206,6 @@ p, h1, h2, h3, ul { margin: 0; }
   .experience-overview { padding: 5mm 0 6mm; }
   .body-intro { display: block; }
   .body-intro h2 { font-size: 18pt; }
-  .body-intro > p:last-child { display: none; }
   .career-body { padding: 0; }
   .company { break-before: auto; scroll-margin: 0; }
   .company + .company { margin-top: 10mm; }
