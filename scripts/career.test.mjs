@@ -80,6 +80,11 @@ test("company service introductions link to the verified public products", () =>
   assert.ok(fs.existsSync(path.join(root, "dist/assets/photomon-bizprint-logo.png")));
   assert.match(actbase, /https:\/\/biz\.photomon\.com\//);
   assert.match(actbase, /레거시 공장 시스템/);
+  assert.equal((actbase.match(/<article class="work-item">/g) ?? []).length, 2);
+  assert.match(actbase, /프론트오피스 결제 화면에 필요한 백엔드 기능/);
+  assert.match(actbase, /명함을 제작하는 에디터의 백엔드 기능/);
+  assert.match(actbase, /풀무원 녹즙 사이트 고도화/);
+  assert.match(actbase, /결제 기능에서 발생한 오류 수정/);
   assert.match(zest, /대구은행 백오피스/);
 });
 
