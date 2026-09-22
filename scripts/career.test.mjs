@@ -48,7 +48,8 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.doesNotMatch(lemonSection, /한정 수량 리워드와 티켓 지급에는 DB 비관적 락/);
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
-  assert.match(lemonSection, /모듈을 설계[·, ]+개발/);
+  assert.match(lemonSection, /여러 서비스에서 반복 사용하는 백엔드 기능을 공통 모듈로 개발/);
+  assert.match(lemonSection, /Security, RSA, AES, SHA, UUID, File, Redis, FCM, Excel, CSV, Kafka/);
   assert.match(lemonSection, /공식 걷기대회/);
   assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
   assert.match(lemonSection, /FCM 발송 실패 원인 분류/);
