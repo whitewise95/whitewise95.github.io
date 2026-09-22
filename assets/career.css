@@ -156,6 +156,8 @@ p, h1, h2, h3, ul { margin: 0; }
 .work-heading h3 { font-size: clamp(1.17rem, 1.65vw, 1.47rem); line-height: 1.4; font-weight: 800; letter-spacing: -.045em; }
 .work-heading p { margin-top: .75rem; max-width: 340px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
 .work-content { min-width: 0; }
+.work-subsection + .work-subsection { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
+.work-subsection h4 { margin: 0 0 .75rem; color: var(--blue); font-size: .85rem; font-weight: 800; letter-spacing: -.02em; }
 .work-points { display: grid; gap: .62rem; padding-left: 1.2rem; color: var(--ink); font-size: .9rem; line-height: 1.75; letter-spacing: -.01em; }
 .work-points li { padding-left: .15rem; }
 .work-points li::marker { color: var(--blue); }

@@ -39,6 +39,9 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(html, /2022\.09[^<]*2024\.01/);
   assert.doesNotMatch(lemonSection, /걸음수 랭킹 집계 성능 개선|약 10분에서 1분 이하로 단축/);
   assert.match(lemonSection, /<h3>걷기 챌린지<\/h3>/);
+  const walking = lemonSection.slice(lemonSection.indexOf('<h3>걷기 챌린지</h3>'), lemonSection.indexOf('<h3>리워드 시스템</h3>'));
+  assert.match(walking, /<h4>걸음수 랭킹 시스템<\/h4>/);
+  assert.match(walking, /개인·팀·친구·연간 랭킹 개발/);
   assert.match(lemonSection, /<h3>리워드 시스템<\/h3>/);
   assert.match(lemonSection, /걸음수 분 단위 집계 기능/);
   assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
@@ -100,8 +103,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260922-5"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-5"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260922-6"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-6"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
