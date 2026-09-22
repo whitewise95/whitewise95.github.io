@@ -59,24 +59,18 @@ test("portfolio keeps only the two page tabs in its header", () => {
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
 });
 
-test("company service introductions link to the verified public products", () => {
+test("company summaries distinguish Lemon work and keep Actbase service details", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const lemon = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
   const actbase = html.slice(html.indexOf('id="actbase"'), html.indexOf('id="zest"'));
   const zest = html.slice(html.indexOf('id="zest"'));
 
-  assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무와 서비스<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
+  assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   for (const section of [actbase, zest]) {
     assert.match(section, /class="service-feature service-feature--plain">\s*<p class="service-label">참여 서비스<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   }
-  assert.match(lemon, /건강의신/);
-  assert.match(lemon, /초기 기획 단계부터 참여해[^<]*서비스 오픈 이후 운영과 기능 개선/);
-  assert.match(lemon, /class="service-detail service-detail--media service-detail--owned">/);
-  assert.match(lemon, /src="assets\/health-god-app-icon\.jpg"/);
-  assert.doesNotMatch(lemon, /lemon-focus|lemon-services|레몬케어365|레몬케어 플러스|청구의신/);
-  assert.ok(fs.existsSync(path.join(root, "dist/assets/health-god-app-icon.jpg")));
-  assert.match(lemon, /apps\.apple\.com\/kr\/app\/[^" ]*id6752885853/);
-  assert.match(lemon, /play\.google\.com\/store\/apps\/details\?id=com\.lemonhc\.godofhealth\.prod/);
+  assert.match(lemon, /Core\/Common 공통 모듈을 개발하고 청구의신·건강의신 서비스 백엔드 업무에 참여/);
+  assert.doesNotMatch(lemon, /class="service-detail|src="assets\/health-god-app-icon|apps\.apple\.com|play\.google\.com/);
   assert.match(actbase, /포토몬 비즈프린트/);
   assert.match(actbase, /class="service-detail service-detail--media">/);
   assert.match(actbase, /src="assets\/photomon-bizprint-logo\.png"/);
