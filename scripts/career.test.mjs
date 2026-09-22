@@ -17,12 +17,12 @@ test("portfolio route is built for both deployment modes", () => {
 
   const html = fs.readFileSync(built, "utf8");
   assert.match(html, /href="\.\.\/"[^>]*>경력기술서<\/a>/);
-  assert.match(html, /href="\.\/"[^>]*aria-current="page"[^>]*>포트폴리오<\/a>/);
+  assert.doesNotMatch(html, /<a href="\.\/"[^>]*>포트폴리오<\/a>/);
 });
 
 test("career document keeps each company navigable and includes the supplied work history", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
-  assert.match(html, /<a href="portfolio\/">포트폴리오<\/a>/);
+  assert.doesNotMatch(html, /<a href="portfolio\/">포트폴리오<\/a>/);
   assert.match(html, /<a href="\.\/" aria-current="page">경력기술서<\/a>/);
   assert.match(html, /<nav class="company-jump"[^>]*>/);
   assert.match(html, /<a href="#lemon">/);
@@ -53,9 +53,11 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
 });
 
-test("portfolio keeps only the two page tabs in its header", () => {
+test("portfolio keeps direct URL access without a visible portfolio tab", () => {
   const html = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
   assert.match(html, /<nav class="page-tabs"/);
+  assert.match(html, /<a href="\.\.\/">경력기술서<\/a>/);
+  assert.doesNotMatch(html, /포트폴리오<\/a>/);
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
 });
 
