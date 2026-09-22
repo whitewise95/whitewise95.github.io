@@ -86,8 +86,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260922-2"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-2"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260922-3"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-3"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
