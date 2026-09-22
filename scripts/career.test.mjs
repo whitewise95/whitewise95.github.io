@@ -41,7 +41,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /<h3>걷기 챌린지<\/h3>/);
   const walking = lemonSection.slice(lemonSection.indexOf('<h3>걷기 챌린지</h3>'), lemonSection.indexOf('<h3>리워드 시스템</h3>'));
   assert.match(walking, /<h4>걸음수 랭킹 시스템<\/h4>/);
-  assert.match(walking, /개인·팀·친구·연간 랭킹 개발/);
+  assert.match(walking, /개인, 팀, 친구, 연간 랭킹 개발/);
   assert.match(lemonSection, /<h3>리워드 시스템<\/h3>/);
   assert.match(lemonSection, /걸음수 분 단위 집계 기능/);
   assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
