@@ -90,12 +90,16 @@ p, h1, h2, h3, ul { margin: 0; }
 
 .skills-overview { border-top: 1px solid var(--ink); padding-block: 2.8rem 3.2rem; }
 .skills-overview h2 { font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 800; letter-spacing: -.055em; }
-.skills-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1.8rem; border-block: 1px solid var(--line); }
-.skills-group { min-width: 0; padding: 1.25rem 1.5rem 1.4rem; }
-.skills-group:first-child { padding-left: 0; }
-.skills-group + .skills-group { border-left: 1px solid var(--line); }
-.skills-group h3 { margin-bottom: .7rem; color: var(--blue); font-size: .78rem; font-weight: 800; }
-.skills-group p { color: var(--ink); font-size: .9rem; line-height: 1.85; overflow-wrap: anywhere; }
+.skills-groups { margin-top: 1.8rem; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+.skills-group { --skill-accent: #284eb1; --skill-tint: #e9efff; display: grid; grid-template-columns: 10rem minmax(0, 1fr); align-items: center; gap: 2rem; min-width: 0; padding: 1rem .25rem; border-bottom: 1px solid var(--line); }
+.skills-group:nth-child(2) { --skill-accent: #24664f; --skill-tint: #e8f3ed; }
+.skills-group:nth-child(3) { --skill-accent: #64529b; --skill-tint: #f0edfa; }
+.skills-group:nth-child(4) { --skill-accent: #945623; --skill-tint: #fff0e1; }
+.skills-group:nth-child(5) { --skill-accent: #42576e; --skill-tint: #edf1f5; }
+.skills-group h3 { display: flex; align-items: center; gap: .7rem; color: var(--ink); font-size: .9rem; font-weight: 800; white-space: nowrap; }
+.skills-group h3::before { content: ""; flex: 0 0 .65rem; height: .65rem; border-radius: .2rem; background: var(--skill-accent); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; min-width: 0; padding: 0; list-style: none; }
+.skill-tags li { padding: .43rem .75rem; border-radius: .45rem; background: var(--skill-tint); color: var(--skill-accent); font-size: .83rem; font-weight: 750; line-height: 1.3; white-space: nowrap; }
 
 .experience-overview { border-top: 1px solid var(--ink); padding-block: 3.5rem 5rem; }
 .body-intro .section-kicker { margin-bottom: .8rem; }
@@ -170,9 +174,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .career-shell { width: min(100% - 3rem, 760px); }
   .career-hero { padding-block: 4.5rem; }
   .hero-side { padding: 0; }
-  .skills-groups { grid-template-columns: 1fr; }
-  .skills-group, .skills-group:first-child { padding: 1rem 0; }
-  .skills-group + .skills-group { border-left: 0; border-top: 1px solid var(--line); }
+  .skills-group { grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; }
   .work-item { grid-template-columns: 1fr; gap: 1.2rem; }
   .work-heading p { max-width: 650px; }
 }
@@ -188,6 +190,8 @@ p, h1, h2, h3, ul { margin: 0; }
   .hero-summary { font-size: .9rem; }
   .skills-overview { padding-block: 2.3rem 2.7rem; }
   .skills-groups { margin-top: 1.2rem; }
+  .skills-group { grid-template-columns: 1fr; gap: .7rem; padding: 1rem 0; }
+  .skill-tags li { font-size: .78rem; }
   .experience-overview { padding-block: 2.8rem 3.8rem; }
   .body-intro h2 { font-size: 2rem; }
   .company-jump { display: block; margin-top: 2rem; }
@@ -230,11 +234,12 @@ p, h1, h2, h3, ul { margin: 0; }
   .hero-links span { display: none; }
   .skills-overview { padding: 3mm 0 4mm; }
   .skills-overview h2 { font-size: 15pt; }
-  .skills-groups { display: block; margin-top: 2mm; border: 0; }
-  .skills-group, .skills-group:first-child { display: flex; gap: 3mm; padding: 1mm 0; border: 0; break-inside: avoid; }
-  .skills-group + .skills-group { border: 0; }
-  .skills-group h3 { flex: 0 0 30mm; margin: 0; font-size: 8.5pt; }
-  .skills-group p { font-size: 8.5pt; line-height: 1.5; }
+  .skills-groups { margin-top: 2mm; border: 0; }
+  .skills-group { display: grid; grid-template-columns: 30mm minmax(0, 1fr); gap: 3mm; padding: 1mm 0; border: 0; break-inside: avoid; }
+  .skills-group h3 { font-size: 8.5pt; }
+  .skills-group h3::before { display: none; }
+  .skill-tags { gap: 1mm; }
+  .skill-tags li { padding: .5mm 1.5mm; border: 1px solid #777; border-radius: 1mm; background: transparent; color: #111; font-size: 8pt; }
   .experience-overview { padding: 5mm 0 6mm; }
   .body-intro { display: block; }
   .body-intro h2 { font-size: 18pt; }
