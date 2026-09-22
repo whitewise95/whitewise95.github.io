@@ -37,12 +37,17 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 9);
   assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
-  assert.match(html, /약 10분[^<]*1분 이하/);
+  assert.doesNotMatch(lemonSection, /걸음수 랭킹 집계 성능 개선|약 10분에서 1분 이하로 단축/);
+  assert.match(lemonSection, /<h3>걷기 챌린지<\/h3>/);
+  assert.match(lemonSection, /<h3>리워드 시스템<\/h3>/);
+  assert.match(lemonSection, /걸음수 분 단위 집계 기능/);
+  assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
+  assert.doesNotMatch(lemonSection, /한정 수량 리워드와 티켓 지급에는 DB 비관적 락/);
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
   assert.match(lemonSection, /모듈을 설계[·, ]+개발/);
   assert.match(lemonSection, /공식 걷기대회/);
-  assert.match(lemonSection, /Spring Batch 기반 정산/);
+  assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
   assert.match(lemonSection, /FCM 발송 실패 원인 분류/);
   assert.match(lemonSection, /NAS 기반 파일 저장 구조를 NCP Object Storage로 전환/);
   assert.doesNotMatch(lemonSection, /AWS S3|\bS3\b/);
@@ -53,11 +58,20 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.doesNotMatch(html, /deck-controls|data-deck|assets\/nav\.js/);
 });
 
-test("portfolio keeps direct URL access without a visible portfolio tab", () => {
+test("portfolio keeps direct URL access and explains the moved cases", () => {
   const html = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
   assert.match(html, /<nav class="page-tabs"/);
   assert.match(html, /<a href="\.\.\/">경력기술서<\/a>/);
   assert.doesNotMatch(html, /포트폴리오<\/a>/);
+  assert.doesNotMatch(html, /아직 작성된 프로젝트가 없습니다/);
+  for (const id of ["ranking", "reward", "ssv", "push"]) {
+    assert.match(html, new RegExp(`<article class="portfolio-case" id="${id}"`));
+  }
+  assert.match(html, /약 10분[^<]*1분 이하/);
+  assert.match(html, /DB 비관적 락으로 지급 상태/);
+  assert.match(html, /Redis 기반 락을 적용해 동시 요청/);
+  assert.match(html, /Redis Lua Script로 요청을 제한/);
+  assert.match(html, /토큰 제거를 비동기 트랜잭션으로 분리/);
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
 });
 
@@ -86,8 +100,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260922-4"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-4"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260922-5"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-5"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 

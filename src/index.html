@@ -6,7 +6,7 @@
     <title>경력기술서 | 백현명</title>
     <meta name="description" content="백현명의 백엔드 경력기술서. 레몬헬스케어, 액트베이스, 제스트씨엔에스에서 담당한 시스템과 개선 작업을 소개합니다.">
     <meta name="theme-color" content="#f7f8f6">
-    <link rel="stylesheet" href="assets/career.css?v=20260922-4">
+    <link rel="stylesheet" href="assets/career.css?v=20260922-5">
   </head>
   <body class="career-site" id="top">
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -126,34 +126,24 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>걷기 챌린지 및 리워드 시스템</h3><p>건강의신 공식 걷기대회의 개인전, 팀전, 프라이빗 챌린지와 Spring Batch 기반 정산·시상·리워드 기능을 개발했습니다.</p></div>
-                <div class="work-content">
-                  <ul class="work-points">
-                    <li>개인전, 팀전, 프라이빗 챌린지 참가 기능과 팀 구성·배정 기능 개발</li>
-                    <li>개인, 팀, 친구, 연간 랭킹 개발</li>
-                    <li>B2B·B2C 챌린지 정산과 개인전·팀전 상금 및 경품 지급 기능 개발</li>
-                    <li>참가 인원이 부족한 팀에 대한 후처리 로직 개발</li>
-                    <li>아이템, 참가권, 경품, 상금, 리워드 보관함 개발</li>
-                    <li>아이템 선물, 조르기, 지급 및 회수 기능 개발</li>
-                    <li>출석체크, 방어권, 행운티켓과 달성티켓의 발급·사용·당첨·만료 처리</li>
-                    <li>배송지와 상금 수령 계좌 관리 기능 개발</li>
-                  </ul>
-                  <p class="work-note">한정 수량 리워드와 티켓 지급에는 DB 비관적 락과 Redis 기반 락을 적용해 동시 요청에 따른 중복 지급을 제어했습니다.</p>
-                </div>
+                <div class="work-heading"><h3>걷기 챌린지</h3><p>건강의신 공식 걷기대회의 참가, 팀 구성, 걸음수 집계와 랭킹 기능을 개발했습니다.</p></div>
+                <ul class="work-points">
+                  <li>개인전, 팀전, 프라이빗 챌린지 참가 기능과 팀 구성·배정 기능 개발</li>
+                  <li>참가 인원이 부족한 팀에 대한 후처리 로직 개발</li>
+                  <li>걸음수 분 단위 집계 기능과 개인·팀·친구·연간 랭킹 개발</li>
+                  <li>종료된 챌린지와 프라이빗 게임의 랭킹 조회 기능 개발</li>
+                </ul>
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>걸음수 랭킹 집계 성능 개선</h3><p>참여자 증가로 재집계 시간이 길어진 문제를 해결하기 위해 원천 데이터 조회와 재집계 구조를 변경했습니다.</p></div>
-                <div class="work-content">
-                  <p class="work-context">기존에는 원천 걸음 데이터를 반복 조회하고 계산해 랭킹 재집계가 약 10분까지 늘어났습니다. 걸음수 데이터를 분 단위로 선집계하고 재집계에는 이 결과를 활용하도록 변경했습니다.</p>
-                  <ul class="work-points">
-                    <li>걸음수 분 단위 집계 구조 적용과 랭킹 데이터 조회 구조 개선</li>
-                    <li>랭킹 재집계 비동기 처리 및 불필요한 중복 캐싱·집계 작업 제거</li>
-                    <li>MongoDB 기반 랭킹 데이터 관리와 임시 랭킹 데이터 TTL 적용</li>
-                    <li>종료된 챌린지와 프라이빗 게임의 랭킹 조회 구조 개선</li>
-                  </ul>
-                  <p class="work-result"><span>개선 결과</span><strong>약 10분에서 1분 이하로 단축</strong></p>
-                </div>
+                <div class="work-heading"><h3>리워드 시스템</h3><p>Spring Batch 기반 챌린지 정산·시상과 포인트, 아이템, 티켓 및 경품 지급 기능을 개발했습니다.</p></div>
+                <ul class="work-points">
+                  <li>B2B·B2C 챌린지 정산과 개인전·팀전 상금 및 경품 지급 기능 개발</li>
+                  <li>아이템, 참가권, 경품, 상금, 리워드 보관함 개발</li>
+                  <li>아이템 선물, 조르기, 지급 및 회수 기능 개발</li>
+                  <li>출석체크, 방어권, 행운티켓과 달성티켓의 발급·사용·당첨·만료 처리</li>
+                  <li>배송지와 상금 수령 계좌 관리 기능 개발</li>
+                </ul>
               </article>
 
               <article class="work-item">
@@ -169,23 +159,20 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>AdMob 리워드 광고 SSV</h3><p>광고 시청 결과를 서버에서 검증하고 비정상적인 리워드 지급을 방지하기 위해 SSV(Server-Side Verification)를 구현했습니다.</p></div>
+                <div class="work-heading"><h3>AdMob 리워드 광고 SSV</h3><p>광고 시청 결과와 사용자 정보를 서버에서 검증하는 SSV(Server-Side Verification) 기능을 개발했습니다.</p></div>
                 <ul class="work-points">
                   <li>AdMob SSV 콜백 API와 ECDSA 기반 서버 서명 검증 구현</li>
                   <li>Google 검증용 공개키 조회, Redis 캐싱 및 keyId에 따른 갱신 처리</li>
                   <li>리워드 요청과 사용자 계정 일치 여부 검증</li>
-                  <li>DB 비관적 락을 적용해 동시 요청의 중복 처리 방지</li>
-                  <li>Redis Lua Script 기반 요청 제한 처리</li>
                   <li>SSV 오류와 리워드 처리 이력 관리</li>
                 </ul>
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>FCM 푸시 발송 안정성 개선</h3><p>더 이상 사용할 수 없는 디바이스 토큰으로 동일한 발송 실패가 반복되는 문제를 개선했습니다.</p></div>
+                <div class="work-heading"><h3>FCM 푸시 발송 및 토큰 관리</h3><p>서비스 이벤트 기반 푸시 발송과 디바이스 토큰 관리 기능을 개발했습니다.</p></div>
                 <ul class="work-points">
                   <li>FCM 발송 실패 원인 분류와 예외 처리</li>
                   <li>유효하지 않은 디바이스 토큰 자동 탐지 및 제거</li>
-                  <li>토큰 제거를 비동기 트랜잭션으로 분리해 푸시 발송에 미치는 영향을 줄이고 반복적인 실패 방지</li>
                   <li>제거된 토큰에 대한 사용자 이벤트 이력 관리</li>
                   <li>목표 걸음수 달성 등 서비스 이벤트 기반 푸시 발송 기능 개발</li>
                 </ul>

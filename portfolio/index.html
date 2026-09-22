@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>포트폴리오 | 백현명</title>
-    <meta name="description" content="백현명의 포트폴리오 페이지입니다.">
+    <meta name="description" content="백현명의 백엔드 포트폴리오. 걷기 챌린지 랭킹 집계, 리워드 중복 지급 방지, 광고 보상 검증과 푸시 발송 안정화 사례를 소개합니다.">
     <meta name="theme-color" content="#f7f8f6">
-    <link rel="stylesheet" href="../assets/career.css?v=20260922-4">
+    <link rel="stylesheet" href="../assets/career.css?v=20260922-5">
   </head>
   <body class="career-site">
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -19,10 +19,76 @@
     </header>
     <main id="main" class="portfolio-main">
       <div class="career-shell">
-        <section class="portfolio-empty" aria-labelledby="portfolio-title">
+        <section class="portfolio-hero" aria-labelledby="portfolio-title">
           <p class="section-kicker">PORTFOLIO</p>
-          <h1 id="portfolio-title">포트폴리오<span class="hero-period">.</span></h1>
-          <p>아직 작성된 프로젝트가 없습니다.</p>
+          <h1 id="portfolio-title">기능을 만들고,<br>운영에서 드러난 문제를 해결했습니다<span class="hero-period">.</span></h1>
+          <p class="portfolio-intro">건강의신과 사내 공통 백엔드를 개발하며 경험한 문제 해결 사례입니다. 약 5만 명 규모의 사용자를 대상으로 한 서비스에서 집계 시간을 줄이고, 동시 요청과 외부 시스템 오류가 데이터 처리에 미치는 영향을 관리했습니다.</p>
+          <p class="portfolio-scope">레몬헬스케어 · CoreBE 공통팀 · 백엔드 개발</p>
+        </section>
+
+        <nav class="portfolio-index" aria-label="사례 바로가기">
+          <a href="#ranking"><span>01</span><strong>걸음수 랭킹 집계</strong><small>약 10분 → 1분 이하</small></a>
+          <a href="#reward"><span>02</span><strong>리워드 중복 지급 제어</strong><small>동시 요청 처리</small></a>
+          <a href="#ssv"><span>03</span><strong>광고 보상 서버 검증</strong><small>AdMob SSV</small></a>
+          <a href="#push"><span>04</span><strong>푸시 발송 안정화</strong><small>FCM 토큰 관리</small></a>
+        </nav>
+
+        <section class="portfolio-cases" aria-label="프로젝트 사례">
+          <article class="portfolio-case" id="ranking" aria-labelledby="ranking-title">
+            <header class="case-head">
+              <span class="case-number">01 / PERFORMANCE</span>
+              <h2 id="ranking-title">걸음수 랭킹 재집계 시간을 줄였습니다.</h2>
+              <p>걷기 챌린지 참가자가 늘면서 랭킹 재집계가 약 10분까지 길어졌습니다. 원천 걸음 데이터를 반복 조회하던 방식을 바꿔 집계에 필요한 데이터를 먼저 준비했습니다.</p>
+              <div class="case-tags" aria-label="핵심 기술"><span>분 단위 선집계</span><span>MongoDB</span><span>비동기 처리</span></div>
+            </header>
+            <div class="case-story">
+              <section><h3>문제</h3><p>재집계할 때마다 원천 걸음 데이터를 다시 읽고 계산해 참여자가 늘수록 처리 시간이 길어졌습니다. 중복 캐싱과 집계 작업도 남아 있었습니다.</p></section>
+              <section><h3>구현</h3><ul><li>걸음수를 분 단위로 선집계하고 랭킹 재집계에는 이 결과를 사용했습니다.</li><li>재집계를 비동기로 처리하고 불필요한 중복 캐싱·집계 작업을 제거했습니다.</li><li>MongoDB 랭킹 데이터에 임시 데이터 TTL을 적용하고, 종료된 챌린지와 프라이빗 게임의 조회 구조를 정리했습니다.</li></ul></section>
+              <section class="case-outcome"><h3>결과</h3><p class="case-metric">약 10분 <span>→</span> 1분 이하</p><p>걸음수 랭킹 재집계 시간을 단축했습니다.</p></section>
+            </div>
+          </article>
+
+          <article class="portfolio-case" id="reward" aria-labelledby="reward-title">
+            <header class="case-head">
+              <span class="case-number">02 / CONCURRENCY</span>
+              <h2 id="reward-title">한정 수량 리워드의 중복 지급을 제어했습니다.</h2>
+              <p>챌린지 결과에 따라 지급하는 리워드와 티켓은 여러 요청이 같은 수량을 동시에 변경할 수 있습니다. 지급 상태를 확인하고 갱신하는 구간을 보호했습니다.</p>
+              <div class="case-tags" aria-label="사용 기술"><span>Spring Boot</span><span>PostgreSQL</span><span>Redis</span></div>
+            </header>
+            <div class="case-story">
+              <section><h3>문제</h3><p>한정 수량의 리워드와 티켓을 동시에 요청하면 재고 확인과 지급 처리 사이에 다른 요청이 끼어들 수 있었습니다.</p></section>
+              <section><h3>구현</h3><ul><li>DB 비관적 락으로 지급 상태를 확인하고 변경하는 구간을 보호했습니다.</li><li>Redis 기반 락을 적용해 동시 요청에 따른 중복 지급을 제어했습니다.</li></ul></section>
+              <section class="case-outcome"><h3>결과</h3><p>동시 요청에서 한정 수량 리워드와 티켓의 중복 지급을 제어하는 처리 구조를 마련했습니다.</p></section>
+            </div>
+          </article>
+
+          <article class="portfolio-case" id="ssv" aria-labelledby="ssv-title">
+            <header class="case-head">
+              <span class="case-number">03 / VERIFICATION</span>
+              <h2 id="ssv-title">광고 보상을 서버에서 검증했습니다.</h2>
+              <p>광고 시청 결과를 클라이언트의 요청만으로 지급하지 않도록 AdMob SSV 콜백을 검증하고, 보상 처리에 필요한 사용자와 요청 정보를 확인했습니다.</p>
+              <div class="case-tags" aria-label="사용 기술"><span>AdMob SSV</span><span>ECDSA</span><span>Redis Lua Script</span></div>
+            </header>
+            <div class="case-story">
+              <section><h3>문제</h3><p>외부 광고 콜백의 진위와 요청 대상 사용자를 확인하고, 반복 요청이나 동시 요청이 보상 지급에 영향을 주지 않도록 해야 했습니다.</p></section>
+              <section><h3>구현</h3><ul><li>ECDSA 서명을 검증하고 Google 공개키를 Redis에 캐싱했으며 keyId에 따라 갱신했습니다.</li><li>리워드 요청과 사용자 계정의 일치 여부를 확인했습니다.</li><li>DB 비관적 락으로 동시 요청의 중복 처리를 제어하고 Redis Lua Script로 요청을 제한했습니다.</li><li>SSV 오류와 보상 처리 이력을 기록했습니다.</li></ul></section>
+              <section class="case-outcome"><h3>결과</h3><p>검증부터 지급까지 서버에서 판단하고, 중복 요청과 실패 내역을 추적할 수 있는 흐름을 구축했습니다.</p></section>
+            </div>
+          </article>
+
+          <article class="portfolio-case" id="push" aria-labelledby="push-title">
+            <header class="case-head">
+              <span class="case-number">04 / OPERATIONS</span>
+              <h2 id="push-title">반복되는 푸시 발송 실패를 줄였습니다.</h2>
+              <p>더 이상 사용할 수 없는 디바이스 토큰이 남아 있으면 같은 발송 실패가 반복됩니다. 실패 원인과 토큰 정리 시점을 분리해 발송 흐름을 정리했습니다.</p>
+              <div class="case-tags" aria-label="사용 기술"><span>FCM</span><span>비동기 트랜잭션</span><span>디바이스 토큰</span></div>
+            </header>
+            <div class="case-story">
+              <section><h3>문제</h3><p>유효하지 않은 디바이스 토큰에 다시 푸시를 보내 동일한 실패가 반복됐습니다. 토큰 정리 작업이 발송 처리에 영향을 주는 것도 피해야 했습니다.</p></section>
+              <section><h3>구현</h3><ul><li>FCM 발송 실패 원인을 분류하고 유효하지 않은 토큰을 탐지했습니다.</li><li>토큰 제거를 비동기 트랜잭션으로 분리하고 제거 이력을 사용자 이벤트로 남겼습니다.</li></ul></section>
+              <section class="case-outcome"><h3>결과</h3><p>사용할 수 없는 토큰을 정리해 같은 실패가 반복되는 경로를 줄이고, 발송과 정리 작업을 분리했습니다.</p></section>
+            </div>
+          </article>
         </section>
       </div>
     </main>

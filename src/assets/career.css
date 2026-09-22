@@ -165,10 +165,37 @@ p, h1, h2, h3, ul { margin: 0; }
 .work-result span { color: #b5c7f4; font-size: .75rem; font-weight: 800; }
 .work-result strong { font-size: 1.03rem; font-weight: 800; letter-spacing: -.03em; }
 
-.portfolio-main { min-height: calc(100vh - 78px); display: flex; align-items: center; }
-.portfolio-empty { width: 100%; padding-block: 7rem 10rem; border-top: 1px solid var(--ink); }
-.portfolio-empty h1 { margin-top: 1rem; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1.15; letter-spacing: -.08em; }
-.portfolio-empty > p:last-child { margin-top: 1.4rem; color: var(--muted); font-size: 1.05rem; line-height: 1.7; }
+.portfolio-main { padding-bottom: 7rem; }
+.portfolio-hero { max-width: 970px; padding: clamp(4rem, 7vw, 7rem) 0 3.5rem; }
+.portfolio-hero h1 { margin-top: 1.15rem; font-size: clamp(2.65rem, 5.1vw, 5.4rem); line-height: 1.22; font-weight: 800; letter-spacing: -.07em; }
+.portfolio-intro { max-width: 780px; margin-top: 1.7rem; color: var(--muted); font-size: 1.02rem; line-height: 1.9; }
+.portfolio-scope { margin-top: 1.4rem; color: var(--blue); font-size: .82rem; font-weight: 800; }
+.portfolio-index { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1px solid var(--line); background: var(--surface); }
+.portfolio-index a { display: flex; flex-direction: column; gap: .55rem; min-width: 0; padding: 1.55rem 1.4rem; transition: background .15s ease; }
+.portfolio-index a + a { border-left: 1px solid var(--line); }
+.portfolio-index a:hover, .portfolio-index a:focus-visible { background: var(--blue-light); }
+.portfolio-index span { color: var(--blue); font-size: .77rem; font-weight: 850; }
+.portfolio-index strong { font-size: 1.05rem; line-height: 1.4; font-weight: 800; letter-spacing: -.035em; }
+.portfolio-index small { color: var(--muted); font-size: .8rem; }
+.portfolio-cases { margin-top: 5rem; }
+.portfolio-case { scroll-margin-top: 105px; border-top: 4px solid var(--blue); background: var(--surface); }
+.portfolio-case + .portfolio-case { margin-top: 4.5rem; }
+.case-head { padding: 2.6rem 3rem 2.4rem; background: var(--blue-light); }
+.case-number { color: var(--blue); font-size: .7rem; font-weight: 850; letter-spacing: .16em; }
+.case-head h2 { max-width: 940px; margin-top: .8rem; font-size: clamp(1.65rem, 2.8vw, 2.7rem); line-height: 1.35; letter-spacing: -.055em; }
+.case-head > p { max-width: 850px; margin-top: 1rem; color: var(--muted); font-size: .96rem; line-height: 1.85; }
+.case-tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+.case-tags span { padding: .35rem .65rem; border: 1px solid #c8d5f5; background: #fff; color: var(--blue); border-radius: .3rem; font-size: .75rem; font-weight: 750; }
+.case-story { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr) minmax(0, 1fr); border: 1px solid var(--line); border-top: 0; }
+.case-story section { min-width: 0; padding: 2.3rem 2rem 2.6rem; }
+.case-story section + section { border-left: 1px solid var(--line); }
+.case-story h3 { margin-bottom: .95rem; color: var(--blue); font-size: .85rem; font-weight: 850; }
+.case-story p, .case-story li { color: var(--muted); font-size: .88rem; line-height: 1.85; }
+.case-story ul { display: grid; gap: .65rem; padding-left: 1.15rem; }
+.case-story li::marker { color: var(--blue); }
+.case-story .case-outcome { background: #f8faff; }
+.case-story .case-metric { margin-bottom: .55rem; color: var(--ink); font-size: clamp(1.25rem, 2vw, 1.7rem); font-weight: 850; letter-spacing: -.06em; line-height: 1.4; }
+.case-metric span { color: var(--blue); }
 
 @media (max-width: 900px) {
   .career-shell { width: min(100% - 3rem, 760px); }
@@ -177,6 +204,12 @@ p, h1, h2, h3, ul { margin: 0; }
   .skills-group { grid-template-columns: 9rem minmax(0, 1fr); gap: 1rem; }
   .work-item { grid-template-columns: 1fr; gap: 1.2rem; }
   .work-heading p { max-width: 650px; }
+  .portfolio-index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .portfolio-index a:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+  .portfolio-index a:nth-child(4) { border-top: 1px solid var(--line); }
+  .case-story { grid-template-columns: 1fr; }
+  .case-story section + section { border-left: 0; border-top: 1px solid var(--line); }
+  .case-story section { padding: 1.8rem 2rem; }
 }
 
 @media (max-width: 600px) {
@@ -213,7 +246,20 @@ p, h1, h2, h3, ul { margin: 0; }
   .work-item { padding: 2rem .15rem; }
   .work-heading h3 { font-size: 1.2rem; }
   .work-points { font-size: .88rem; }
-  .portfolio-empty { padding-block: 5rem 7rem; }
+  .portfolio-main { padding-bottom: 4rem; }
+  .portfolio-hero { padding: 3.5rem 0 2.5rem; }
+  .portfolio-hero h1 { font-size: clamp(2.2rem, 9vw, 3.3rem); }
+  .portfolio-intro { font-size: .91rem; }
+  .portfolio-index { grid-template-columns: 1fr; }
+  .portfolio-index a { padding: 1.15rem 1.3rem; }
+  .portfolio-index a + a, .portfolio-index a:nth-child(3), .portfolio-index a:nth-child(4) { border-left: 0; border-top: 1px solid var(--line); }
+  .portfolio-cases { margin-top: 3.5rem; }
+  .portfolio-case { scroll-margin-top: 82px; }
+  .portfolio-case + .portfolio-case { margin-top: 3rem; }
+  .case-head { padding: 1.6rem 1.4rem 1.8rem; }
+  .case-head h2 { font-size: 1.75rem; }
+  .case-head > p { font-size: .9rem; }
+  .case-story section { padding: 1.5rem 1.4rem; }
 }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -262,4 +308,18 @@ p, h1, h2, h3, ul { margin: 0; }
   .work-context, .work-note { font-size: 8.5pt; }
   .work-result { background: #fff; color: #111; border: 1px solid #111; padding: 2mm; }
   .work-result span { color: #111; }
+  .portfolio-main { padding: 0; }
+  .portfolio-hero { padding: 0 0 7mm; }
+  .portfolio-hero h1 { font-size: 25pt; }
+  .portfolio-index { display: none; }
+  .portfolio-cases { margin-top: 0; }
+  .portfolio-case { break-before: auto; }
+  .portfolio-case + .portfolio-case { margin-top: 8mm; }
+  .case-head { padding: 4mm 0; background: #fff; }
+  .case-head h2 { font-size: 17pt; }
+  .case-tags { margin-top: 2mm; }
+  .case-story { display: block; border: 0; }
+  .case-story section { padding: 2mm 0; break-inside: avoid; }
+  .case-story section + section { border: 0; }
+  .case-story .case-outcome { background: #fff; }
 }
