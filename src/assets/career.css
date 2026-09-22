@@ -69,7 +69,7 @@ p, h1, h2, h3, ul { margin: 0; }
 }
 .career-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
   padding-block: clamp(3rem, 5vw, 4.5rem);
@@ -81,11 +81,20 @@ p, h1, h2, h3, ul { margin: 0; }
   letter-spacing: -.085em;
 }
 .hero-side { padding-bottom: .55rem; }
-.hero-lead { max-width: 510px; font-size: clamp(1.15rem, 1.7vw, 1.45rem); font-weight: 750; line-height: 1.65; letter-spacing: -.04em; }
-.hero-summary { margin-top: 1rem; max-width: 540px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
+.hero-lead { max-width: 680px; font-size: clamp(1.15rem, 1.7vw, 1.45rem); font-weight: 750; line-height: 1.65; letter-spacing: -.04em; }
+.hero-summary { margin-top: 1rem; max-width: 680px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
 .hero-links { display: flex; flex-wrap: wrap; gap: .8rem 1.4rem; margin-top: 1.8rem; }
 .hero-links a { border-bottom: 1px solid var(--ink); padding-bottom: .28rem; font-size: .8rem; font-weight: 750; }
 .hero-links a:hover { border-color: var(--blue); }
+
+.skills-overview { border-top: 1px solid var(--ink); padding-block: 2.8rem 3.2rem; }
+.skills-overview h2 { font-size: clamp(1.7rem, 2.6vw, 2.3rem); font-weight: 800; letter-spacing: -.055em; }
+.skills-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 1.8rem; border-block: 1px solid var(--line); }
+.skills-group { min-width: 0; padding: 1.25rem 1.5rem 1.4rem; }
+.skills-group:first-child { padding-left: 0; }
+.skills-group + .skills-group { border-left: 1px solid var(--line); }
+.skills-group h3 { margin-bottom: .7rem; color: var(--blue); font-size: .78rem; font-weight: 800; }
+.skills-group p { color: var(--ink); font-size: .9rem; line-height: 1.85; overflow-wrap: anywhere; }
 
 .experience-overview { border-top: 1px solid var(--ink); padding-block: 3.5rem 5rem; }
 .body-intro .section-kicker { margin-bottom: .8rem; }
@@ -161,6 +170,9 @@ p, h1, h2, h3, ul { margin: 0; }
   .career-hero { grid-template-columns: 1fr; gap: 2rem; padding-block: 4.5rem; }
   .career-hero h1 { font-size: clamp(4rem, 10vw, 6.5rem); }
   .hero-side { padding: 0; }
+  .skills-groups { grid-template-columns: 1fr; }
+  .skills-group, .skills-group:first-child { padding: 1rem 0; }
+  .skills-group + .skills-group { border-left: 0; border-top: 1px solid var(--line); }
   .work-item { grid-template-columns: 1fr; gap: 1.2rem; }
   .work-heading p { max-width: 650px; }
 }
@@ -174,6 +186,8 @@ p, h1, h2, h3, ul { margin: 0; }
   .career-hero h1 { font-size: clamp(3.4rem, 14vw, 5rem); }
   .hero-lead { font-size: 1.12rem; }
   .hero-summary { font-size: .9rem; }
+  .skills-overview { padding-block: 2.3rem 2.7rem; }
+  .skills-groups { margin-top: 1.2rem; }
   .experience-overview { padding-block: 2.8rem 3.8rem; }
   .body-intro h2 { font-size: 2rem; }
   .company-jump { display: block; margin-top: 2rem; }
@@ -214,6 +228,13 @@ p, h1, h2, h3, ul { margin: 0; }
   .hero-summary { margin-top: 2mm; max-width: 145mm; font-size: 9pt; }
   .hero-links { position: absolute; top: 0; right: 0; flex-direction: column; align-items: flex-end; margin: 0; gap: 2mm; }
   .hero-links span { display: none; }
+  .skills-overview { padding: 3mm 0 4mm; }
+  .skills-overview h2 { font-size: 15pt; }
+  .skills-groups { display: block; margin-top: 2mm; border: 0; }
+  .skills-group, .skills-group:first-child { display: flex; gap: 3mm; padding: 1mm 0; border: 0; break-inside: avoid; }
+  .skills-group + .skills-group { border: 0; }
+  .skills-group h3 { flex: 0 0 30mm; margin: 0; font-size: 8.5pt; }
+  .skills-group p { font-size: 8.5pt; line-height: 1.5; }
   .experience-overview { padding: 5mm 0 6mm; }
   .body-intro { display: block; }
   .body-intro h2 { font-size: 18pt; }

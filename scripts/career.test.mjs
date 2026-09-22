@@ -84,7 +84,20 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260922-1"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-1"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260922-2"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-2"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
+});
+
+test("introduction leads into a grouped technology overview before experience", () => {
+  const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
+  assert.match(html, /데이터로 판단하고, 시스템을 이해하며, 사람을 위한 서비스를 만듭니다/);
+  assert.match(html, /근거 없는 가정보다 데이터를 바탕으로 문제를 판단하고, AI가 작성한 코드도 직접 검토하며 구조와 동작을 이해한 뒤 개발하는 것을 중요하게 생각합니다/);
+  assert.match(html, /기술과 사용자 경험을 함께 고민하고 있습니다/);
+  assert.ok(html.indexOf('class="career-hero"') < html.indexOf('class="skills-overview"'));
+  assert.ok(html.indexOf('class="skills-overview"') < html.indexOf('class="experience-overview"'));
+  for (const technology of ["Spring Boot", "Spring Batch", "PostgreSQL", "MongoDB", "Redis", "Kafka", "NCP Object Storage", "GitLab CI"]) {
+    const skills = html.slice(html.indexOf('class="skills-overview"'), html.indexOf('class="experience-overview"'));
+    assert.ok(skills.includes(technology), `${technology} should appear in the skill overview`);
+  }
 });
