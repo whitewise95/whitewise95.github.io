@@ -52,7 +52,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /토큰 제거를 발송 처리와 분리된 비동기 트랜잭션으로 처리/);
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
-  assert.match(lemonSection, /사내 여러 프로젝트에서 재사용하는 인증, 파일, 메시징, 문서 처리, 결제 기능을 공통 모듈로 개발/);
+  assert.match(lemonSection, /사내 여러 프로젝트에서 재사용하는 파일, 메시징, 문서 처리, 결제 기능을 공통 모듈로 개발/);
   assert.match(lemonSection, /건강의신 데이터 암호화 전환/);
   assert.match(lemonSection, /NCP KMS 기반 키 관리와 운영 데이터 암호화 전환/);
   assert.match(lemonSection, /청구의신 추가 개발/);
