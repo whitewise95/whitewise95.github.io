@@ -89,7 +89,7 @@
                   <p class="company-intro">사내 프로젝트에서 공통으로 재사용하는 Core/Common 모듈 개발을 담당하면서 청구의신 앱을 운영 및 유지보수하고 신규 기능을 개발했습니다. 또한 건강의신 서비스의 기획, 설계, 개발과 출시에 참여하고 이후 운영, 유지보수와 신규 기능 개발을 담당했습니다.</p>
                 </div>
               </div>
-              <div class="company-tech"><span>주요 기술</span><p>Java, Spring Boot, Spring Batch, JPA, MyBatis, PostgreSQL, MongoDB, Redis, Kafka, WebSocket, STOMP, NCP Object Storage</p></div>
+              <div class="company-tech"><span>주요 기술</span><p>Java, Spring Boot, Spring Batch, JPA, MyBatis, PostgreSQL, MongoDB, Redis, Kafka, WebSocket, STOMP, NCP KMS, NCP Object Storage</p></div>
             </div>
             <div class="work-list">
               <article class="work-item">
@@ -103,6 +103,15 @@
                     <li>KOCES, Toss 결제 연동 공통 모듈 개발</li>
                   </ul>
                 </div>
+              </article>
+
+              <article class="work-item">
+                <div class="work-heading"><h3>건강의신 데이터 암호화 전환</h3><p>상장 준비 과정에서 개인정보 보호 요건에 대응하기 위해 NCP KMS 기반 키 관리와 운영 데이터 암호화 전환을 진행했습니다.</p></div>
+                <ul class="work-points">
+                  <li>KMS로 암호화 키를 관리하고 AES-256-GCM 기반 개인정보 저장 및 조회 로직 적용</li>
+                  <li>PostgreSQL의 기존 평문 데이터 암호화와 이전 키로 암호화된 데이터 재암호화 배치 개발</li>
+                  <li>MongoDB 위치정보 암호화 배치 개발과 운영 전개 전 사전 테스트 및 검증 수행</li>
+                </ul>
               </article>
 
               <article class="work-item">

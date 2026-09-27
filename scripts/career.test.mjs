@@ -34,7 +34,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.ok(html.indexOf('id="lemon"') < html.indexOf('id="actbase"'));
   assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
   const lemonSection = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
-  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 10);
+  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 11);
   assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
   assert.match(lemonSection, /랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선/);
@@ -53,6 +53,8 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
   assert.match(lemonSection, /사내 여러 프로젝트에서 재사용하는 인증, 파일, 메시징, 문서 처리, 결제 기능을 공통 모듈로 개발/);
+  assert.match(lemonSection, /건강의신 데이터 암호화 전환/);
+  assert.match(lemonSection, /NCP KMS 기반 키 관리와 운영 데이터 암호화 전환/);
   assert.match(lemonSection, /청구의신 추가 개발/);
   assert.match(lemonSection, /제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장/);
   assert.match(lemonSection, /청구의신을 간소화한 대구경북 이지실손 앱 개발 프로젝트를 담당/);
