@@ -34,7 +34,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.ok(html.indexOf('id="lemon"') < html.indexOf('id="actbase"'));
   assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
   const lemonSection = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
-  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 9);
+  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 10);
   assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
   assert.match(lemonSection, /랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선/);
@@ -52,7 +52,10 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /토큰 제거를 발송 처리와 분리된 비동기 트랜잭션으로 처리/);
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
-  assert.match(lemonSection, /인증, 파일, 메시징, 문서 처리, 결제 등 여러 서비스에서 재사용하는 기능을 공통 모듈로 개발/);
+  assert.match(lemonSection, /사내 여러 프로젝트에서 재사용하는 인증, 파일, 메시징, 문서 처리, 결제 기능을 공통 모듈로 개발/);
+  assert.match(lemonSection, /청구의신 추가 개발/);
+  assert.match(lemonSection, /제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장/);
+  assert.match(lemonSection, /청구의신을 간소화한 대구경북 이지실손 앱 개발 프로젝트를 담당/);
   assert.match(lemonSection, /인증, 보안, 사용자 기능 공통 모듈 개발/);
   assert.match(lemonSection, /Redis, FCM, Kafka, MTS\(알림톡, SMS\) 기반 메시징, 알림 공통 모듈 개발/);
   assert.match(lemonSection, /공식 걷기대회/);
@@ -60,7 +63,8 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /FCM 발송 실패 원인 분류/);
   assert.match(lemonSection, /NAS 기반 파일 저장 구조를 NCP Object Storage로 전환/);
   assert.doesNotMatch(lemonSection, /AWS S3|\bS3\b/);
-  assert.doesNotMatch(html, /재직 중|CURRENT · HEALTHCARE PLATFORM|CAREER DOCUMENT/);
+  assert.doesNotMatch(html, /재직 중|CAREER DOCUMENT/);
+  assert.doesNotMatch(html, /·/);
   assert.doesNotMatch(html, /class="career-brand"|class="header-contact"/);
   assert.doesNotMatch(html, /회사명을 선택하면 해당 경력으로 이동합니다/);
   assert.doesNotMatch(html, /class="contents"|class="work-number"/);
@@ -93,14 +97,14 @@ test("company summaries distinguish Lemon and Actbase work", () => {
   assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(actbase, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(zest, /class="service-feature service-feature--plain">\s*<p class="service-label">참여 서비스<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
-  assert.match(lemon, /Core\/Common 공통 모듈을 개발하고 청구의신, 건강의신 서비스 백엔드 업무에 참여/);
+  assert.match(lemon, /사내 프로젝트에서 공통으로 재사용하는 Core\/Common 모듈 개발을 담당하면서/);
   assert.doesNotMatch(lemon, /class="service-detail|src="assets\/health-god-app-icon|apps\.apple\.com|play\.google\.com/);
   assert.match(actbase, /포토몬 비즈프린트의 백엔드 개발을 담당/);
   assert.doesNotMatch(actbase, /class="service-detail|src="assets\/photomon-bizprint-logo|https:\/\/biz\.photomon\.com/);
   assert.match(actbase, /레거시 공장 시스템/);
   assert.equal((actbase.match(/<article class="work-item">/g) ?? []).length, 1);
   assert.match(actbase, /결제, 세금계산서 발행, 알림톡 발송을 위한 외부 API 연동/);
-  assert.match(actbase, /성공·실패·타임아웃·예외 처리/);
+  assert.match(actbase, /성공, 실패, 타임아웃, 예외 처리/);
   assert.match(zest, /대구은행 백오피스/);
 });
 
