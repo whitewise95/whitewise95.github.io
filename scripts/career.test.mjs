@@ -58,7 +58,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /청구의신 추가 개발/);
   assert.match(lemonSection, /제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장/);
   assert.match(lemonSection, /청구의신을 간소화한 대구경북 이지실손 앱 개발 프로젝트를 담당/);
-  assert.match(lemonSection, /인증, 보안, 사용자 기능 공통 모듈 개발/);
+  assert.doesNotMatch(lemonSection, /인증, 보안, 사용자 기능 공통 모듈 개발/);
   assert.match(lemonSection, /Redis, FCM, Kafka, MTS\(알림톡, SMS\) 기반 메시징, 알림 공통 모듈 개발/);
   assert.match(lemonSection, /공식 걷기대회/);
   assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
