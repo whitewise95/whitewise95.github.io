@@ -6,7 +6,7 @@
     <title>경력기술서 | 백현명</title>
     <meta name="description" content="백현명의 백엔드 경력기술서. 레몬헬스케어, 액트베이스, 제스트씨엔에스에서 담당한 시스템과 개선 작업을 소개합니다.">
     <meta name="theme-color" content="#f7f8f6">
-    <link rel="stylesheet" href="assets/career.css?v=20260922-6">
+    <link rel="stylesheet" href="assets/career.css?v=20260923-1">
   </head>
   <body class="career-site" id="top">
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -111,15 +111,13 @@
                   <li>일반 로그인과 Apple, Google, Kakao, Naver 소셜 로그인 통합</li>
                   <li>Access Token, Refresh Token 발급 및 갱신</li>
                   <li>Redis 기반 사용자 로그인 세션 관리와 새 기기 로그인 시 기존 세션 종료</li>
-                  <li>Redis 세션 유실과 로그인 상태 불일치 상황에 대한 예외 처리</li>
-                  <li>사용자 디바이스 및 푸시 토큰 중복 등록 방지</li>
                 </ul>
               </article>
 
               <article class="work-item">
                 <div class="work-heading"><h3>결제 및 포인트 시스템</h3><p>토스페이먼츠 일반결제와 브랜드페이를 연동하고 주문부터 결제, 취소, 포인트 사용까지 이어지는 흐름을 개발했습니다.</p></div>
                 <ul class="work-points">
-                  <li>토스페이먼츠 일반결제와 브랜드페이 SDK 및 서버 API 연동</li>
+                  <li>토스페이먼츠 일반결제와 브랜드페이 서버 API 연동</li>
                   <li>주문 생성, 결제 승인, 결제 취소 및 관리자 결제 취소 기능 개발</li>
                   <li>결제 실패와 예외 상황 처리 및 실패 시 재시도 로직 개발</li>
                   <li>포인트 적립 및 사용 기능 개발</li>
@@ -129,31 +127,24 @@
 
               <article class="work-item">
                 <div class="work-heading"><h3>걷기 챌린지</h3><p>건강의신 공식 걷기대회의 참가, 팀 구성, 걸음수 집계와 랭킹 기능을 개발했습니다.</p></div>
-                <div class="work-content">
-                  <div class="work-subsection">
-                    <h4>챌린지 참가, 운영</h4>
-                    <ul class="work-points">
-                      <li>개인전, 팀전, 프라이빗 챌린지 참가 기능과 팀 구성, 배정 기능 개발</li>
-                      <li>참가 인원이 부족한 팀에 대한 후처리 로직 개발</li>
-                    </ul>
-                  </div>
-                  <div class="work-subsection">
-                    <h4>걸음수 랭킹 시스템</h4>
-                    <ul class="work-points">
-                      <li>걸음수 분 단위 집계 기능과 개인, 팀, 친구, 연간 랭킹 개발</li>
-                      <li>종료된 챌린지와 프라이빗 게임의 랭킹 조회 기능 개발</li>
-                    </ul>
-                  </div>
-                </div>
+                <ul class="work-points">
+                  <li>개인전, 팀전, 프라이빗 챌린지 참가 기능과 팀 구성, 배정 기능 개발</li>
+                  <li>참가 인원이 부족한 팀에 대한 후처리 로직 개발</li>
+                  <li>걸음수 분 단위 집계 기능과 개인, 팀, 친구, 연간 랭킹 개발</li>
+                  <li>종료된 챌린지와 프라이빗 게임의 랭킹 조회 기능 개발</li>
+                  <li>랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선하고, 분 집계 배치 시간을 약 10분에서 1분 이하로 단축</li>
+                </ul>
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>리워드 시스템</h3><p>Spring Batch 기반 챌린지 정산, 시상과 포인트, 아이템, 티켓 및 경품 지급 기능을 개발했습니다.</p></div>
+                <div class="work-heading"><h3>리워드 시스템</h3><p>Spring Batch 기반 챌린지 정산, 시상과 포인트, 아이템, 티켓 및 경품 지급 기능을 개발했습니다. DB 비관적 락과 Redis 락으로 지급 상태 변경 구간의 동시 요청을 관리해 한정 수량 리워드와 티켓의 중복 지급을 제어했습니다.</p></div>
                 <ul class="work-points">
                   <li>B2B, B2C 챌린지 정산과 개인전, 팀전 상금 및 경품 지급 기능 개발</li>
                   <li>아이템, 참가권, 경품, 상금, 리워드 보관함 개발</li>
                   <li>아이템 선물, 조르기, 지급 및 회수 기능 개발</li>
-                  <li>출석체크, 방어권, 행운티켓과 달성티켓의 발급, 사용, 당첨, 만료 처리</li>
+                  <li>출석체크와 방어권 기능 개발</li>
+                  <li>정해진 일시에 상품·포인트 또는 미당첨 결과를 배정하는 추첨형 보상 기능 개발</li>
+                  <li>목표 걸음수를 달성하면 설정된 상품 또는 포인트를 지급하는 보상 기능 개발</li>
                   <li>배송지와 상금 수령 계좌 관리 기능 개발</li>
                 </ul>
               </article>
@@ -162,32 +153,35 @@
                 <div class="work-heading"><h3>실시간 채팅 시스템</h3><p>WebSocket과 Kafka를 활용해 실시간 메시지 전달과 메시지 저장을 분리하고, 이미지와 이모지 기능을 포함한 채팅 시스템을 구축했습니다.</p></div>
                 <ul class="work-points">
                   <li>WebSocket, STOMP 기반 실시간 통신과 Kafka 메시지 전달 구현</li>
-                  <li>MongoDB 기반 채팅 메시지 저장</li>
-                  <li>PostgreSQL 기반 채팅방 메타데이터 관리</li>
+                  <li>MongoDB 기반 채팅 메시지 저장 및 PostgreSQL 기반 채팅방 메타데이터 관리</li>
                   <li>메시지 전달과 저장 처리 분리 및 읽음 처리</li>
                   <li>채팅 세션 TTL 관리와 중복 로그인 상황 처리</li>
-                  <li>채팅 이미지와 이모지 전송 및 처리 기능 구축</li>
                 </ul>
               </article>
 
               <article class="work-item">
                 <div class="work-heading"><h3>AdMob 리워드 광고 SSV</h3><p>광고 시청 결과와 사용자 정보를 서버에서 검증하는 SSV(Server-Side Verification) 기능을 개발했습니다.</p></div>
-                <ul class="work-points">
-                  <li>AdMob SSV 콜백 API와 ECDSA 기반 서버 서명 검증 구현</li>
-                  <li>Google 검증용 공개키 조회, Redis 캐싱 및 keyId에 따른 갱신 처리</li>
-                  <li>리워드 요청과 사용자 계정 일치 여부 검증</li>
-                  <li>SSV 오류와 리워드 처리 이력 관리</li>
-                </ul>
+                <div class="work-content">
+                  <ul class="work-points">
+                    <li>AdMob SSV 콜백 API와 ECDSA 기반 서버 서명 검증 구현</li>
+                    <li>Google 검증용 공개키 조회, Redis 캐싱 및 keyId에 따른 갱신 처리</li>
+                    <li>리워드 요청과 사용자 계정 일치 여부 검증</li>
+                    <li>DB 비관적 락으로 동시 요청의 중복 처리 제어, Redis Lua Script로 반복 요청 제한</li>
+                    <li>SSV 오류와 리워드 처리 이력 관리</li>
+                  </ul>
+                </div>
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>FCM 푸시 발송 및 토큰 관리</h3><p>서비스 이벤트 기반 푸시 발송과 디바이스 토큰 관리 기능을 개발했습니다.</p></div>
-                <ul class="work-points">
-                  <li>FCM 발송 실패 원인 분류와 예외 처리</li>
-                  <li>유효하지 않은 디바이스 토큰 자동 탐지 및 제거</li>
-                  <li>제거된 토큰에 대한 사용자 이벤트 이력 관리</li>
-                  <li>목표 걸음수 달성 등 서비스 이벤트 기반 푸시 발송 기능 개발</li>
-                </ul>
+                <div class="work-heading"><h3>FCM 푸시 발송 및 토큰 관리</h3></div>
+                <div class="work-content">
+                  <ul class="work-points">
+                    <li>FCM 발송 실패 원인 분류와 예외 처리</li>
+                    <li>유효하지 않은 디바이스 토큰 자동 탐지 및 제거</li>
+                    <li>토큰 제거를 발송 처리와 분리된 비동기 트랜잭션으로 처리</li>
+                    <li>유효하지 않은 토큰에 대한 사용자 이벤트 이력 관리</li>
+                  </ul>
+                </div>
               </article>
 
               <article class="work-item">
@@ -214,27 +208,22 @@
               <div class="service-feature service-feature--plain">
                 <p class="service-label">주요 업무</p>
                 <div class="service-body">
-                  <p class="company-intro">포토몬 비즈프린트와 풀무원 녹즙 사이트의 백엔드 개발 및 운영 업무를 담당했습니다.</p>
+                  <p class="company-intro">포토몬 비즈프린트의 백엔드 개발을 담당했습니다.</p>
                 </div>
               </div>
               <div class="company-tech"><span>주요 기술</span><p>Java, Spring Boot, JPA, Docker, GitLab CI, Swagger(OpenAPI)</p></div>
             </div>
             <div class="work-list">
               <article class="work-item">
-                <div class="work-heading"><h3>포토몬 비즈프린트 백엔드 개발</h3><p>관리자 업무와 고객의 결제, 명함 제작 과정에 필요한 서버 기능을 개발하고 유지보수했습니다.</p></div>
+                <div class="work-heading"><h3>포토몬 비즈프린트 백엔드 개발</h3><p>상품·주문·회원·쿠폰 기능과 외부 서비스 연동을 개발하고 유지보수했습니다.</p></div>
                 <ul class="work-points">
-                  <li>상품, 주문 등 운영자용 관리자 기능의 CRUD 개발 및 유지보수</li>
-                  <li>고객용 프론트오피스 결제 화면에 필요한 백엔드 기능 개발에 참여</li>
-                  <li>사용자가 직접 명함을 제작하는 에디터의 백엔드 기능 개발에 참여</li>
+                  <li>상품 등록·수정·조회와 주문 상태 조회·변경 기능 개발</li>
+                  <li>회원 정보·상태 관리와 쿠폰 발급·적용·사용 상태 관리 기능 개발</li>
+                  <li>결제, 세금계산서 발행, 알림톡 발송을 위한 외부 API 연동과 성공·실패·타임아웃·예외 처리</li>
                   <li>레거시 공장 시스템과의 연동 기능 개발</li>
-                  <li>Spring Boot 멀티모듈 환경에서 REST API 개발 및 Swagger(OpenAPI) 문서화</li>
-                </ul>
-              </article>
-              <article class="work-item">
-                <div class="work-heading"><h3>풀무원 녹즙 사이트 고도화</h3><p>기존 사이트의 기능과 결제 과정에서 발생한 오류를 수정하는 작업에 참여했습니다.</p></div>
-                <ul class="work-points">
-                  <li>기존 기능의 버그 및 운영 중 확인된 오류 수정</li>
-                  <li>결제 기능에서 발생한 오류 수정</li>
+                  <li>Docker·GitLab CI 기반 빌드·배포 환경 사용 경험</li>
+                  <li>Spring Boot 멀티모듈의 공통 기능 분리와 모듈 간 의존성 정리</li>
+                  <li>REST API 개발 및 Swagger(OpenAPI) 요청·응답 명세 문서화</li>
                 </ul>
               </article>
             </div>
@@ -252,22 +241,23 @@
               <div class="service-feature service-feature--plain">
                 <p class="service-label">참여 서비스</p>
                 <div class="service-body">
-                  <p class="company-intro">대구은행 백오피스 시스템 개발에 참여해 Spring과 JPA 기반 운영 화면 및 서버 기능을 개발했습니다.</p>
+                  <p class="company-intro">대구은행 백오피스 시스템 개발에 참여해 HTML·JavaScript 화면과 Spring·JPA 기반 서버 기능을 개발했습니다.</p>
                   <div class="service-detail">
                     <h3>대구은행 백오피스</h3>
                     <p>은행 운영 업무를 지원하는 내부 시스템입니다. 조회, 등록, 수정, 삭제 화면과 데이터 처리 기능을 개발했습니다.</p>
                   </div>
                 </div>
               </div>
-              <div class="company-tech"><span>주요 기술</span><p>Java, Spring, JPA, RDBMS</p></div>
+              <div class="company-tech"><span>주요 기술</span><p>Java, Spring, JPA, HTML, JavaScript, RDBMS</p></div>
             </div>
             <div class="work-list">
               <article class="work-item">
-                <div class="work-heading"><h3>은행 백오피스 기능 개발</h3><p>운영 화면의 조회, 등록, 수정, 삭제 기능과 데이터 처리, 검증 및 유지보수를 맡았습니다.</p></div>
+                <div class="work-heading"><h3>은행 백오피스 기능 개발</h3><p>운영 화면과 서버의 데이터 처리, 입력 검증 및 기존 기능 유지보수에 참여했습니다.</p></div>
                 <ul class="work-points">
-                  <li>조회, 등록, 수정, 삭제 중심의 백오피스 기능 개발</li>
-                  <li>입력값 검증과 예외 처리</li>
-                  <li>기존 운영 기능의 오류 수정 및 유지보수</li>
+                  <li>HTML·JavaScript 기반 목록·상세 조회, 등록·수정·삭제 화면 개발</li>
+                  <li>Spring Controller·Service·Repository와 JPA를 활용한 조회·저장 기능 개발</li>
+                  <li>필수 입력값·데이터 형식 검증과 잘못된 요청의 예외 처리</li>
+                  <li>화면 표시와 데이터 처리 오류 수정, 변경된 업무 요구사항 반영</li>
                 </ul>
               </article>
             </div>

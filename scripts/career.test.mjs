@@ -37,15 +37,19 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 9);
   assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
-  assert.doesNotMatch(lemonSection, /걸음수 랭킹 집계 성능 개선|약 10분에서 1분 이하로 단축/);
+  assert.match(lemonSection, /랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선/);
+  assert.match(lemonSection, /분 집계 배치 시간을 약 10분에서 1분 이하로 단축/);
   assert.match(lemonSection, /<h3>걷기 챌린지<\/h3>/);
   const walking = lemonSection.slice(lemonSection.indexOf('<h3>걷기 챌린지</h3>'), lemonSection.indexOf('<h3>리워드 시스템</h3>'));
-  assert.match(walking, /<h4>걸음수 랭킹 시스템<\/h4>/);
+  assert.match(walking, /<ul class="work-points">/);
+  assert.doesNotMatch(walking, /<h4>|work-subsection/);
   assert.match(walking, /개인, 팀, 친구, 연간 랭킹 개발/);
   assert.match(lemonSection, /<h3>리워드 시스템<\/h3>/);
   assert.match(lemonSection, /걸음수 분 단위 집계 기능/);
   assert.match(lemonSection, /Spring Batch 기반 챌린지 정산/);
-  assert.doesNotMatch(lemonSection, /한정 수량 리워드와 티켓 지급에는 DB 비관적 락/);
+  assert.match(lemonSection, /DB 비관적 락과 Redis 락으로 지급 상태 변경 구간의 동시 요청을 관리/);
+  assert.match(lemonSection, /Redis Lua Script로 반복 요청 제한/);
+  assert.match(lemonSection, /토큰 제거를 발송 처리와 분리된 비동기 트랜잭션으로 처리/);
   assert.match(html, /AdMob SSV/);
   assert.doesNotMatch(lemonSection, /Blue\/Green|Jenkins|Helm|Argo CD|운영 배포/);
   assert.match(lemonSection, /인증, 파일, 메시징, 문서 처리, 결제 등 여러 서비스에서 재사용하는 기능을 공통 모듈로 개발/);
@@ -91,22 +95,20 @@ test("company summaries distinguish Lemon and Actbase work", () => {
   assert.match(zest, /class="service-feature service-feature--plain">\s*<p class="service-label">참여 서비스<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(lemon, /Core\/Common 공통 모듈을 개발하고 청구의신, 건강의신 서비스 백엔드 업무에 참여/);
   assert.doesNotMatch(lemon, /class="service-detail|src="assets\/health-god-app-icon|apps\.apple\.com|play\.google\.com/);
-  assert.match(actbase, /포토몬 비즈프린트와 풀무원 녹즙 사이트의 백엔드 개발 및 운영 업무/);
+  assert.match(actbase, /포토몬 비즈프린트의 백엔드 개발을 담당/);
   assert.doesNotMatch(actbase, /class="service-detail|src="assets\/photomon-bizprint-logo|https:\/\/biz\.photomon\.com/);
   assert.match(actbase, /레거시 공장 시스템/);
-  assert.equal((actbase.match(/<article class="work-item">/g) ?? []).length, 2);
-  assert.match(actbase, /프론트오피스 결제 화면에 필요한 백엔드 기능/);
-  assert.match(actbase, /명함을 제작하는 에디터의 백엔드 기능/);
-  assert.match(actbase, /풀무원 녹즙 사이트 고도화/);
-  assert.match(actbase, /결제 기능에서 발생한 오류 수정/);
+  assert.equal((actbase.match(/<article class="work-item">/g) ?? []).length, 1);
+  assert.match(actbase, /결제, 세금계산서 발행, 알림톡 발송을 위한 외부 API 연동/);
+  assert.match(actbase, /성공·실패·타임아웃·예외 처리/);
   assert.match(zest, /대구은행 백오피스/);
 });
 
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260922-6"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260922-6"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260923-1"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260923-1"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
