@@ -98,7 +98,7 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 
   assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(actbase, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
-  assert.match(zest, /class="service-feature service-feature--plain">\s*<p class="service-label">참여 서비스<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
+  assert.match(zest, /class="service-feature service-feature--plain">\s*<p class="service-label">담당 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(lemon, /사내 프로젝트에서 공통으로 재사용하는 Core\/Common 모듈 개발을 담당하면서/);
   assert.doesNotMatch(lemon, /class="service-detail|src="assets\/health-god-app-icon|apps\.apple\.com|play\.google\.com/);
   assert.match(actbase, /포토몬 비즈프린트의 백엔드 개발을 담당/);

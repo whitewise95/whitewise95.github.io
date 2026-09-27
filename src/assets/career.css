@@ -111,7 +111,6 @@ p, h1, h2, h3, ul { margin: 0; }
 .company-jump a:hover, .company-jump a:focus-visible { background: var(--blue-light); color: var(--ink); }
 .company-jump span { color: var(--muted); font-size: .75rem; font-weight: 700; font-variant-numeric: tabular-nums; }
 .company-jump strong { font-size: 1.12rem; font-weight: 800; letter-spacing: -.04em; }
-.company-jump small { color: var(--muted); font-size: .78rem; }
 
 .career-body { padding-bottom: 4rem; }
 .company { scroll-margin-top: 1rem; }
@@ -127,7 +126,6 @@ p, h1, h2, h3, ul { margin: 0; }
 }
 .company-type { margin-bottom: .8rem; }
 .company-head h2 { font-size: clamp(1.8rem, 3vw, 2.55rem); line-height: 1.3; font-weight: 800; letter-spacing: -.065em; }
-.company-role { margin-top: .6rem; color: var(--muted); font-size: .93rem; font-weight: 650; }
 .company-date { padding-top: .2rem; color: var(--ink); font-size: .86rem; font-weight: 750; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .company-overview { padding: 2rem 2.2rem 2.2rem; border: 1px solid var(--line); border-top: 0; background: var(--surface); }
 .company-intro { max-width: 830px; font-size: 1rem; font-weight: 600; line-height: 1.85; letter-spacing: -.02em; }
