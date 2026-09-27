@@ -23,7 +23,7 @@ test("portfolio route is built for both deployment modes", () => {
 test("career document keeps each company navigable and includes the supplied work history", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   assert.doesNotMatch(html, /<a href="portfolio\/">포트폴리오<\/a>/);
-  assert.match(html, /<a href="\.\/" aria-current="page">경력기술서<\/a>/);
+  assert.doesNotMatch(html, /<header class="career-header">|<nav class="page-tabs"/);
   assert.match(html, /<nav class="company-jump"[^>]*>/);
   assert.match(html, /<a href="#lemon">/);
   assert.match(html, /<a href="#actbase">/);
@@ -113,8 +113,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260923-1"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260923-1"/);
+  assert.match(career, /href="assets\/career\.css\?v=20260927-1"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260927-1"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
