@@ -113,8 +113,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20261001-7"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20261001-7"/);
+  assert.match(career, /href="assets\/career\.css\?v=20261001-8"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20261001-8"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
@@ -137,7 +137,7 @@ test("experience cards reuse exactly the existing blog destinations", () => {
   const cards = html.match(/<section[^>]+id="projects"[\s\S]*?<\/section>/)?.[0];
   assert.ok(cards, "linked experience cards must exist");
   const destinations = [...cards.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
-  const expected = ["https://velog.io/@whitewise95/%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%EC%84%9C%EB%B9%84%EC%8A%A4%EC%B6%9C%EC%8B%9C%EA%B9%8C%EC%A7%80%ED%9A%8C%EA%B3%A0", "https://velog.io/@whitewise95/join-the-company", "https://velog.io/@whitewise95/challenge-performance-improvement", "https://velog.io/@whitewise95/chat-system", "https://velog.io/@whitewise95/ad-mob-ssv", "https://velog.io/@whitewise95/series"];
+  const expected = ["https://velog.io/@whitewise95/%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%EC%84%9C%EB%B9%84%EC%8A%A4%EC%B6%9C%EC%8B%9C%EA%B9%8C%EC%A7%80%ED%9A%8C%EA%B3%A0", "https://velog.io/@whitewise95/join-the-company", "https://velog.io/@whitewise95/challenge-performance-improvement", "https://velog.io/@whitewise95/chat-system", "https://velog.io/@whitewise95/ad-mob-ssv", "https://velog.io/@whitewise95/auth", "https://velog.io/@whitewise95/series"];
   assert.deepEqual(destinations.sort(), expected.sort());
   for (const link of cards.matchAll(/<a\s[^>]+>/g)) {
     assert.match(link[0], /target="_blank"/);
