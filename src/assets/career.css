@@ -380,6 +380,14 @@ p, h1, h2, h3, ul { margin: 0; }
 .project-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; align-self: stretch; min-height: 44px; margin-top: auto; border-top: 1px solid var(--line); padding-top: .6rem; color: var(--blue); font-size: .875rem; font-weight: 650; }
 .project-link:hover { text-decoration: underline; text-underline-offset: .2em; }
 .project-card:focus-within { border-color: var(--blue); }
+.project-card--more { min-height: 360px; padding: 1.5rem 1.5rem 1rem; background: var(--blue-light); --visual-accent: var(--blue); }
+.project-card--more:hover { border-color: var(--blue); color: var(--ink); }
+.more-copy { margin-block: auto; padding-block: 1.5rem; }
+.more-copy .visual-emblem { margin-bottom: 1.4rem; }
+.more-copy h3 { margin-top: .65rem; font-size: 1.5rem; font-weight: 750; line-height: 1.4; letter-spacing: -.035em; }
+.more-description { margin-top: 1rem; color: var(--muted); line-height: 1.75; }
+.project-card--more .project-link { margin-top: 1rem; }
+.project-card--more:hover .project-link { text-decoration: underline; text-underline-offset: .2em; }
 
 /* Decorative highlights summarize facts already described in each card. */
 .project-visual--highlight { --visual-accent: var(--blue); }
@@ -412,4 +420,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .project-grid { display: block; }
   .project-card { display: block; border: 0; border-radius: 0; break-inside: avoid; }
   .project-copy { display: block; padding: 3mm 0; }
+  .project-card--more { min-height: 0; padding: 3mm 0; background: transparent; }
+  .more-copy { padding: 0; }
+  .more-copy .visual-emblem { display: none; }
 }
