@@ -371,7 +371,6 @@ p, h1, h2, h3, ul { margin: 0; }
 .flow-pair strong { font-size: .85rem; }
 .flow-pair span { color: var(--muted); font-size: .75rem; line-height: 1.5; overflow-wrap: anywhere; }
 .project-visual--security { background: #f2f2f7; }
-.security-caption { display: block; margin-top: 1rem; color: var(--muted); font-size: .75rem; }
 .project-copy { display: flex; flex-direction: column; align-items: start; flex: 1; padding: 1.4rem 1.5rem 1rem; }
 .project-category { color: var(--blue); font-size: .75rem; font-weight: 700; }
 .project-copy h3 { margin-top: .6rem; font-size: 1.2rem; line-height: 1.4; font-weight: 750; letter-spacing: -.03em; }
@@ -382,10 +381,15 @@ p, h1, h2, h3, ul { margin: 0; }
 .project-link:hover { text-decoration: underline; text-underline-offset: .2em; }
 .project-card:focus-within { border-color: var(--blue); }
 
-.experience-flow { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: .35rem; margin-top: 2rem; }
-.experience-flow span { display: flex; align-items: center; justify-content: center; min-height: 54px; padding: .5rem .35rem; border: 1px solid var(--line); border-radius: .5rem; background: rgba(255,255,255,.8); font-size: .75rem; font-weight: 650; line-height: 1.5; text-align: center; }
-.experience-flow b { color: var(--blue); font-size: .9rem; font-weight: 500; }
-.experience-flow--pair { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .7rem; }
+/* Decorative highlights summarize facts already described in each card. */
+.project-visual--highlight { --visual-accent: var(--blue); }
+.project-visual--partner { --visual-accent: #326358; }
+.project-visual--security.project-visual--highlight { --visual-accent: #5c5c7a; }
+.visual-highlight { display: flex; align-items: center; gap: 1rem; margin-top: 1.6rem; }
+.visual-emblem { display: grid; place-items: center; flex: 0 0 64px; width: 64px; height: 64px; border: 1px solid var(--line); border-radius: 50%; background: rgba(255,255,255,.85); color: var(--visual-accent); }
+.visual-emblem svg { width: 34px; height: 34px; }
+.visual-highlight strong { color: var(--visual-accent); font-size: clamp(1.25rem, 1.9vw, 1.65rem); font-weight: 800; line-height: 1.3; letter-spacing: -.04em; }
+.project-visual > .visual-detail { margin-top: .9rem; color: var(--muted); font-size: .75rem; font-weight: 500; line-height: 1.5; }
 @media (max-width: 900px) {
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .selected-projects .section-heading { align-items: start; }
