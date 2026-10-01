@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>경력기술서 | 백현명</title>
+    <title>포트폴리오 | 백현명</title>
     <meta name="description" content="백현명의 백엔드 경력기술서. 레몬헬스케어, 액트베이스, 제스트씨엔에스에서 담당한 시스템과 개선 작업을 소개합니다.">
     <meta name="theme-color" content="#f7f8f6">
-    <link rel="stylesheet" href="assets/career.css?v=20260927-1">
+    <link rel="preload" href="assets/fonts/PretendardVariable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/career.css?v=20261001-2">
   </head>
   <body class="career-site" id="top">
     <a class="skip-link" href="#main">본문으로 이동</a>
@@ -21,9 +22,15 @@
             <p class="section-kicker hero-kicker">ABOUT ME</p>
             <p class="hero-lead">데이터로 판단하고, 시스템을 이해하며, 사람을 위한 서비스를 만듭니다.</p>
             <p class="hero-summary">근거 없는 가정보다 데이터를 바탕으로 문제를 판단하고, AI가 작성한 코드도 직접 검토하며 구조와 동작을 이해한 뒤 개발하는 것을 중요하게 생각합니다. 기획과 설계부터 개발까지 서비스를 만들어가는 과정을 좋아하며, 최근에는 사용자가 더 쉽게 이해하고 편하게 사용할 수 있는 서비스를 만들기 위해 기술과 사용자 경험을 함께 고민하고 있습니다.</p>
-            <div class="hero-links" aria-label="연락처">
-              <a href="mailto:whitewise95@gmail.com">whitewise95@gmail.com <span aria-hidden="true">↗</span></a>
-              <a href="https://github.com/whitewise95" target="_blank" rel="noreferrer">github.com/whitewise95 <span aria-hidden="true">↗</span></a>
+            <div class="hero-links" aria-label="외부 프로필 및 블로그">
+              <a href="https://github.com/whitewise95" target="_blank" rel="noopener noreferrer">
+                <svg class="hero-link-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.21.09 1.85 1.24 1.85 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.6-2.8 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+                gitHub <span aria-hidden="true">↗</span>
+              </a>
+              <a href="https://velog.io/@whitewise95/series" target="_blank" rel="noopener noreferrer" aria-label="블로그 시리즈 (새 탭)">
+                <svg class="hero-link-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16"/><path d="M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+                블로그 <span aria-hidden="true">↗</span>
+              </a>
             </div>
           </div>
         </section>
@@ -77,7 +84,11 @@
               <div class="service-feature service-feature--plain">
                 <p class="service-label">주요 업무</p>
                 <div class="service-body">
-                  <p class="company-intro">사내 프로젝트에서 공통으로 재사용하는 Core/Common 모듈 개발을 담당하면서 청구의신 앱을 운영 및 유지보수하고 신규 기능을 개발했습니다. 또한 건강의신 서비스의 기획, 설계, 개발과 출시에 참여하고 이후 운영, 유지보수와 신규 기능 개발을 담당했습니다.</p>
+                  <ul class="company-intro company-intro-list">
+                    <li>사내 프로젝트에서 공통으로 재사용하는 Core/Common 모듈 개발을 담당했습니다.</li>
+                    <li>청구의신 앱을 운영 및 유지보수하고 신규 기능을 개발했습니다.</li>
+                    <li><a class="work-title-link" href="https://velog.io/@whitewise95/%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%EC%84%9C%EB%B9%84%EC%8A%A4%EC%B6%9C%EC%8B%9C%EA%B9%8C%EC%A7%80%ED%9A%8C%EA%B3%A0" target="_blank" rel="noopener noreferrer" aria-label="건강의신 서비스의 기획, 설계, 개발과 출시 회고 읽기 (새 탭)">건강의신 서비스의 기획, 설계, 개발과 출시에 참여하고 이후 운영, 유지보수와 신규 기능 개발을 <span class="work-link-tail">담당했습니다. <span aria-hidden="true">↗</span></span></a></li>
+                  </ul>
                 </div>
               </div>
               <div class="company-tech"><span>주요 기술</span><p>Java, Spring Boot, Spring Batch, JPA, MyBatis, PostgreSQL, MongoDB, Redis, Kafka, WebSocket, STOMP, NCP KMS, NCP Object Storage</p></div>
@@ -105,7 +116,7 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>청구의신 추가 개발</h3><p>제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장했습니다.</p></div>
+                <div class="work-heading"><h3>청구의신 추가 개발</h3><p><a class="work-title-link" href="https://velog.io/@whitewise95/join-the-company" target="_blank" rel="noopener noreferrer" aria-label="청구의신 추가 개발 경험 글 읽기 (새 탭)">제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 <span class="work-link-tail">확장했습니다. <span aria-hidden="true">↗</span></span></a></p></div>
                 <ul class="work-points">
                   <li>기존 KB Card 회원 연동을 유지하면서 우리은행 제휴 연동 추가</li>
                   <li>전략 패턴을 적용해 제휴사별 연동 로직을 분리하고 구분값에 따라 구현체 선택</li>
@@ -141,7 +152,7 @@
                   <li>참가 인원이 부족한 팀에 대한 후처리 로직 개발</li>
                   <li>걸음수 분 단위 집계 기능과 개인, 팀, 친구, 연간 랭킹 개발</li>
                   <li>종료된 챌린지와 프라이빗 게임의 랭킹 조회 기능 개발</li>
-                  <li>랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선하고, 분 집계 배치 시간을 약 10분에서 1분 이하로 단축</li>
+                  <li><a class="work-title-link" href="https://velog.io/@whitewise95/challenge-performance-improvement" target="_blank" rel="noopener noreferrer" aria-label="랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선하고, 분 집계 배치 시간을 약 10분에서 1분 이하로 단축한 경험 글 읽기 (새 탭)">랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선하고, 분 집계 배치 시간을 약 10분에서 1분 이하로 <span class="work-link-tail">단축 <span aria-hidden="true">↗</span></span></a></li>
                 </ul>
               </article>
 
@@ -159,7 +170,7 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>실시간 채팅 시스템</h3><p>WebSocket과 Kafka를 활용해 실시간 메시지 전달과 메시지 저장을 분리하고, 이미지와 이모지 기능을 포함한 채팅 시스템을 구축했습니다.</p></div>
+                <div class="work-heading"><h3>실시간 채팅 시스템</h3><p><a class="work-title-link" href="https://velog.io/@whitewise95/chat-system" target="_blank" rel="noopener noreferrer" aria-label="실시간 채팅 시스템 구축 경험 글 읽기 (새 탭)">WebSocket과 Kafka를 활용해 실시간 메시지 전달과 메시지 저장을 분리하고, 이미지와 이모지 기능을 포함한 채팅 시스템을 <span class="work-link-tail">구축했습니다. <span aria-hidden="true">↗</span></span></a></p></div>
                 <ul class="work-points">
                   <li>WebSocket, STOMP 기반 실시간 통신과 Kafka 메시지 전달 구현</li>
                   <li>MongoDB 기반 채팅 메시지 저장 및 PostgreSQL 기반 채팅방 메타데이터 관리</li>
@@ -169,7 +180,7 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>AdMob 리워드 광고 SSV</h3><p>광고 시청 결과와 사용자 정보를 서버에서 검증하는 SSV(Server-Side Verification) 기능을 개발했습니다.</p></div>
+                <div class="work-heading"><h3>AdMob 리워드 광고 SSV</h3><p><a class="work-title-link" href="https://velog.io/@whitewise95/ad-mob-ssv" target="_blank" rel="noopener noreferrer" aria-label="광고 시청 결과와 사용자 정보를 서버에서 검증하는 SSV 기능 개발 경험 글 읽기 (새 탭)">광고 시청 결과와 사용자 정보를 서버에서 검증하는 SSV(Server-Side Verification) 기능을 <span class="work-link-tail">개발했습니다. <span aria-hidden="true">↗</span></span></a></p></div>
                 <div class="work-content">
                   <ul class="work-points">
                     <li>AdMob SSV 콜백 API와 ECDSA 기반 서버 서명 검증 구현</li>
@@ -182,7 +193,7 @@
               </article>
 
               <article class="work-item">
-                <div class="work-heading"><h3>FCM 푸시 발송 및 토큰 관리</h3></div>
+                <div class="work-heading"><h3>FCM 푸시 발송 및 토큰 관리</h3><p>FCM 푸시 발송 실패 원인에 따른 예외 처리와 유효하지 않은 디바이스 토큰의 비동기 정리 기능을 개발했습니다.</p></div>
                 <div class="work-content">
                   <ul class="work-points">
                     <li>FCM 발송 실패 원인 분류와 예외 처리</li>

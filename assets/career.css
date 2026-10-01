@@ -1,3 +1,12 @@
+/* Pretendard v1.3.9, SIL Open Font License: fonts/Pretendard-LICENSE.txt */
+@font-face {
+  font-family: "Pretendard Variable";
+  src: url("fonts/PretendardVariable.woff2") format("woff2");
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   color-scheme: light;
   --paper: #f7f8f6;
@@ -8,7 +17,7 @@
   --line: #dce2e8;
   --blue: #284eb1;
   --blue-light: #e9efff;
-  --display: "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --display: "Pretendard Variable", "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -18,6 +27,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 450;
   -webkit-font-smoothing: antialiased;
   word-break: keep-all;
 }
@@ -84,9 +95,10 @@ p, h1, h2, h3, ul { margin: 0; }
 .hero-side { max-width: 780px; margin-inline: auto; padding-bottom: .55rem; text-align: center; }
 .hero-kicker { margin-bottom: .9rem; color: var(--ink); font-size: clamp(1.5rem, 2.4vw, 2.25rem); letter-spacing: -.055em; }
 .hero-lead { max-width: 680px; font-size: clamp(1.15rem, 1.7vw, 1.45rem); font-weight: 750; line-height: 1.65; letter-spacing: -.04em; }
-.hero-summary { margin: 1rem auto 0; max-width: 780px; color: var(--muted); font-size: .94rem; line-height: 1.85; }
+.hero-summary { margin: 1rem auto 0; max-width: 780px; color: var(--muted); font-size: 1rem; line-height: 1.85; }
 .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: .8rem 1.4rem; margin-top: 1.8rem; }
-.hero-links a { border-bottom: 1px solid var(--ink); padding-bottom: .28rem; font-size: .8rem; font-weight: 750; }
+.hero-links a { display: inline-flex; align-items: center; gap: .45rem; border-bottom: 1px solid var(--ink); padding-bottom: .28rem; font-size: .875rem; font-weight: 700; white-space: nowrap; }
+.hero-link-icon { width: 1rem; height: 1rem; flex: 0 0 auto; }
 .hero-links a:hover { border-color: var(--blue); }
 
 .skills-overview { border-top: 1px solid var(--ink); padding-block: 2.8rem 3.2rem; }
@@ -100,7 +112,7 @@ p, h1, h2, h3, ul { margin: 0; }
 .skills-group h3 { display: flex; align-items: center; gap: .7rem; color: var(--ink); font-size: .9rem; font-weight: 800; white-space: nowrap; }
 .skills-group h3::before { content: ""; flex: 0 0 .65rem; height: .65rem; border-radius: .2rem; background: var(--skill-accent); }
 .skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; min-width: 0; padding: 0; list-style: none; }
-.skill-tags li { padding: .43rem .75rem; border-radius: .45rem; background: var(--skill-tint); color: var(--skill-accent); font-size: .83rem; font-weight: 750; line-height: 1.3; white-space: nowrap; }
+.skill-tags li { padding: .43rem .75rem; border-radius: .45rem; background: var(--skill-tint); color: var(--skill-accent); font-size: .875rem; font-weight: 750; line-height: 1.3; white-space: nowrap; }
 
 .experience-overview { border-top: 1px solid var(--ink); padding-block: 3.5rem 5rem; }
 .body-intro .section-kicker { margin-bottom: .8rem; }
@@ -122,6 +134,7 @@ p, h1, h2, h3, ul { margin: 0; }
   gap: 2rem;
   padding: 2rem 2.2rem;
   border-top: 4px solid var(--blue);
+  border-inline: 1px solid var(--line);
   background: var(--blue-light);
 }
 .company-type { margin-bottom: .8rem; }
@@ -129,6 +142,8 @@ p, h1, h2, h3, ul { margin: 0; }
 .company-date { padding-top: .2rem; color: var(--ink); font-size: .86rem; font-weight: 750; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .company-overview { padding: 2rem 2.2rem 2.2rem; border: 1px solid var(--line); border-top: 0; background: var(--surface); }
 .company-intro { max-width: 830px; font-size: 1rem; font-weight: 600; line-height: 1.85; letter-spacing: -.02em; }
+.company-intro-list { display: grid; gap: .65rem; padding-left: 1.2rem; }
+.company-intro-list li::marker { color: var(--blue); }
 .service-feature { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; margin-top: 1.5rem; padding: 1.35rem 1.5rem; border-left: 3px solid var(--blue); background: var(--blue-light); break-inside: avoid; }
 .service-feature--plain { grid-template-columns: 1fr; gap: .65rem; margin-top: 0; padding: 0; border: 0; background: transparent; }
 .service-body { min-width: 0; }
@@ -139,7 +154,7 @@ p, h1, h2, h3, ul { margin: 0; }
 .service-logo { display: block; width: 140px; height: 43px; max-width: 100%; object-fit: contain; }
 .service-label { color: var(--blue); font-size: .75rem; font-weight: 800; white-space: nowrap; }
 .service-detail h3 { font-size: 1.1rem; font-weight: 800; letter-spacing: -.04em; }
-.service-detail > p, .service-copy > p { margin-top: .45rem; max-width: 790px; color: var(--muted); font-size: .87rem; line-height: 1.75; }
+.service-detail > p, .service-copy > p { margin-top: .45rem; max-width: 790px; color: var(--muted); font-size: 1rem; line-height: 1.75; }
 .service-links { display: flex; flex-wrap: wrap; gap: .7rem 1.3rem; margin-top: .9rem; }
 .service-links a { padding-bottom: .15rem; border-bottom: 1px solid var(--blue); color: var(--blue); font-size: .78rem; font-weight: 800; }
 .service-links a:hover { color: var(--ink); border-color: var(--ink); }
@@ -148,21 +163,25 @@ p, h1, h2, h3, ul { margin: 0; }
 .service-detail--owned .service-owned-label { margin: 0 0 .55rem; max-width: none; color: var(--blue); font-size: .72rem; line-height: 1.5; }
 .company-tech { display: grid; grid-template-columns: 5rem minmax(0, 1fr); gap: 1rem; margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 .company-tech span { padding-top: .13rem; color: var(--blue); font-size: .75rem; font-weight: 800; white-space: nowrap; }
-.company-tech p { max-width: 880px; color: var(--muted); font-size: .83rem; line-height: 1.75; overflow-wrap: anywhere; }
+.company-tech p { max-width: 880px; color: var(--muted); font-size: .875rem; line-height: 1.75; overflow-wrap: anywhere; }
 
 .work-list { margin-top: 1.6rem; border-top: 1px solid var(--ink); }
 .work-item { display: grid; grid-template-columns: minmax(0, .38fr) minmax(0, .62fr); gap: clamp(1.8rem, 4vw, 4.5rem); padding: 2.5rem .4rem 2.7rem; border-bottom: 1px solid var(--line); }
 .work-heading h3 { font-size: clamp(1.17rem, 1.65vw, 1.47rem); line-height: 1.4; font-weight: 800; letter-spacing: -.045em; }
-.work-heading p { margin-top: .75rem; max-width: 340px; color: var(--muted); font-size: .9rem; line-height: 1.8; }
+.work-title-link { color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; text-decoration-skip-ink: none; }
+.work-title-link:hover { text-decoration-thickness: 2px; }
+.work-title-link span[aria-hidden] { font-size: .8em; }
+.work-link-tail { white-space: nowrap; }
+.work-heading p { margin-top: .75rem; max-width: 340px; color: var(--muted); font-size: 1rem; line-height: 1.8; }
 .work-content { min-width: 0; }
 .work-subsection + .work-subsection { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .work-subsection--detail { margin-top: 1.4rem; padding-top: 1.4rem; border-top: 1px solid var(--line); }
 .work-subsection h4 { margin: 0 0 .75rem; color: var(--blue); font-size: .85rem; font-weight: 800; letter-spacing: -.02em; }
-.work-points { display: grid; gap: .62rem; padding-left: 1.2rem; color: var(--ink); font-size: .9rem; line-height: 1.75; letter-spacing: -.01em; }
+.work-points { display: grid; gap: .62rem; padding-left: 1.2rem; color: var(--ink); font-size: 1rem; line-height: 1.75; letter-spacing: -.01em; }
 .work-points li { padding-left: .15rem; }
 .work-points li::marker { color: var(--blue); }
-.work-context { margin-bottom: 1.15rem; color: var(--muted); font-size: .89rem; line-height: 1.8; }
-.work-note { margin-top: 1.35rem; padding: .9rem 1.1rem; border-left: 3px solid var(--blue); background: var(--blue-light); font-size: .86rem; font-weight: 650; line-height: 1.75; }
+.work-context { margin-bottom: 1.15rem; color: var(--muted); font-size: 1rem; line-height: 1.8; }
+.work-note { margin-top: 1.35rem; padding: .9rem 1.1rem; border-left: 3px solid var(--blue); background: var(--blue-light); font-size: 1rem; font-weight: 650; line-height: 1.75; }
 .work-result { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1.1rem; margin-top: 1.4rem; padding: 1rem 1.2rem; background: var(--ink); color: #fff; }
 .work-result span { color: #b5c7f4; font-size: .75rem; font-weight: 800; }
 .work-result strong { font-size: 1.03rem; font-weight: 800; letter-spacing: -.03em; }
@@ -192,7 +211,7 @@ p, h1, h2, h3, ul { margin: 0; }
 .case-story section { min-width: 0; padding: 2.3rem 2rem 2.6rem; }
 .case-story section + section { border-left: 1px solid var(--line); }
 .case-story h3 { margin-bottom: .95rem; color: var(--blue); font-size: .85rem; font-weight: 850; }
-.case-story p, .case-story li { color: var(--muted); font-size: .88rem; line-height: 1.85; }
+.case-story p, .case-story li { color: var(--muted); font-size: 1rem; line-height: 1.85; }
 .case-story ul { display: grid; gap: .65rem; padding-left: 1.15rem; }
 .case-story li::marker { color: var(--blue); }
 .case-story .case-outcome { background: #f8faff; }
@@ -222,11 +241,11 @@ p, h1, h2, h3, ul { margin: 0; }
   .career-hero { padding-block: 3rem 3.4rem; gap: 1.8rem; }
   .career-hero h1 { font-size: clamp(3.4rem, 14vw, 5rem); }
   .hero-lead { font-size: 1.12rem; }
-  .hero-summary { font-size: .9rem; }
+  .hero-summary { font-size: 1rem; }
   .skills-overview { padding-block: 2.3rem 2.7rem; }
   .skills-groups { margin-top: 1.2rem; }
   .skills-group { grid-template-columns: 1fr; gap: .7rem; padding: 1rem 0; }
-  .skill-tags li { font-size: .78rem; }
+  .skill-tags li { font-size: .875rem; }
   .experience-overview { padding-block: 2.8rem 3.8rem; }
   .body-intro h2 { font-size: 2rem; }
   .company-jump { display: block; margin-top: 2rem; }
@@ -247,7 +266,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .work-list { margin-top: 1rem; }
   .work-item { padding: 2rem .15rem; }
   .work-heading h3 { font-size: 1.2rem; }
-  .work-points { font-size: .88rem; }
+  .work-points { font-size: 1rem; }
   .portfolio-main { padding-bottom: 4rem; }
   .portfolio-hero { padding: 3.5rem 0 2.5rem; }
   .portfolio-hero h1 { font-size: clamp(2.2rem, 9vw, 3.3rem); }
@@ -294,7 +313,7 @@ p, h1, h2, h3, ul { margin: 0; }
   .career-body { padding: 0; }
   .company { break-before: auto; scroll-margin: 0; }
   .company + .company { margin-top: 10mm; }
-  .company-head { break-after: avoid; padding: 4mm 0; border-top: 2px solid #111; }
+  .company-head { break-after: avoid; padding: 4mm 0; border-top: 2px solid #111; border-inline: 0; }
   .company-head h2 { font-size: 17pt; }
   .company-overview { padding: 4mm 0; border: 0; }
   .service-feature { margin-top: 2mm; padding: 2mm 3mm; border-left: 2px solid #111; background: #fff; }

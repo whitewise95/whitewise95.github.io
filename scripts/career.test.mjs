@@ -56,7 +56,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.match(lemonSection, /건강의신 데이터 암호화 전환/);
   assert.match(lemonSection, /NCP KMS 기반 키 관리와 운영 데이터 암호화 전환/);
   assert.match(lemonSection, /청구의신 추가 개발/);
-  assert.match(lemonSection, /제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장/);
+  assert.match(lemonSection.replace(/<[^>]+>/g, ""), /제휴사 회원이 별도 회원가입 없이 보험금을 청구할 수 있도록 연동을 확장/);
   assert.match(lemonSection, /청구의신을 간소화한 대구경북 이지실손 앱 개발 프로젝트를 담당/);
   assert.doesNotMatch(lemonSection, /인증, 보안, 사용자 기능 공통 모듈 개발/);
   assert.match(lemonSection, /Redis, FCM, Kafka, MTS\(알림톡, SMS\) 기반 메시징, 알림 공통 모듈 개발/);
@@ -96,10 +96,10 @@ test("company summaries distinguish Lemon and Actbase work", () => {
   const actbase = html.slice(html.indexOf('id="actbase"'), html.indexOf('id="zest"'));
   const zest = html.slice(html.indexOf('id="zest"'));
 
-  assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
+  assert.match(lemon, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<ul class="company-intro company-intro-list">/);
   assert.match(actbase, /class="service-feature service-feature--plain">\s*<p class="service-label">주요 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
   assert.match(zest, /class="service-feature service-feature--plain">\s*<p class="service-label">담당 업무<\/p>\s*<div class="service-body">\s*<p class="company-intro">/);
-  assert.match(lemon, /사내 프로젝트에서 공통으로 재사용하는 Core\/Common 모듈 개발을 담당하면서/);
+  assert.match(lemon, /사내 프로젝트에서 공통으로 재사용하는 Core\/Common 모듈 개발을 담당했습니다/);
   assert.doesNotMatch(lemon, /class="service-detail|src="assets\/health-god-app-icon|apps\.apple\.com|play\.google\.com/);
   assert.match(actbase, /포토몬 비즈프린트의 백엔드 개발을 담당/);
   assert.doesNotMatch(actbase, /class="service-detail|src="assets\/photomon-bizprint-logo|https:\/\/biz\.photomon\.com/);
@@ -113,8 +113,8 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20260927-1"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20260927-1"/);
+  assert.match(career, /href="assets\/career\.css\?v=20261001-2"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20261001-2"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
