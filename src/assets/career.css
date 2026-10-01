@@ -349,8 +349,6 @@ p, h1, h2, h3, ul { margin: 0; }
 .selected-projects .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2rem; }
 .selected-projects .section-heading .section-kicker { margin-bottom: .65rem; }
 .selected-projects .section-heading h2 { font-size: clamp(1.65rem, 2.8vw, 2.25rem); font-weight: 750; letter-spacing: -.045em; line-height: 1.3; }
-.projects-more-link { display: inline-flex; align-items: center; gap: .7rem; min-height: 44px; flex-shrink: 0; color: var(--blue); font-size: .875rem; font-weight: 650; }
-.projects-more-link:hover { text-decoration: underline; text-underline-offset: .2em; }
 .selected-projects .section-heading > p { max-width: 300px; color: var(--muted); font-size: .9rem; line-height: 1.7; }
 .selected-projects { scroll-margin-top: 2rem; }
 .selected-projects { border-top: 1px solid var(--ink); padding-block: 2.8rem 3.5rem; }
@@ -402,7 +400,6 @@ p, h1, h2, h3, ul { margin: 0; }
 @media (max-width: 600px) {
   .selected-projects { padding-block: 2.3rem 2.7rem; }
   .selected-projects .section-heading { display: block; margin-bottom: 1.5rem; }
-  .projects-more-link { margin-top: .5rem; }
   .selected-projects .section-heading > p { max-width: none; margin-top: .8rem; }
   .project-grid { grid-template-columns: 1fr; }
   .project-visual { padding: 1.25rem; }
@@ -417,5 +414,4 @@ p, h1, h2, h3, ul { margin: 0; }
   .project-grid { display: block; }
   .project-card { display: block; border: 0; border-radius: 0; break-inside: avoid; }
   .project-copy { display: block; padding: 3mm 0; }
-  .projects-more-link { display: none; }
 }
