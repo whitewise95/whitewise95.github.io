@@ -34,7 +34,7 @@ test("career document keeps each company navigable and includes the supplied wor
   assert.ok(html.indexOf('id="lemon"') < html.indexOf('id="actbase"'));
   assert.ok(html.indexOf('id="actbase"') < html.indexOf('id="zest"'));
   const lemonSection = html.slice(html.indexOf('id="lemon"'), html.indexOf('id="actbase"'));
-  assert.equal((lemonSection.match(/<article class="work-item"[^>]*>/g) ?? []).length, 11);
+  assert.equal((lemonSection.match(/<article class="work-item">/g) ?? []).length, 11);
   assert.match(html, /2024\.09[^<]*2026\.09/);
   assert.match(html, /2022\.09[^<]*2024\.01/);
   assert.match(lemonSection, /랭킹 갱신을 분 집계 재합산에서 점수 증분 누적으로 개선/);
@@ -104,7 +104,7 @@ test("company summaries distinguish Lemon and Actbase work", () => {
   assert.match(actbase, /포토몬 비즈프린트의 백엔드 개발을 담당/);
   assert.doesNotMatch(actbase, /class="service-detail|src="assets\/photomon-bizprint-logo|https:\/\/biz\.photomon\.com/);
   assert.match(actbase, /레거시 공장 시스템/);
-  assert.equal((actbase.match(/<article class="work-item"[^>]*>/g) ?? []).length, 1);
+  assert.equal((actbase.match(/<article class="work-item">/g) ?? []).length, 1);
   assert.match(actbase, /결제, 세금계산서 발행, 알림톡 발송을 위한 외부 API 연동/);
   assert.match(actbase, /성공, 실패, 타임아웃, 예외 처리/);
   assert.match(zest, /대구은행 백오피스/);
@@ -113,19 +113,17 @@ test("company summaries distinguish Lemon and Actbase work", () => {
 test("career and portfolio pages share a built stylesheet", () => {
   const career = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   const portfolio = fs.readFileSync(path.join(root, "src/portfolio/index.html"), "utf8");
-  assert.match(career, /href="assets\/career\.css\?v=20261001-3"/);
-  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20261001-3"/);
+  assert.match(career, /href="assets\/career\.css\?v=20261001-4"/);
+  assert.match(portfolio, /href="\.\.\/assets\/career\.css\?v=20261001-4"/);
   assert.ok(fs.existsSync(path.join(root, "dist/assets/career.css")));
 });
 
-test("portfolio introduces selected work before skills and experience", () => {
+test("introduction leads into a grouped technology overview before experience", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
   assert.match(html, /데이터로 판단하고, 시스템을 이해하며, 사람을 위한 서비스를 만듭니다/);
   assert.match(html, /근거 없는 가정보다 데이터를 바탕으로 문제를 판단하고, AI가 작성한 코드도 직접 검토하며 구조와 동작을 이해한 뒤 개발하는 것을 중요하게 생각합니다/);
   assert.match(html, /기술과 사용자 경험을 함께 고민하고 있습니다/);
   assert.ok(html.indexOf('class="career-hero"') < html.indexOf('class="skills-overview"'));
-  assert.ok(html.indexOf('id="projects"') > html.indexOf('class="career-hero"'));
-  assert.ok(html.indexOf('id="projects"') < html.indexOf('class="skills-overview"'));
   assert.ok(html.indexOf('class="skills-overview"') < html.indexOf('class="experience-overview"'));
   for (const technology of ["Spring Boot", "Spring Batch", "PostgreSQL", "MongoDB", "Redis", "Kafka", "NCP Object Storage", "GitLab CI"]) {
     const skills = html.slice(html.indexOf('class="skills-overview"'), html.indexOf('class="experience-overview"'));
@@ -133,20 +131,19 @@ test("portfolio introduces selected work before skills and experience", () => {
   }
 });
 
-test("portfolio navigation and project links lead to accessible destinations", () => {
+
+test("experience cards reuse exactly the existing blog destinations", () => {
   const html = fs.readFileSync(path.join(root, "src/index.html"), "utf8");
-  assert.match(html, /<nav[^>]+aria-label="주요 메뉴"/);
-  for (const href of html.matchAll(/href="#([^"]+)"/g)) {
-    assert.equal([...html.matchAll(new RegExp(`id="${href[1]}"`, "g"))].length, 1, `#${href[1]} must have a unique destination`);
-  }
-  const projects = html.match(/<section[^>]+id="projects"[\s\S]*?<\/section>/)?.[0];
-  assert.ok(projects, "selected projects must be present");
-  assert.match(projects, /challenge-performance-improvement/);
-  assert.match(projects, /chat-system/);
-  assert.match(projects, /href="#encryption"/);
-  for (const link of projects.matchAll(/<a\s[^>]*href="https:[^>]*>/g)) {
+  const cards = html.match(/<section[^>]+id="projects"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(cards, "linked experience cards must exist");
+  const destinations = [...cards.matchAll(/href="([^"]+)"/g)].map(match => match[1]);
+  const expected = ["https://velog.io/@whitewise95/%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%EC%84%9C%EB%B9%84%EC%8A%A4%EC%B6%9C%EC%8B%9C%EA%B9%8C%EC%A7%80%ED%9A%8C%EA%B3%A0", "https://velog.io/@whitewise95/join-the-company", "https://velog.io/@whitewise95/challenge-performance-improvement", "https://velog.io/@whitewise95/chat-system", "https://velog.io/@whitewise95/ad-mob-ssv"];
+  assert.deepEqual(destinations.sort(), expected.sort());
+  for (const link of cards.matchAll(/<a\s[^>]+>/g)) {
     assert.match(link[0], /target="_blank"/);
     assert.match(link[0], /rel="noopener noreferrer"/);
     assert.match(link[0], /aria-label="[^"]+새 탭/);
   }
+  assert.ok(html.indexOf('id="projects"') > html.indexOf('class="career-hero"'));
+  assert.ok(html.indexOf('id="projects"') < html.indexOf('class="skills-overview"'));
 });
